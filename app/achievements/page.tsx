@@ -15,6 +15,7 @@ import { SectionWrapper } from "@/components/SectionWrapper";
 import { CountUp } from "@/components/CountUp";
 import { PrimaryButton } from "@/components/Buttons";
 import { ImageLightbox } from "@/components/ImageLightbox";
+import { PageHero } from "@/components/PageHero";
 import { cardHoverVariants, slideInLeft } from "@/lib/motion-variants";
 import {
   AWARDS_TIMELINE,
@@ -26,26 +27,13 @@ export default function AchievementsPage() {
 
   return (
     <>
-      {/* Page Hero */}
-      <section className="relative min-h-[40vh] bg-gradient-to-b from-forest-950 via-forest-900 to-navy-950 text-white flex items-center justify-center pt-32 pb-16 overflow-hidden dark-mesh-pattern">
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10">
-          <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-gold-300 mb-3">
-            <Link href="/" className="hover:text-white transition-colors">
-              Home
-            </Link>
-            <span>/</span>
-            <span className="text-white">Achievements</span>
-          </div>
-
-          <h1 className="font-serif fluid-h1 font-bold text-white tracking-tight mb-4">
-            Awards &amp; Milestones
-          </h1>
-
-          <p className="text-sm sm:text-base text-gray-200 max-w-2xl mx-auto font-medium">
-            &ldquo;Our success is solely due to the trust our clients have placed in us.&rdquo;
-          </p>
-        </div>
-      </section>
+      {/* High-Contrast Page Hero with Background Image */}
+      <PageHero
+        title="Awards & Milestones"
+        subtitle="Our success is solely due to the trust our clients have placed in us."
+        breadcrumb="Achievements"
+        bgImage="/images/hero-bg-1.jpg"
+      />
 
       {/* Headline Stat Band */}
       <section className="bg-forest-950 text-white py-12 border-b border-gold-400/20">

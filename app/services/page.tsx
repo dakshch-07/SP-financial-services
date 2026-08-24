@@ -19,6 +19,7 @@ import {
 } from "lucide-react";
 import { SectionWrapper } from "@/components/SectionWrapper";
 import { PrimaryButton } from "@/components/Buttons";
+import { PageHero } from "@/components/PageHero";
 import { cardHoverVariants } from "@/lib/motion-variants";
 import {
   CORE_SERVICES,
@@ -43,27 +44,13 @@ export default function ServicesPage() {
 
   return (
     <>
-      {/* Page Hero */}
-      <section className="relative min-h-[40vh] bg-gradient-to-b from-forest-950 via-forest-900 to-navy-950 text-white flex items-center justify-center pt-32 pb-16 overflow-hidden dark-mesh-pattern">
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10">
-          <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-gold-300 mb-3">
-            <Link href="/" className="hover:text-white transition-colors">
-              Home
-            </Link>
-            <span>/</span>
-            <span className="text-white">Services</span>
-          </div>
-
-          <h1 className="font-serif fluid-h1 font-bold text-white tracking-tight mb-4">
-            Insurance &amp; Financial Advisory
-          </h1>
-
-          <p className="text-sm sm:text-base text-gray-200 max-w-2xl mx-auto font-medium">
-            A comprehensive spectrum of life, health, general insurance, NJ Mutual Funds, and loan
-            advisory engineered to protect and multiply your family&apos;s wealth.
-          </p>
-        </div>
-      </section>
+      {/* High-Contrast Page Hero with Background Image */}
+      <PageHero
+        title="Insurance & Financial Advisory"
+        subtitle="A comprehensive spectrum of life, health, general insurance, NJ Mutual Funds, and loan advisory engineered to protect and multiply your family's wealth."
+        breadcrumb="Services"
+        bgImage="/images/hero-bg-2.jpg"
+      />
 
       {/* Core Services Grid */}
       <SectionWrapper className="bg-cream-100 organic-texture">
