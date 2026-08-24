@@ -12,23 +12,25 @@ import {
   ExternalLink,
   Shield,
   ArrowUpRight,
+  TrendingUp,
 } from "lucide-react";
+import { Logo } from "./Logo";
 import { BUSINESS_INFO } from "@/lib/data";
 
 export const Footer: React.FC = () => {
   return (
-    <footer className="bg-[#061833] text-white border-t border-white/10 pt-16 pb-12 overflow-hidden">
+    <footer className="bg-forest-950 text-white border-t border-forest-800 pt-16 pb-12 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Partner Logo Strip */}
-        <div className="pb-12 mb-12 border-b border-white/10">
-          <p className="text-center text-xs uppercase tracking-[0.25em] text-gold-400 font-semibold mb-6">
-            Authorized Investment & Insurance Partners
+        {/* Partner Badges Strip */}
+        <div className="pb-12 mb-12 border-b border-forest-800/80">
+          <p className="text-center text-xs uppercase tracking-[0.25em] text-gold-400 font-bold mb-6">
+            Authorized Investment, Insurance &amp; Loan Partners
           </p>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 items-center justify-items-center">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 items-center justify-items-center">
             {BUSINESS_INFO.insurancePartners.map((partner) => (
               <div
                 key={partner.id}
-                className="w-full max-w-[200px] h-16 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center p-3 hover:border-gold-400/50 hover:bg-white/10 transition-all duration-300 group"
+                className="w-full max-w-[210px] h-16 bg-forest-900/60 border border-forest-800 rounded-2xl flex items-center justify-center p-3 hover:border-gold-400/50 hover:bg-forest-900 transition-all duration-300 group"
               >
                 <div className="relative w-full h-full flex items-center justify-center">
                   <Image
@@ -43,80 +45,44 @@ export const Footer: React.FC = () => {
           </div>
         </div>
 
-        {/* Main Footer Grid */}
+        {/* 4 Column Footer Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
-          {/* Column 1: Brand & Bio */}
+          {/* Column 1: Brand & Credentials */}
           <div className="space-y-4">
-            <div className="flex items-center gap-3">
-              <div className="relative w-10 h-10 flex-shrink-0">
-                <svg
-                  viewBox="0 0 120 130"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="w-full h-full"
-                >
-                  <path
-                    d="M40 32 L46 22 L60 30 L74 22 L80 32 Z"
-                    stroke="#D4AF37"
-                    strokeWidth="2"
-                    fill="#D4AF37"
-                  />
-                  <path
-                    d="M60 36 C78 36 94 40 98 48 C98 82 82 108 60 120 C38 108 22 82 22 48 C26 40 42 36 60 36 Z"
-                    stroke="#D4AF37"
-                    strokeWidth="3"
-                    fill="#0B2A55"
-                  />
-                  <text
-                    x="60"
-                    y="84"
-                    textAnchor="middle"
-                    fontFamily="Playfair Display, serif"
-                    fontWeight="bold"
-                    fontSize="32"
-                    fill="#FFFFFF"
-                  >
-                    SP
-                  </text>
-                </svg>
-              </div>
-              <div>
-                <h3 className="font-serif text-lg font-bold tracking-wider text-white">
-                  SP FINANCIAL
-                </h3>
-                <span className="text-[10px] tracking-[0.25em] text-gold-400 uppercase font-semibold">
-                  SERVICES
-                </span>
-              </div>
-            </div>
+            <Logo variant="light" size="md" />
 
-            <p className="text-sm text-gray-300 leading-relaxed">
-              &quot;A Goal Without a Plan is Just a Wish.&quot; Providing 16+ years of
-              trusted, award-winning insurance and wealth advisory for families &
-              businesses across Mumbai.
+            <p className="text-xs sm:text-sm text-gray-300 leading-relaxed pt-2">
+              &quot;A Goal Without a Plan is Just a Wish.&quot; 16+ years of MDRT USA-certified
+              wealth advisory, comprehensive insurance, SIP mutual funds, and loan advisory in
+              Kurla West, Mumbai.
             </p>
 
-            <div className="pt-2">
-              <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-gold-400/10 border border-gold-400/30 text-gold-300 text-xs font-medium">
+            <div className="pt-2 flex flex-wrap gap-2">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-gold-400/10 border border-gold-400/30 text-gold-300 text-[11px] font-semibold">
                 <Shield className="w-3.5 h-3.5 text-gold-400" />
-                6x MDRT USA Award Winner
+                6x MDRT USA Winner
+              </span>
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-forest-800 text-emerald-300 text-[11px] font-semibold border border-forest-700">
+                <TrendingUp className="w-3.5 h-3.5" />
+                1,500+ Happy Families
               </span>
             </div>
           </div>
 
-          {/* Column 2: Quick Links */}
+          {/* Column 2: Quick Links & Calculators */}
           <div>
             <h4 className="font-serif text-base font-semibold text-white tracking-wide mb-4 flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-gold-400"></span> Quick Links
+              <span className="w-2 h-2 rounded-full bg-gold-400" /> Quick Navigation
             </h4>
-            <ul className="space-y-2.5 text-sm text-gray-300">
+            <ul className="space-y-2.5 text-xs sm:text-sm text-gray-300">
               {[
                 { name: "Home", href: "/" },
-                { name: "About Sachin Pandit", href: "/about" },
-                { name: "Insurance & Advisory Services", href: "/services" },
-                { name: "Awards & Achievements", href: "/achievements" },
-                { name: "Client Testimonials", href: "/testimonials" },
-                { name: "Book Free Consultation", href: "/contact" },
+                { name: "Interactive SIP & Loan Calculator", href: "/#calculator-section" },
+                { name: "Insurance & Mutual Fund Services", href: "/services" },
+                { name: "About Sachin Pandit (MDRT)", href: "/about" },
+                { name: "Awards & Honors (2018–2023)", href: "/achievements" },
+                { name: "Verified Client Reviews", href: "/testimonials" },
+                { name: "Contact & Consultation", href: "/contact" },
               ].map((link) => (
                 <li key={link.name}>
                   <Link
@@ -133,14 +99,14 @@ export const Footer: React.FC = () => {
             </ul>
           </div>
 
-          {/* Column 3: Contact Details */}
+          {/* Column 3: Contact & Office Details */}
           <div>
             <h4 className="font-serif text-base font-semibold text-white tracking-wide mb-4 flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-gold-400"></span> Contact Us
+              <span className="w-2 h-2 rounded-full bg-gold-400" /> Office &amp; Contact
             </h4>
-            <ul className="space-y-3 text-sm text-gray-300">
+            <ul className="space-y-3.5 text-xs sm:text-sm text-gray-300">
               <li className="flex items-start gap-2.5">
-                <MapPin className="w-4 h-4 text-gold-400 flex-shrink-0 mt-1" />
+                <MapPin className="w-4 h-4 text-gold-400 flex-shrink-0 mt-0.5" />
                 <span className="text-xs leading-relaxed text-gray-300">
                   {BUSINESS_INFO.contact.fullAddressDetails}
                 </span>
@@ -151,7 +117,7 @@ export const Footer: React.FC = () => {
                   <div>
                     <a
                       href={`tel:${BUSINESS_INFO.founders[0].phone}`}
-                      className="hover:text-gold-400 transition-colors"
+                      className="hover:text-gold-400 transition-colors font-medium"
                     >
                       Sachin: {BUSINESS_INFO.founders[0].phoneDisplay}
                     </a>
@@ -159,7 +125,7 @@ export const Footer: React.FC = () => {
                   <div>
                     <a
                       href={`tel:${BUSINESS_INFO.founders[1].phone}`}
-                      className="hover:text-gold-400 transition-colors"
+                      className="hover:text-gold-400 transition-colors font-medium"
                     >
                       Rakhi: {BUSINESS_INFO.founders[1].phoneDisplay}
                     </a>
@@ -178,14 +144,14 @@ export const Footer: React.FC = () => {
             </ul>
           </div>
 
-          {/* Column 4: Social & Consultation Hours */}
+          {/* Column 4: Social & Local SEO */}
           <div className="space-y-4">
             <h4 className="font-serif text-base font-semibold text-white tracking-wide mb-4 flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-gold-400"></span> Connect With Us
+              <span className="w-2 h-2 rounded-full bg-gold-400" /> Official Channels
             </h4>
             <p className="text-xs text-gray-300">
-              Follow our official media channels for regular market insights, financial planning
-              tips, and updates:
+              Connect with us on YouTube and Instagram for regular wealth planning updates, tax tips,
+              and policy insights:
             </p>
 
             <div className="flex flex-col gap-2.5">
@@ -193,50 +159,50 @@ export const Footer: React.FC = () => {
                 href={BUSINESS_INFO.contact.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-between p-2.5 rounded-xl bg-white/5 border border-white/10 hover:border-pink-500/50 hover:bg-pink-500/10 text-xs text-gray-200 transition-all group"
+                className="flex items-center justify-between p-2.5 rounded-xl bg-forest-900/80 border border-forest-800 hover:border-pink-500/50 text-xs text-gray-200 transition-all group"
               >
                 <span className="flex items-center gap-2">
                   <Instagram className="w-4 h-4 text-pink-400" />
                   <span>{BUSINESS_INFO.contact.instagramHandle}</span>
                 </span>
-                <ArrowUpRight className="w-3.5 h-3.5 text-gray-400 group-hover:text-pink-400 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                <ArrowUpRight className="w-3.5 h-3.5 text-gray-400 group-hover:text-pink-400 transition-transform" />
               </a>
 
               <a
                 href={BUSINESS_INFO.contact.youtube}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-between p-2.5 rounded-xl bg-white/5 border border-white/10 hover:border-red-500/50 hover:bg-red-500/10 text-xs text-gray-200 transition-all group"
+                className="flex items-center justify-between p-2.5 rounded-xl bg-forest-900/80 border border-forest-800 hover:border-red-500/50 text-xs text-gray-200 transition-all group"
               >
                 <span className="flex items-center gap-2">
                   <Youtube className="w-4 h-4 text-red-500" />
                   <span>{BUSINESS_INFO.contact.youtubeHandle}</span>
                 </span>
-                <ArrowUpRight className="w-3.5 h-3.5 text-gray-400 group-hover:text-red-400 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                <ArrowUpRight className="w-3.5 h-3.5 text-gray-400 group-hover:text-red-400 transition-transform" />
               </a>
             </div>
 
-            <div className="pt-2">
+            <div className="pt-1">
               <Link
                 href="/contact"
                 className="text-xs text-gold-400 hover:text-gold-300 font-semibold inline-flex items-center gap-1 underline underline-offset-4"
               >
-                Schedule an in-person meeting in Kurla <ExternalLink className="w-3 h-3" />
+                Schedule in-person appointment in Kurla <ExternalLink className="w-3 h-3" />
               </Link>
             </div>
           </div>
         </div>
 
-        {/* Bottom Copyright & Disclaimer */}
-        <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-gray-400">
+        {/* Bottom Bar */}
+        <div className="pt-8 border-t border-forest-800 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-gray-400">
           <p>
-            © {new Date().getFullYear()} SP Financial Services. All rights reserved. MDRT & LIC
+            © {new Date().getFullYear()} SP Financial Services. All rights reserved. MDRT &amp; LIC
             Authorized Advisor.
           </p>
-          <div className="flex items-center gap-6">
-            <span>Kurla West, Mumbai, India</span>
+          <div className="flex items-center gap-4 sm:gap-6 text-[11px] sm:text-xs">
+            <span>Kurla West, Mumbai - 400070</span>
             <span>·</span>
-            <span>Privacy & Ethical Disclosure</span>
+            <span>LIC · HDFC ERGO · Star Health · NJ Wealth</span>
           </div>
         </div>
       </div>

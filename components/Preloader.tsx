@@ -8,8 +8,7 @@ export const Preloader: React.FC = () => {
   const shouldReduceMotion = useReducedMotion();
 
   useEffect(() => {
-    // Check sessionStorage so it only plays on first session entry
-    const hasSeenPreloader = sessionStorage.getItem("sp_preloader_seen");
+    const hasSeenPreloader = sessionStorage.getItem("sp_preloader_seen_v2");
     if (hasSeenPreloader || shouldReduceMotion) {
       setIsLoading(false);
       return;
@@ -17,15 +16,15 @@ export const Preloader: React.FC = () => {
 
     const timer = setTimeout(() => {
       setIsLoading(false);
-      sessionStorage.setItem("sp_preloader_seen", "true");
-    }, 2100);
+      sessionStorage.setItem("sp_preloader_seen_v2", "true");
+    }, 2000);
 
     return () => clearTimeout(timer);
   }, [shouldReduceMotion]);
 
   const handleSkip = () => {
     setIsLoading(false);
-    sessionStorage.setItem("sp_preloader_seen", "true");
+    sessionStorage.setItem("sp_preloader_seen_v2", "true");
   };
 
   return (
@@ -39,14 +38,14 @@ export const Preloader: React.FC = () => {
             transition: { duration: 0.75, ease: [0.76, 0, 0.24, 1] },
           }}
           onClick={handleSkip}
-          className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-[#0B2A55] text-white cursor-pointer select-none overflow-hidden"
-          aria-label="SP Financial Services loading screen - Click to skip"
+          className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-forest-950 text-white cursor-pointer select-none overflow-hidden"
+          aria-label="SP Financial Services loading - Click to skip"
         >
-          {/* Subtle background glow */}
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(46,155,214,0.15),transparent_70%)] pointer-events-none" />
+          {/* Subtle Organic Background Mesh */}
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(30,143,95,0.2),transparent_70%)] pointer-events-none" />
 
           <div className="relative flex flex-col items-center max-w-md px-6 text-center">
-            {/* SP Shield Crest with Crown SVG Animation */}
+            {/* SP Growth Monogram SVG Animation */}
             <motion.div
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
@@ -54,102 +53,80 @@ export const Preloader: React.FC = () => {
               className="relative w-28 h-28 mb-6"
             >
               <svg
-                viewBox="0 0 120 130"
+                viewBox="0 0 100 100"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
-                className="w-full h-full drop-shadow-[0_4px_16px_rgba(212,175,55,0.4)]"
+                className="w-full h-full drop-shadow-[0_4px_20px_rgba(212,175,55,0.4)]"
               >
-                {/* Crown on top */}
+                {/* Shield Path Draw */}
                 <motion.path
-                  d="M40 32 L46 22 L60 30 L74 22 L80 32 Z"
+                  d="M50 6 L88 26 L88 68 L50 94 L12 68 L12 26 Z"
                   stroke="#D4AF37"
                   strokeWidth="2.5"
-                  strokeLinecap="round"
                   strokeLinejoin="round"
-                  fill="rgba(212, 175, 55, 0.2)"
-                  initial={{ pathLength: 0, opacity: 0 }}
-                  animate={{ pathLength: 1, opacity: 1 }}
-                  transition={{ duration: 0.8, ease: "easeInOut" }}
-                />
-                <motion.circle
-                  cx="46"
-                  cy="20"
-                  r="2"
-                  fill="#D4AF37"
-                  initial={{ scale: 0 }}
-                  animate={{ scale: 1 }}
-                  transition={{ delay: 0.4, duration: 0.3 }}
-                />
-                <motion.circle
-                  cx="60"
-                  cy="17"
-                  r="2.5"
-                  fill="#D4AF37"
-                  initial={{ scale: 0 }}
-                  animate={{ scale: 1 }}
-                  transition={{ delay: 0.5, duration: 0.3 }}
-                />
-                <motion.circle
-                  cx="74"
-                  cy="20"
-                  r="2"
-                  fill="#D4AF37"
-                  initial={{ scale: 0 }}
-                  animate={{ scale: 1 }}
-                  transition={{ delay: 0.6, duration: 0.3 }}
-                />
-
-                {/* Shield Outline */}
-                <motion.path
-                  d="M60 36 C78 36 94 40 98 48 C98 82 82 108 60 120 C38 108 22 82 22 48 C26 40 42 36 60 36 Z"
-                  stroke="#D4AF37"
-                  strokeWidth="3"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  fill="rgba(11, 42, 85, 0.7)"
+                  fill="rgba(8, 32, 29, 0.8)"
                   initial={{ pathLength: 0 }}
                   animate={{ pathLength: 1 }}
-                  transition={{ duration: 1.2, ease: "easeInOut" }}
+                  transition={{ duration: 1.0, ease: "easeInOut" }}
                 />
 
-                {/* Monogram "SP" */}
-                <motion.text
-                  x="60"
-                  y="82"
-                  textAnchor="middle"
-                  fontFamily="Playfair Display, Georgia, serif"
-                  fontWeight="bold"
-                  fontSize="32"
-                  fill="#FFFFFF"
-                  initial={{ opacity: 0, scale: 0.7 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: 0.6, duration: 0.6 }}
-                >
-                  SP
-                </motion.text>
+                {/* S-Curve Draw */}
+                <motion.path
+                  d="M32 34 C32 26 44 24 54 24 C64 24 68 28 68 34 C68 40 60 43 48 46 C36 49 28 54 28 64 C28 74 38 78 50 78 C60 78 68 74 72 68"
+                  stroke="#D4AF37"
+                  strokeWidth="4"
+                  strokeLinecap="round"
+                  fill="none"
+                  initial={{ pathLength: 0 }}
+                  animate={{ pathLength: 1 }}
+                  transition={{ delay: 0.3, duration: 0.9, ease: "easeInOut" }}
+                />
+
+                {/* P Stem with Arrow */}
+                <motion.path
+                  d="M50 76 L50 26 L66 26 C74 26 80 32 80 40 C80 48 74 54 66 54 L50 54"
+                  stroke="#FFFFFF"
+                  strokeWidth="3.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  fill="none"
+                  initial={{ pathLength: 0 }}
+                  animate={{ pathLength: 1 }}
+                  transition={{ delay: 0.5, duration: 0.8, ease: "easeInOut" }}
+                />
+
+                {/* Arrow Apex */}
+                <motion.path
+                  d="M74 16 L88 16 L88 30 M88 16 L62 42"
+                  stroke="#D4AF37"
+                  strokeWidth="3.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  initial={{ pathLength: 0 }}
+                  animate={{ pathLength: 1 }}
+                  transition={{ delay: 0.7, duration: 0.6, ease: "easeInOut" }}
+                />
               </svg>
             </motion.div>
 
-            {/* Wordmark Letter-by-Letter Tracking */}
-            <div className="overflow-hidden">
-              <motion.h1
-                initial={{ opacity: 0, y: 15 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.7, duration: 0.6, ease: "easeOut" }}
-                className="font-serif text-2xl md:text-3xl font-bold tracking-[0.25em] text-white uppercase"
-              >
-                SP FINANCIAL SERVICES
-              </motion.h1>
-            </div>
+            {/* Wordmark */}
+            <motion.h1
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.6, duration: 0.6, ease: "easeOut" }}
+              className="font-serif text-2xl md:text-3xl font-bold tracking-[0.22em] text-white uppercase"
+            >
+              SP FINANCIAL SERVICES
+            </motion.h1>
 
-            {/* Tagline */}
+            {/* Sub-tagline */}
             <motion.p
               initial={{ opacity: 0 }}
-              animate={{ opacity: 0.8 }}
-              transition={{ delay: 1.0, duration: 0.5 }}
-              className="text-xs md:text-sm font-sans tracking-widest text-[#2E9BD6] uppercase mt-2"
+              animate={{ opacity: 0.85 }}
+              transition={{ delay: 0.8, duration: 0.5 }}
+              className="text-xs md:text-sm font-sans tracking-widest text-gold-300 uppercase mt-2 font-medium"
             >
-              Secure Today · Assured Tomorrow
+              Wealth Advisory · Insurance · Loans
             </motion.p>
 
             {/* Gold Underline Sweep */}
@@ -157,19 +134,18 @@ export const Preloader: React.FC = () => {
               <motion.div
                 initial={{ x: "-100%" }}
                 animate={{ x: "100%" }}
-                transition={{ delay: 0.9, duration: 0.9, ease: "easeInOut" }}
+                transition={{ delay: 0.8, duration: 0.9, ease: "easeInOut" }}
                 className="absolute inset-0 bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent"
               />
             </div>
 
-            {/* Click to skip cue */}
             <motion.span
               initial={{ opacity: 0 }}
               animate={{ opacity: 0.4 }}
-              transition={{ delay: 1.4, duration: 0.4 }}
+              transition={{ delay: 1.3, duration: 0.4 }}
               className="text-[11px] text-gray-400 mt-6 tracking-wide"
             >
-              Click anywhere to enter
+              Click anywhere to skip
             </motion.span>
           </div>
         </motion.div>

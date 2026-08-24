@@ -4,14 +4,16 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Phone, MessageCircle, ArrowRight } from "lucide-react";
+import { Menu, X, Phone, MessageCircle, ArrowRight, Calculator } from "lucide-react";
+import { Logo } from "./Logo";
 import { PrimaryButton } from "./Buttons";
 import { BUSINESS_INFO } from "@/lib/data";
 
 const NAV_LINKS = [
   { name: "Home", href: "/" },
-  { name: "About", href: "/about" },
+  { name: "Calculators", href: "/#calculator-section" },
   { name: "Services", href: "/services" },
+  { name: "About", href: "/about" },
   { name: "Achievements", href: "/achievements" },
   { name: "Testimonials", href: "/testimonials" },
   { name: "Contact", href: "/contact" },
@@ -24,7 +26,7 @@ export const Navbar: React.FC = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 50) {
+      if (window.scrollY > 40) {
         setIsScrolled(true);
       } else {
         setIsScrolled(false);
@@ -35,7 +37,6 @@ export const Navbar: React.FC = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Close mobile menu on route change
   useEffect(() => {
     setIsMobileMenuOpen(false);
   }, [pathname]);
@@ -43,74 +44,27 @@ export const Navbar: React.FC = () => {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled
-            ? "bg-[#0B2A55]/95 backdrop-blur-md py-3 shadow-lg shadow-black/10 border-b border-white/10"
-            : "bg-gradient-to-b from-[#0B2A55]/80 via-[#0B2A55]/40 to-transparent py-5"
+            ? "bg-forest-950/95 backdrop-blur-md py-3 shadow-lg shadow-black/15 border-b border-forest-800/80"
+            : "bg-gradient-to-b from-forest-950/90 via-forest-950/40 to-transparent py-4 sm:py-5"
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
-            {/* Brand Logo */}
-            <Link href="/" className="flex items-center gap-3 group">
-              <div className="relative w-10 h-10 md:w-11 md:h-11 flex-shrink-0 transition-transform duration-300 group-hover:scale-105">
-                <svg
-                  viewBox="0 0 120 130"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="w-full h-full drop-shadow-md"
-                >
-                  <path
-                    d="M40 32 L46 22 L60 30 L74 22 L80 32 Z"
-                    stroke="#D4AF37"
-                    strokeWidth="2.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    fill="#D4AF37"
-                  />
-                  <circle cx="46" cy="20" r="2" fill="#D4AF37" />
-                  <circle cx="60" cy="17" r="2.5" fill="#D4AF37" />
-                  <circle cx="74" cy="20" r="2" fill="#D4AF37" />
-                  <path
-                    d="M60 36 C78 36 94 40 98 48 C98 82 82 108 60 120 C38 108 22 82 22 48 C26 40 42 36 60 36 Z"
-                    stroke="#D4AF37"
-                    strokeWidth="3.5"
-                    fill="#0B2A55"
-                  />
-                  <text
-                    x="60"
-                    y="84"
-                    textAnchor="middle"
-                    fontFamily="Playfair Display, serif"
-                    fontWeight="bold"
-                    fontSize="32"
-                    fill="#FFFFFF"
-                  >
-                    SP
-                  </text>
-                </svg>
-              </div>
-
-              <div className="flex flex-col">
-                <span className="font-serif text-base sm:text-lg md:text-xl font-bold tracking-wider text-white leading-tight">
-                  SP FINANCIAL
-                </span>
-                <span className="text-[10px] md:text-[11px] tracking-[0.25em] text-gold-400 font-semibold uppercase">
-                  SERVICES
-                </span>
-              </div>
-            </Link>
+            {/* SP Monogram & Wordmark Logo */}
+            <Logo variant="light" size="md" />
 
             {/* Desktop Navigation Links */}
-            <nav className="hidden lg:flex items-center gap-7">
+            <nav className="hidden xl:flex items-center gap-7">
               {NAV_LINKS.map((link) => {
                 const isActive = pathname === link.href;
                 return (
                   <Link
                     key={link.name}
                     href={link.href}
-                    className={`relative text-xs uppercase tracking-widest font-semibold transition-colors duration-200 py-1 ${
-                      isActive ? "text-gold-400" : "text-white/85 hover:text-white"
+                    className={`relative text-xs uppercase tracking-[0.18em] font-bold transition-colors duration-200 py-1 ${
+                      isActive ? "text-gold-400" : "text-gray-200 hover:text-gold-300"
                     }`}
                   >
                     {link.name}
@@ -126,28 +80,43 @@ export const Navbar: React.FC = () => {
               })}
             </nav>
 
-            {/* CTA Button & Contact Quick Link (Desktop) */}
-            <div className="hidden lg:flex items-center gap-4">
+            {/* CTA Buttons (Desktop) */}
+            <div className="hidden md:flex items-center gap-3">
               <a
                 href={BUSINESS_INFO.contact.whatsapp}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="WhatsApp Us"
-                className="text-white/80 hover:text-emerald-400 p-2 transition-colors duration-200"
+                className="p-2.5 rounded-full bg-forest-800 text-emerald-300 hover:bg-forest-700 hover:text-white border border-forest-700 transition-all"
               >
-                <MessageCircle className="w-5 h-5" />
+                <MessageCircle className="w-4 h-4" />
               </a>
-              <PrimaryButton href="/contact" size="sm" variant="gold" icon={<ArrowRight className="w-3.5 h-3.5" />}>
-                Book Consultation
+
+              <PrimaryButton
+                href="/contact"
+                size="sm"
+                variant="gold"
+                icon={<ArrowRight className="w-3.5 h-3.5" />}
+              >
+                Free Consultation
               </PrimaryButton>
             </div>
 
-            {/* Mobile Hamburger Button */}
-            <div className="flex items-center gap-2 lg:hidden">
+            {/* Mobile Actions & Hamburger */}
+            <div className="flex items-center gap-2 xl:hidden">
+              <a
+                href={BUSINESS_INFO.contact.whatsapp}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2 text-emerald-400 hover:text-white transition-colors"
+                aria-label="WhatsApp"
+              >
+                <MessageCircle className="w-5 h-5" />
+              </a>
               <a
                 href={`tel:${BUSINESS_INFO.contact.primaryPhone}`}
                 className="p-2 text-gold-400 hover:text-white transition-colors"
-                aria-label="Call SP Financial Services"
+                aria-label="Call Sachin Pandit"
               >
                 <Phone className="w-5 h-5" />
               </a>
@@ -163,7 +132,7 @@ export const Navbar: React.FC = () => {
         </div>
       </header>
 
-      {/* Fullscreen Animated Mobile Menu */}
+      {/* Mobile Drawer */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
@@ -171,10 +140,10 @@ export const Navbar: React.FC = () => {
             animate={{ opacity: 1, clipPath: "circle(150% at 100% 0%)" }}
             exit={{ opacity: 0, clipPath: "circle(0% at 100% 0%)" }}
             transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-            className="fixed inset-0 z-40 bg-navy-900/98 backdrop-blur-xl lg:hidden flex flex-col justify-between pt-24 pb-8 px-6 text-white overflow-y-auto"
+            className="fixed inset-0 z-40 bg-forest-950/98 backdrop-blur-xl xl:hidden flex flex-col justify-between pt-24 pb-8 px-6 text-white overflow-y-auto"
           >
-            <div className="flex flex-col space-y-5 pt-4">
-              <span className="text-xs uppercase tracking-widest text-gold-400 font-semibold mb-2">
+            <div className="flex flex-col space-y-4 pt-2">
+              <span className="text-xs uppercase tracking-widest text-gold-400 font-semibold mb-1">
                 Navigation
               </span>
               {NAV_LINKS.map((link, idx) => {
@@ -184,13 +153,13 @@ export const Navbar: React.FC = () => {
                     key={link.name}
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.05 * idx, duration: 0.3 }}
+                    transition={{ delay: 0.04 * idx, duration: 0.3 }}
                   >
                     <Link
                       href={link.href}
                       onClick={() => setIsMobileMenuOpen(false)}
-                      className={`block font-serif text-2xl font-medium tracking-wide py-1 ${
-                        isActive ? "text-gold-400 pl-2 border-l-2 border-gold-400" : "text-white/90 hover:text-white"
+                      className={`block font-serif text-xl sm:text-2xl font-medium tracking-wide py-1.5 ${
+                        isActive ? "text-gold-400 pl-2 border-l-2 border-gold-400" : "text-gray-200 hover:text-white"
                       }`}
                     >
                       {link.name}
@@ -200,8 +169,7 @@ export const Navbar: React.FC = () => {
               })}
             </div>
 
-            {/* Quick Action Buttons on Mobile */}
-            <div className="pt-8 border-t border-white/10 space-y-4">
+            <div className="pt-6 border-t border-forest-800 space-y-4">
               <PrimaryButton
                 href="/contact"
                 size="md"
@@ -209,10 +177,10 @@ export const Navbar: React.FC = () => {
                 className="w-full text-center"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                Book Free Consultation
+                Get Free Consultation
               </PrimaryButton>
 
-              <div className="grid grid-cols-2 gap-3 pt-2">
+              <div className="grid grid-cols-2 gap-3 pt-1">
                 <a
                   href={`tel:${BUSINESS_INFO.contact.primaryPhone}`}
                   className="flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-white/10 text-white text-xs font-semibold hover:bg-white/20 transition-colors"
@@ -231,8 +199,8 @@ export const Navbar: React.FC = () => {
                 </a>
               </div>
 
-              <p className="text-[11px] text-center text-gray-400 pt-2">
-                Sayba Palace, Kurla (W), Mumbai - 400070
+              <p className="text-[11px] text-center text-gray-400">
+                201/202 Sayba Palace, Kurla (W), Mumbai - 400070
               </p>
             </div>
           </motion.div>

@@ -13,11 +13,9 @@ import {
   CheckCircle2,
   Send,
   Sparkles,
-  ArrowRight,
 } from "lucide-react";
 import { SectionWrapper } from "@/components/SectionWrapper";
-import { PrimaryButton } from "@/components/Buttons";
-import { slideInLeft, fadeUp } from "@/lib/motion-variants";
+import { slideInLeft } from "@/lib/motion-variants";
 import { BUSINESS_INFO } from "@/lib/data";
 
 export default function ContactPage() {
@@ -25,7 +23,7 @@ export default function ContactPage() {
     name: "",
     phone: "",
     email: "",
-    insuranceType: "Life Insurance",
+    interestType: "Mutual Fund & SIP",
     message: "",
   });
 
@@ -36,28 +34,17 @@ export default function ContactPage() {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission feedback
     setTimeout(() => {
       setIsSubmitting(false);
       setIsSubmitted(true);
-
-      // Open WhatsApp or mailto prefilled as convenience
-      const text = `Hello Sachin Pandit, I am ${formData.name} (${formData.phone}). I am interested in ${formData.insuranceType}. Note: ${formData.message}`;
-      const waUrl = `https://wa.me/919870577706?text=${encodeURIComponent(text)}`;
-      // Optional direct redirect if desired, or user sees confirmation checkmark
-    }, 1000);
+    }, 900);
   };
 
   return (
     <>
-      {/* =========================================================================
-          1. PAGE HERO (~40vh)
-         ========================================================================= */}
-      <section className="relative min-h-[40vh] bg-gradient-to-b from-[#0B2A55] via-[#0E356A] to-[#123B7A] text-white flex items-center justify-center pt-32 pb-16 overflow-hidden">
-        <div className="absolute inset-0 subtle-grid-pattern opacity-30 pointer-events-none" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[300px] bg-gold-400/10 rounded-full blur-3xl pointer-events-none" />
-
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      {/* Page Hero */}
+      <section className="relative min-h-[40vh] bg-gradient-to-b from-forest-950 via-forest-900 to-navy-950 text-white flex items-center justify-center pt-32 pb-16 overflow-hidden dark-mesh-pattern">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10">
           <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-gold-300 mb-3">
             <Link href="/" className="hover:text-white transition-colors">
               Home
@@ -66,7 +53,7 @@ export default function ContactPage() {
             <span className="text-white">Contact Us</span>
           </div>
 
-          <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight mb-4">
+          <h1 className="font-serif fluid-h1 font-bold text-white tracking-tight mb-4">
             Get in Touch
           </h1>
 
@@ -76,23 +63,20 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* =========================================================================
-          2. CONTACT INFO + ENQUIRY FORM (Two-Column Desktop / Stacked Mobile)
-         ========================================================================= */}
-      <SectionWrapper className="bg-warmBg">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
-          {/* Left Column: Contact Details Card (5 cols) */}
+      {/* Contact Details & Form */}
+      <SectionWrapper className="bg-cream-100 organic-texture">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+          {/* Left Column: Direct Channels (5 cols) */}
           <div className="lg:col-span-5 space-y-6">
-            <div className="bg-gradient-to-br from-[#0B2A55] to-[#123B7A] rounded-3xl p-8 sm:p-10 text-white shadow-xl border border-gold-400/30">
+            <div className="bg-gradient-to-br from-forest-950 to-forest-900 rounded-3xl p-8 sm:p-10 text-white shadow-xl border border-gold-400/30">
               <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-gold-400/20 text-gold-300 text-xs font-bold uppercase tracking-wider mb-6 border border-gold-400/30">
-                <Sparkles className="w-3.5 h-3.5" /> Direct Contact Channels
+                <Sparkles className="w-3.5 h-3.5" /> Direct Contact
               </div>
 
               <h2 className="font-serif text-2xl sm:text-3xl font-bold text-white mb-6">
                 SP Financial Services
               </h2>
 
-              {/* Contact Rows with Left-Slide Stagger */}
               <div className="space-y-6">
                 {/* Address */}
                 <motion.div variants={slideInLeft} className="flex items-start gap-4">
@@ -103,7 +87,7 @@ export default function ContactPage() {
                     <h3 className="text-xs font-bold uppercase tracking-wider text-gold-300">
                       Office Address
                     </h3>
-                    <p className="text-sm text-gray-200 mt-1 leading-relaxed">
+                    <p className="text-xs sm:text-sm text-gray-200 mt-1 leading-relaxed">
                       {BUSINESS_INFO.contact.fullAddressDetails}
                     </p>
                   </div>
@@ -118,7 +102,7 @@ export default function ContactPage() {
                     <h3 className="text-xs font-bold uppercase tracking-wider text-gold-300">
                       Sachin Pandit (MDRT Advisor)
                     </h3>
-                    <p className="text-sm text-white font-semibold mt-1">
+                    <p className="text-sm text-white font-semibold mt-0.5">
                       {BUSINESS_INFO.founders[0].phoneDisplay}
                     </p>
                     <div className="flex items-center gap-2 mt-2">
@@ -149,7 +133,7 @@ export default function ContactPage() {
                     <h3 className="text-xs font-bold uppercase tracking-wider text-gold-300">
                       Rakhi Pandit (Financial Advisor)
                     </h3>
-                    <p className="text-sm text-white font-semibold mt-1">
+                    <p className="text-sm text-white font-semibold mt-0.5">
                       {BUSINESS_INFO.founders[1].phoneDisplay}
                     </p>
                     <div className="flex items-center gap-2 mt-2">
@@ -182,7 +166,7 @@ export default function ContactPage() {
                     </h3>
                     <a
                       href={`mailto:${BUSINESS_INFO.contact.email}`}
-                      className="text-sm text-white hover:text-gold-300 transition-colors mt-1 block"
+                      className="text-xs sm:text-sm text-white hover:text-gold-300 transition-colors mt-0.5 block"
                     >
                       {BUSINESS_INFO.contact.email}
                     </a>
@@ -190,210 +174,168 @@ export default function ContactPage() {
                 </motion.div>
               </div>
 
-              {/* Social Channels with Hover Micro-Interactions */}
-              <div className="pt-8 mt-8 border-t border-white/10 flex items-center gap-4">
+              {/* Social Channels */}
+              <div className="pt-6 mt-6 border-t border-white/10 flex items-center gap-3">
                 <span className="text-xs text-gray-300 font-semibold uppercase tracking-wider">
-                  Follow Us:
+                  Socials:
                 </span>
                 <motion.a
-                  whileHover={{ scale: 1.15, rotate: 6 }}
+                  whileHover={{ scale: 1.15 }}
                   href={BUSINESS_INFO.contact.instagram}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2.5 rounded-xl bg-white/10 hover:bg-pink-600/30 text-pink-400 transition-colors shadow-sm"
+                  className="p-2 rounded-xl bg-white/10 text-pink-400"
                   aria-label="Instagram"
                 >
-                  <Instagram className="w-5 h-5" />
+                  <Instagram className="w-4 h-4" />
                 </motion.a>
                 <motion.a
-                  whileHover={{ scale: 1.15, rotate: -6 }}
+                  whileHover={{ scale: 1.15 }}
                   href={BUSINESS_INFO.contact.youtube}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2.5 rounded-xl bg-white/10 hover:bg-red-600/30 text-red-400 transition-colors shadow-sm"
+                  className="p-2 rounded-xl bg-white/10 text-red-400"
                   aria-label="YouTube"
                 >
-                  <Youtube className="w-5 h-5" />
+                  <Youtube className="w-4 h-4" />
                 </motion.a>
               </div>
             </div>
           </div>
 
-          {/* Right Column: Interactive Enquiry Form (7 cols) */}
+          {/* Right Column: Interactive Consultation Form (7 cols) */}
           <div className="lg:col-span-7">
-            <div className="bg-white rounded-3xl p-8 sm:p-10 shadow-card border border-gray-100">
-              <div className="mb-8">
-                <span className="text-xs font-bold uppercase tracking-[0.25em] text-gold-600 mb-1 block">
+            <div className="bg-white rounded-3xl p-8 sm:p-10 shadow-card border border-cream-300">
+              <div className="mb-6">
+                <span className="text-xs font-bold uppercase tracking-[0.25em] text-forest-700 mb-1 block">
                   Book Free Consultation
                 </span>
-                <h3 className="font-serif text-2xl sm:text-3xl font-bold text-navy-900">
+                <h3 className="font-serif text-2xl sm:text-3xl font-bold text-forest-900">
                   Send an Enquiry
                 </h3>
                 <p className="text-xs sm:text-sm text-gray-500 mt-1">
-                  Fill in your details below. Sachin Pandit will review and respond within 24 hours.
+                  Fill in your details below. Sachin Pandit will personally review and contact you
+                  promptly.
                 </p>
               </div>
 
               <AnimatePresence mode="wait">
                 {isSubmitted ? (
                   <motion.div
-                    initial={{ opacity: 0, scale: 0.9 }}
+                    initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
                     className="p-8 rounded-2xl bg-emerald-50 border border-emerald-200 text-center space-y-4"
                   >
-                    <div className="w-16 h-16 rounded-full bg-emerald-500 text-white flex items-center justify-center mx-auto shadow-md">
-                      <CheckCircle2 className="w-8 h-8" />
+                    <div className="w-14 h-14 rounded-full bg-emerald-600 text-white flex items-center justify-center mx-auto shadow-md">
+                      <CheckCircle2 className="w-7 h-7" />
                     </div>
-                    <h4 className="font-serif text-2xl font-bold text-emerald-900">
+                    <h4 className="font-serif text-2xl font-bold text-emerald-950">
                       Enquiry Received!
                     </h4>
-                    <p className="text-sm text-emerald-800 max-w-md mx-auto">
-                      Thank you <strong>{formData.name}</strong>. We have received your request for{" "}
-                      <strong>{formData.insuranceType}</strong>. Sachin Pandit will contact you
-                      promptly at <strong>{formData.phone}</strong>.
+                    <p className="text-xs sm:text-sm text-emerald-900 max-w-md mx-auto">
+                      Thank you <strong>{formData.name}</strong>. We have noted your interest in{" "}
+                      <strong>{formData.interestType}</strong>. Sachin Pandit will contact you at{" "}
+                      <strong>{formData.phone}</strong>.
                     </p>
 
-                    <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-3">
+                    <div className="pt-3">
                       <a
                         href={`https://wa.me/919870577706?text=${encodeURIComponent(
-                          `Hello Sachin, I just submitted an inquiry for ${formData.insuranceType}. Name: ${formData.name}, Phone: ${formData.phone}`
+                          `Hello Sachin Pandit, I just submitted an inquiry for ${formData.interestType}. Name: ${formData.name}, Phone: ${formData.phone}`
                         )}`}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="px-6 py-3 rounded-full bg-emerald-600 text-white text-xs font-bold uppercase tracking-wider hover:bg-emerald-700 transition-colors flex items-center gap-2"
+                        className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-emerald-600 text-white text-xs font-bold uppercase tracking-wider hover:bg-emerald-700 transition-colors"
                       >
                         <MessageCircle className="w-4 h-4" /> Message on WhatsApp Now
                       </a>
-                      <button
-                        onClick={() => setIsSubmitted(false)}
-                        className="text-xs font-semibold text-gray-500 hover:text-gray-800 underline"
-                      >
-                        Submit another enquiry
-                      </button>
                     </div>
                   </motion.div>
                 ) : (
-                  <form onSubmit={handleSubmit} className="space-y-6">
-                    {/* Name Field */}
-                    <div className="relative">
-                      <label
-                        htmlFor="name"
-                        className="block text-xs font-bold uppercase tracking-wider text-gray-700 mb-2"
-                      >
-                        Full Name <span className="text-red-500">*</span>
+                  <form onSubmit={handleSubmit} className="space-y-5">
+                    <div>
+                      <label className="block text-xs font-bold uppercase tracking-wider text-forest-900 mb-1.5">
+                        Your Name <span className="text-red-500">*</span>
                       </label>
                       <input
                         type="text"
-                        id="name"
                         required
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                         placeholder="e.g. Rahul Sharma"
-                        className="w-full px-4 py-3.5 rounded-xl border border-gray-200 focus:border-gold-400 focus:ring-2 focus:ring-gold-400/20 bg-warmBg text-navy-900 text-sm outline-none transition-all"
+                        className="w-full px-4 py-3 rounded-xl border border-cream-300 focus:border-forest-700 focus:ring-2 focus:ring-forest-800/10 bg-cream-50 text-forest-900 text-sm outline-none transition-all"
                       />
                     </div>
 
-                    {/* Phone & Email Row */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div>
-                        <label
-                          htmlFor="phone"
-                          className="block text-xs font-bold uppercase tracking-wider text-gray-700 mb-2"
-                        >
+                        <label className="block text-xs font-bold uppercase tracking-wider text-forest-900 mb-1.5">
                           Phone Number <span className="text-red-500">*</span>
                         </label>
                         <input
                           type="tel"
-                          id="phone"
                           required
                           value={formData.phone}
                           onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                           placeholder="+91 98705 XXXXX"
-                          className="w-full px-4 py-3.5 rounded-xl border border-gray-200 focus:border-gold-400 focus:ring-2 focus:ring-gold-400/20 bg-warmBg text-navy-900 text-sm outline-none transition-all"
+                          className="w-full px-4 py-3 rounded-xl border border-cream-300 focus:border-forest-700 focus:ring-2 focus:ring-forest-800/10 bg-cream-50 text-forest-900 text-sm outline-none transition-all"
                         />
                       </div>
 
                       <div>
-                        <label
-                          htmlFor="email"
-                          className="block text-xs font-bold uppercase tracking-wider text-gray-700 mb-2"
-                        >
+                        <label className="block text-xs font-bold uppercase tracking-wider text-forest-900 mb-1.5">
                           Email Address
                         </label>
                         <input
                           type="email"
-                          id="email"
                           value={formData.email}
                           onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                           placeholder="rahul@example.com"
-                          className="w-full px-4 py-3.5 rounded-xl border border-gray-200 focus:border-gold-400 focus:ring-2 focus:ring-gold-400/20 bg-warmBg text-navy-900 text-sm outline-none transition-all"
+                          className="w-full px-4 py-3 rounded-xl border border-cream-300 focus:border-forest-700 focus:ring-2 focus:ring-forest-800/10 bg-cream-50 text-forest-900 text-sm outline-none transition-all"
                         />
                       </div>
                     </div>
 
-                    {/* Insurance Type Dropdown */}
                     <div>
-                      <label
-                        htmlFor="insuranceType"
-                        className="block text-xs font-bold uppercase tracking-wider text-gray-700 mb-2"
-                      >
+                      <label className="block text-xs font-bold uppercase tracking-wider text-forest-900 mb-1.5">
                         Area of Interest <span className="text-red-500">*</span>
                       </label>
                       <select
-                        id="insuranceType"
-                        value={formData.insuranceType}
-                        onChange={(e) =>
-                          setFormData({ ...formData, insuranceType: e.target.value })
-                        }
-                        className="w-full px-4 py-3.5 rounded-xl border border-gray-200 focus:border-gold-400 focus:ring-2 focus:ring-gold-400/20 bg-warmBg text-navy-900 text-sm outline-none transition-all cursor-pointer"
+                        value={formData.interestType}
+                        onChange={(e) => setFormData({ ...formData, interestType: e.target.value })}
+                        className="w-full px-4 py-3 rounded-xl border border-cream-300 focus:border-forest-700 focus:ring-2 focus:ring-forest-800/10 bg-cream-50 text-forest-900 text-sm outline-none transition-all cursor-pointer"
                       >
-                        <option value="Life Insurance (LIC)">Life Insurance (LIC Plans)</option>
-                        <option value="Health / Mediclaim Insurance (Star Health)">
-                          Health / Mediclaim Insurance (Star Health)
-                        </option>
-                        <option value="Motor Insurance (HDFC ERGO)">
-                          Motor Insurance (HDFC ERGO)
-                        </option>
-                        <option value="Mutual Fund & SIP Investments (NJ Wealth)">
-                          Mutual Fund &amp; SIP Investments (NJ Wealth)
-                        </option>
-                        <option value="Retirement & Pension Solutions">
-                          Retirement &amp; Pension Solutions
-                        </option>
-                        <option value="Child Education / Marriage Fund">
-                          Child Education / Marriage Fund
-                        </option>
+                        <option value="Mutual Fund & SIP (NJ Wealth)">Mutual Fund &amp; SIP (NJ Wealth)</option>
+                        <option value="Life Insurance (LIC Plans)">Life Insurance (LIC Plans)</option>
+                        <option value="Health / Mediclaim (Star Health)">Health / Mediclaim (Star Health)</option>
+                        <option value="Home Loan & EMI Planning">Home Loan &amp; EMI Planning</option>
+                        <option value="Motor Insurance (HDFC ERGO)">Motor Insurance (HDFC ERGO)</option>
+                        <option value="Retirement & Pension Plan">Retirement &amp; Pension Plan</option>
+                        <option value="Child Education / Marriage Fund">Child Education / Marriage Fund</option>
                         <option value="Corporate / Group Mediclaim">Corporate / Group Mediclaim</option>
-                        <option value="Other Financial Advisory">Other Financial Advisory</option>
                       </select>
                     </div>
 
-                    {/* Message */}
                     <div>
-                      <label
-                        htmlFor="message"
-                        className="block text-xs font-bold uppercase tracking-wider text-gray-700 mb-2"
-                      >
-                        Your Message or Requirements (Optional)
+                      <label className="block text-xs font-bold uppercase tracking-wider text-forest-900 mb-1.5">
+                        Message / Query (Optional)
                       </label>
                       <textarea
-                        id="message"
-                        rows={4}
+                        rows={3}
                         value={formData.message}
                         onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                        placeholder="Tell us about your requirements, current policies, or specific questions..."
-                        className="w-full px-4 py-3.5 rounded-xl border border-gray-200 focus:border-gold-400 focus:ring-2 focus:ring-gold-400/20 bg-warmBg text-navy-900 text-sm outline-none transition-all resize-none"
+                        placeholder="Tell us about your requirements..."
+                        className="w-full px-4 py-3 rounded-xl border border-cream-300 focus:border-forest-700 focus:ring-2 focus:ring-forest-800/10 bg-cream-50 text-forest-900 text-sm outline-none transition-all resize-none"
                       />
                     </div>
 
-                    {/* Submit Button */}
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="w-full py-4 rounded-full bg-gradient-to-r from-[#D4AF37] via-[#E2C365] to-[#D4AF37] text-navy-900 font-bold uppercase tracking-widest text-sm shadow-gold hover:shadow-lg hover:brightness-105 active:scale-[0.99] transition-all flex items-center justify-center gap-2"
+                      className="w-full py-4 rounded-full bg-gradient-to-r from-[#D4AF37] via-[#E2C365] to-[#D4AF37] text-forest-950 font-bold uppercase tracking-widest text-xs sm:text-sm shadow-gold hover:brightness-105 active:scale-[0.99] transition-all flex items-center justify-center gap-2"
                     >
                       {isSubmitting ? (
-                        <span>Processing Enquiry...</span>
+                        <span>Processing...</span>
                       ) : (
                         <>
                           <span>Submit Consultation Request</span>
@@ -401,9 +343,6 @@ export default function ContactPage() {
                         </>
                       )}
                     </button>
-
-                    {/* Backend integration note */}
-                    {/* Note for production: Connect this form handler to Formspree, Resend, or your custom SMTP backend endpoint */}
                   </form>
                 )}
               </AnimatePresence>
@@ -412,24 +351,19 @@ export default function ContactPage() {
         </div>
       </SectionWrapper>
 
-      {/* =========================================================================
-          3. MAP EMBED
-         ========================================================================= */}
-      <SectionWrapper className="bg-white border-t border-gray-100">
-        <div className="text-center max-w-3xl mx-auto mb-10">
-          <span className="text-xs font-bold uppercase tracking-[0.25em] text-gold-600 mb-2 block">
-            Visit Our Office
+      {/* Google Map Embed */}
+      <SectionWrapper className="bg-white border-t border-cream-300">
+        <div className="text-center max-w-3xl mx-auto mb-8">
+          <span className="text-xs font-bold uppercase tracking-[0.25em] text-forest-700 mb-2 block">
+            Visit Our Kurla Office
           </span>
-          <h2 className="font-serif text-3xl font-bold text-navy-900">
+          <h2 className="font-serif fluid-h2 font-bold text-forest-900">
             Sayba Palace, Kurla (W), Mumbai
           </h2>
           <div className="w-20 h-1 bg-gold-400 mx-auto mt-3 rounded-full" />
-          <p className="text-xs sm:text-sm text-gray-500 mt-2">
-            Conveniently situated near the New Post Office on Wadia Marg, Kurla West.
-          </p>
         </div>
 
-        <div className="max-w-5xl mx-auto rounded-3xl overflow-hidden shadow-card border border-gray-200 h-[380px] sm:h-[450px]">
+        <div className="max-w-5xl mx-auto rounded-3xl overflow-hidden shadow-card border border-cream-300 h-[360px] sm:h-[420px]">
           <iframe
             src={BUSINESS_INFO.contact.googleMapsEmbedUrl}
             width="100%"
@@ -442,20 +376,6 @@ export default function ContactPage() {
           />
         </div>
       </SectionWrapper>
-
-      {/* =========================================================================
-          4. FINAL TRUST TAGLINE BAND
-         ========================================================================= */}
-      <section className="bg-[#061833] text-white py-12 border-t border-gold-400/20 text-center">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="font-serif text-lg sm:text-xl md:text-2xl text-transparent bg-clip-text bg-gradient-to-r from-gold-300 via-gold-400 to-amber-200 font-bold tracking-wide">
-            Trusted Advice · Tailored Solutions · Your Future, Our Priority
-          </p>
-          <p className="text-xs text-gray-400 mt-2 uppercase tracking-widest">
-            SP Financial Services — Sachin Pandit &amp; Rakhi Pandit
-          </p>
-        </div>
-      </section>
     </>
   );
 }
