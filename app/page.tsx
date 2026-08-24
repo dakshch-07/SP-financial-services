@@ -22,37 +22,47 @@ import {
   ChevronRight,
   Quote,
   Star,
-  Sparkles,
-  Calculator,
-  Compass,
-  FileCheck,
   Coins,
   BadgeCheck,
 } from "lucide-react";
 import { SectionWrapper } from "@/components/SectionWrapper";
 import { CountUp } from "@/components/CountUp";
 import { PrimaryButton, SecondaryButton } from "@/components/Buttons";
-import { CalculatorSwitcher } from "@/components/CalculatorSwitcher";
+import { CompactHeroCalculator } from "@/components/CompactHeroCalculator";
 import { VideoModal } from "@/components/VideoModal";
 import { fadeUp, staggerContainer, cardHoverVariants } from "@/lib/motion-variants";
 import {
   BUSINESS_INFO,
   ALL_COVERAGE_TYPES,
   TESTIMONIALS_DATA,
-  AWARD_GALLERY_PHOTOS,
   WHY_CHOOSE_US_POINTS,
 } from "@/lib/data";
+
+const HERO_BG_IMAGES = [
+  "/images/hero-bg-1.jpg", // Financial District / Corporate Skyline
+  "/images/hero-bg-2.jpg", // Financial Advisory / Consultation Meeting
+  "/images/hero-bg-3.jpg", // Modern Investment Office / Wealth Growth
+];
 
 export default function HomePage() {
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
   const [activeTestimonialIdx, setActiveTestimonialIdx] = useState(0);
+  const [bgImageIdx, setBgImageIdx] = useState(0);
 
-  // Auto-advance testimonials
+  // Background image crossfade interval
   useEffect(() => {
-    const timer = setInterval(() => {
+    const bgTimer = setInterval(() => {
+      setBgImageIdx((prev) => (prev + 1) % HERO_BG_IMAGES.length);
+    }, 6000);
+    return () => clearInterval(bgTimer);
+  }, []);
+
+  // Testimonial carousel interval
+  useEffect(() => {
+    const testTimer = setInterval(() => {
       setActiveTestimonialIdx((prev) => (prev + 1) % TESTIMONIALS_DATA.length);
     }, 6500);
-    return () => clearInterval(timer);
+    return () => clearInterval(testTimer);
   }, []);
 
   const handlePrevTestimonial = () => {
@@ -68,27 +78,55 @@ export default function HomePage() {
   return (
     <>
       {/* =========================================================================
-          1. HERO SECTION
+          1. HERO SECTION (With 3 Rotating Financial BG Images + Right-Side Calculator)
          ========================================================================= */}
-      <section className="relative min-h-[90vh] lg:min-h-screen bg-gradient-to-b from-forest-950 via-forest-900 to-navy-950 text-white flex items-center justify-center pt-28 pb-16 overflow-hidden dark-mesh-pattern">
-        {/* Ambient Organic Glows */}
-        <div className="absolute top-1/3 right-5 md:right-1/4 w-96 h-96 bg-gold-400/10 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute top-1/4 left-5 w-80 h-80 bg-forest-600/15 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-cream-100 to-transparent pointer-events-none" />
+      <section className="relative min-h-[92vh] lg:min-h-screen bg-forest-950 text-white flex items-center justify-center pt-28 pb-16 overflow-hidden">
+        {/* Rotating High-Resolution Financial Consultancy Background Images */}
+        <div className="absolute inset-0 z-0 overflow-hidden">
+          <AnimatePresence mode="sync">
+            <motion.div
+              key={bgImageIdx}
+              initial={{ opacity: 0, scale: 1.05 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 1.5, ease: "easeInOut" }}
+              className="absolute inset-0 w-full h-full"
+            >
+              <Image
+                src={HERO_BG_IMAGES[bgImageIdx]}
+                alt="Financial Consultancy & Wealth Planning"
+                fill
+                priority
+                className="object-cover object-center"
+              />
+            </motion.div>
+          </AnimatePresence>
 
+          {/* Heavy Dark Forest/Navy Gradient Overlays for 100% Crystal-Clear Text Readability */}
+          <div className="absolute inset-0 bg-gradient-to-r from-forest-950/98 via-forest-950/90 to-navy-950/85 z-[1]" />
+          <div className="absolute inset-0 bg-forest-950/50 z-[1]" />
+          <div className="absolute inset-0 dark-mesh-pattern opacity-40 z-[2]" />
+          <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-forest-950 to-transparent z-[2]" />
+        </div>
+
+        {/* Ambient Radial Accent Glows */}
+        <div className="absolute top-1/4 left-5 w-96 h-96 bg-forest-600/20 rounded-full blur-3xl pointer-events-none z-[2]" />
+        <div className="absolute top-1/3 right-10 w-96 h-96 bg-gold-400/15 rounded-full blur-3xl pointer-events-none z-[2]" />
+
+        {/* Main Hero Container */}
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
-            {/* Left Content (7 cols) */}
+            {/* Left Content Column (7 cols) */}
             <motion.div
               initial="hidden"
               animate="visible"
               variants={staggerContainer}
               className="lg:col-span-7 flex flex-col items-center lg:items-start text-center lg:text-left space-y-6"
             >
-              {/* MDRT Prestige Badge */}
+              {/* Gold MDRT Badge */}
               <motion.div
                 variants={fadeUp}
-                className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gold-400/15 border border-gold-400/35 text-gold-300 text-[11px] sm:text-xs font-bold tracking-[0.2em] uppercase"
+                className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gold-400/20 border border-gold-400/40 text-gold-300 text-[11px] sm:text-xs font-bold tracking-[0.18em] uppercase shadow-md backdrop-blur-sm"
               >
                 <Award className="w-3.5 h-3.5 text-gold-400" />
                 <span>6x MDRT USA Award Winner · Sachin Pandit</span>
@@ -97,7 +135,7 @@ export default function HomePage() {
               {/* Main Fluid Heading */}
               <motion.h1
                 variants={fadeUp}
-                className="font-serif fluid-h1 font-bold text-white tracking-tight leading-tight"
+                className="font-serif fluid-h1 font-bold text-white tracking-tight leading-tight drop-shadow-md"
               >
                 Smart Wealth Planning &amp; Assured Protection for{" "}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-300 via-gold-400 to-amber-200">
@@ -108,7 +146,7 @@ export default function HomePage() {
               {/* Subhead Tagline */}
               <motion.p
                 variants={fadeUp}
-                className="fluid-body text-gray-200 font-medium max-w-2xl"
+                className="fluid-body text-gray-200 font-medium max-w-2xl drop-shadow-sm"
               >
                 &ldquo;Secure Today. Assured Tomorrow.&rdquo; Trusted by over 1,500+ families &amp;
                 business owners across Mumbai for 16+ years in LIC life insurance, Star Health,
@@ -118,16 +156,16 @@ export default function HomePage() {
               {/* CTAs */}
               <motion.div
                 variants={fadeUp}
-                className="flex flex-col sm:flex-row items-center gap-4 pt-2 w-full sm:w-auto"
+                className="flex flex-col sm:flex-row items-center gap-4 pt-1 w-full sm:w-auto"
               >
                 <PrimaryButton
                   href="/contact"
                   size="lg"
                   variant="gold"
                   icon={<ArrowRight className="w-4 h-4" />}
-                  className="w-full sm:w-auto"
+                  className="w-full sm:w-auto shadow-lg"
                 >
-                  Get Free Financial Consultation
+                  Get Free Consultation
                 </PrimaryButton>
 
                 <SecondaryButton
@@ -136,62 +174,72 @@ export default function HomePage() {
                   size="lg"
                   variant="white"
                   icon={<MessageCircle className="w-4 h-4 text-emerald-400" />}
-                  className="w-full sm:w-auto"
+                  className="w-full sm:w-auto shadow-md"
                 >
                   WhatsApp Us Direct
                 </SecondaryButton>
               </motion.div>
 
-              {/* Trust Indicators */}
+              {/* Founders Trust Card & Trust Indicators */}
               <motion.div
                 variants={fadeUp}
-                className="flex flex-wrap items-center justify-center lg:justify-start gap-4 sm:gap-6 pt-3 text-xs text-gray-300"
+                className="pt-2 flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto"
               >
-                <span className="flex items-center gap-1.5 font-medium">
-                  <CheckCircle2 className="w-4 h-4 text-gold-400" /> 1,500+ Active Clients
-                </span>
-                <span>•</span>
-                <span className="flex items-center gap-1.5 font-medium">
-                  <BadgeCheck className="w-4 h-4 text-gold-400" /> LIC &amp; NJ Wealth Authorized
-                </span>
-                <span>•</span>
-                <span className="flex items-center gap-1.5 font-medium">
-                  <Shield className="w-4 h-4 text-gold-400" /> Kurla West Office
-                </span>
-              </motion.div>
-            </motion.div>
-
-            {/* Right Side: Portrait Composition (5 cols) */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.92, y: 25 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              transition={{ delay: 0.25, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-              className="lg:col-span-5 flex justify-center relative"
-            >
-              <div className="relative w-full max-w-[340px] sm:max-w-[400px] aspect-[4/5] rounded-3xl overflow-hidden p-2.5 bg-gradient-to-tr from-gold-400/40 via-forest-800/40 to-gold-400/20 shadow-2xl shadow-forest-950/80 border border-white/20">
-                <div className="relative w-full h-full rounded-2xl overflow-hidden bg-forest-950">
-                  <Image
-                    src="/images/founders-portrait.png"
-                    alt="Sachin Pandit & Rakhi Pandit - SP Financial Services"
-                    fill
-                    className="object-cover object-top"
-                    sizes="(max-width: 768px) 100vw, 400px"
-                    priority
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-forest-950 via-transparent to-transparent opacity-85" />
-
-                  {/* Floating Founder Badge */}
-                  <div className="absolute bottom-4 left-4 right-4 p-3.5 rounded-xl bg-forest-950/90 backdrop-blur-md border border-gold-400/30 text-center shadow-lg">
-                    <p className="font-serif text-sm sm:text-base font-bold text-white tracking-wide">
-                      Sachin Pandit &amp; Rakhi Pandit
+                {/* Mini Founders Badge */}
+                <div className="flex items-center gap-3 p-2.5 pr-4 rounded-2xl bg-forest-900/80 border border-forest-700/80 backdrop-blur-md shadow-md">
+                  <div className="relative w-12 h-12 rounded-xl overflow-hidden border border-gold-400/50 flex-shrink-0 bg-forest-950">
+                    <Image
+                      src="/images/founders-portrait.png"
+                      alt="Sachin & Rakhi Pandit"
+                      fill
+                      className="object-cover object-top"
+                    />
+                  </div>
+                  <div className="text-left">
+                    <p className="text-xs font-bold text-white font-serif">
+                      Sachin &amp; Rakhi Pandit
                     </p>
-                    <p className="text-[11px] text-gold-300 font-semibold tracking-wider uppercase mt-0.5">
-                      MDRT USA Award Winner · 16+ Years Advisory
+                    <p className="text-[10px] text-gold-300 font-semibold uppercase tracking-wider">
+                      MDRT USA · 16+ Yrs Advisory
                     </p>
                   </div>
                 </div>
-              </div>
+
+                <div className="flex items-center gap-3 text-xs text-gray-300 font-medium">
+                  <span className="flex items-center gap-1">
+                    <CheckCircle2 className="w-4 h-4 text-gold-400" /> 1,500+ Clients
+                  </span>
+                  <span>•</span>
+                  <span className="flex items-center gap-1">
+                    <BadgeCheck className="w-4 h-4 text-gold-400" /> Kurla (W) Office
+                  </span>
+                </div>
+              </motion.div>
             </motion.div>
+
+            {/* Right Column: Centerpiece Compact Interactive Calculator (5 cols) */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.94, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              transition={{ delay: 0.25, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+              className="lg:col-span-5 flex justify-center lg:justify-end"
+            >
+              <CompactHeroCalculator />
+            </motion.div>
+          </div>
+
+          {/* Background image indicator dots */}
+          <div className="flex justify-center items-center gap-2 pt-10">
+            {HERO_BG_IMAGES.map((_, idx) => (
+              <button
+                key={idx}
+                onClick={() => setBgImageIdx(idx)}
+                className={`h-1.5 rounded-full transition-all duration-300 ${
+                  bgImageIdx === idx ? "w-6 bg-gold-400" : "w-1.5 bg-white/30 hover:bg-white/60"
+                }`}
+                aria-label={`Background Slide ${idx + 1}`}
+              />
+            ))}
           </div>
         </div>
       </section>
@@ -199,7 +247,7 @@ export default function HomePage() {
       {/* =========================================================================
           2. TRUST STATS STRIP
          ========================================================================= */}
-      <section className="bg-forest-950 text-white py-8 border-y border-gold-400/20 shadow-xl">
+      <section className="bg-forest-950 text-white py-8 border-y border-gold-400/20 shadow-xl relative z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
             {BUSINESS_INFO.stats.map((stat, idx) => {
@@ -235,12 +283,7 @@ export default function HomePage() {
       </section>
 
       {/* =========================================================================
-          3. CORE CENTERPIECE FEATURE: CALCULATOR SWITCHER (SIP / Home Loan / Loan)
-         ========================================================================= */}
-      <CalculatorSwitcher id="calculator-section" defaultTab="sip" />
-
-      {/* =========================================================================
-          4. SERVICES GRID (Insurance, Mutual Funds & Loans)
+          3. SERVICES GRID
          ========================================================================= */}
       <SectionWrapper className="bg-white border-y border-cream-300/80">
         <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
@@ -257,7 +300,6 @@ export default function HomePage() {
           </p>
         </div>
 
-        {/* 6 Modern Service Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {[
             {
@@ -370,7 +412,7 @@ export default function HomePage() {
       </SectionWrapper>
 
       {/* =========================================================================
-          5. WHY CHOOSE US (MDRT Credibility + Video Player)
+          4. WHY CHOOSE US (MDRT Credibility + Video Player)
          ========================================================================= */}
       <SectionWrapper className="bg-cream-100 organic-texture">
         <div className="text-center max-w-3xl mx-auto mb-12">
@@ -442,7 +484,7 @@ export default function HomePage() {
       </SectionWrapper>
 
       {/* =========================================================================
-          6. TESTIMONIAL TEASER (Verified Client Carousel)
+          5. TESTIMONIAL TEASER
          ========================================================================= */}
       <SectionWrapper className="bg-white border-y border-cream-300/80">
         <div className="text-center max-w-3xl mx-auto mb-10 md:mb-12">
@@ -468,7 +510,6 @@ export default function HomePage() {
                 transition={{ duration: 0.35 }}
                 className="space-y-6"
               >
-                {/* 5-Star Rating */}
                 <div className="flex items-center gap-1 text-gold-500">
                   {[...Array(5)].map((_, i) => (
                     <Star key={i} className="w-4 h-4 fill-gold-400 text-gold-400" />
@@ -500,7 +541,6 @@ export default function HomePage() {
               </motion.div>
             </AnimatePresence>
 
-            {/* Controls */}
             <div className="flex items-center justify-between pt-6 mt-4">
               <div className="flex items-center gap-1.5">
                 {TESTIMONIALS_DATA.map((_, idx) => (
@@ -539,7 +579,7 @@ export default function HomePage() {
       </SectionWrapper>
 
       {/* =========================================================================
-          7. SEO CONTENT BLOCK (Local Business & Keywords for Ranking)
+          6. SEO CONTENT BLOCK
          ========================================================================= */}
       <section className="bg-cream-50 py-12 border-b border-cream-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -574,7 +614,7 @@ export default function HomePage() {
       </section>
 
       {/* =========================================================================
-          8. FINAL CTA BAND
+          7. FINAL CTA BAND
          ========================================================================= */}
       <section className="bg-gradient-to-r from-forest-950 via-forest-900 to-navy-950 text-white py-16 sm:py-20 text-center relative overflow-hidden border-t border-gold-400/20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
