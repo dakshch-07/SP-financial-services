@@ -36,23 +36,23 @@ export default function AboutPage() {
       {/* Founder Profile */}
       <SectionWrapper className="bg-cream-100 organic-texture">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
-          {/* Founder Photo */}
+          {/* Founders High-Resolution Portrait */}
           <div className="lg:col-span-5 flex justify-center">
-            <div className="relative w-full max-w-sm sm:max-w-md aspect-[4/5] rounded-3xl overflow-hidden p-2.5 bg-gradient-to-br from-gold-400 via-cream-200 to-forest-900 shadow-2xl">
+            <div className="relative w-full max-w-sm sm:max-w-md aspect-square rounded-3xl overflow-hidden p-2.5 bg-gradient-to-br from-gold-400 via-cream-200 to-forest-900 shadow-2xl">
               <div className="relative w-full h-full rounded-2xl overflow-hidden bg-forest-950">
                 <Image
-                  src="/images/sachin-pandit.png"
-                  alt="Sachin Pandit - Founder, SP Financial Services"
+                  src="/images/founders-portrait.png"
+                  alt="Sachin Pandit & Rakhi Pandit - Founders, SP Financial Services"
                   fill
                   className="object-cover object-top"
-                  sizes="(max-width: 768px) 100vw, 400px"
+                  sizes="(max-width: 768px) 100vw, 500px"
                   priority
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-forest-950/90 via-transparent to-transparent" />
-                <div className="absolute bottom-4 left-4 right-4 text-center p-3 rounded-xl bg-forest-950/90 backdrop-blur-sm border border-gold-400/30">
-                  <h3 className="font-serif text-lg font-bold text-white">Sachin Pandit</h3>
+                <div className="absolute bottom-4 left-4 right-4 text-center p-3 rounded-xl bg-forest-950/95 backdrop-blur-sm border border-gold-400/40 shadow-lg">
+                  <h3 className="font-serif text-lg font-bold text-white">Sachin Pandit &amp; Rakhi Pandit</h3>
                   <p className="text-[11px] text-gold-300 font-semibold tracking-wider uppercase mt-0.5">
-                    Founder &amp; MDRT USA Financial Advisor
+                    Founders · MDRT USA &amp; Wealth Advisors
                   </p>
                 </div>
               </div>

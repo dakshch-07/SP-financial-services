@@ -186,21 +186,22 @@ export default function HomePage() {
                 className="pt-2 flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto"
               >
                 {/* Mini Founders Badge */}
-                <div className="flex items-center gap-3 p-2.5 pr-4 rounded-2xl bg-forest-900/80 border border-forest-700/80 backdrop-blur-md shadow-md">
-                  <div className="relative w-12 h-12 rounded-xl overflow-hidden border border-gold-400/50 flex-shrink-0 bg-forest-950">
+                <div className="flex items-center gap-3.5 p-3 pr-5 rounded-2xl bg-forest-900/90 border border-forest-700/90 backdrop-blur-md shadow-lg">
+                  <div className="relative w-14 h-14 rounded-xl overflow-hidden border-2 border-gold-400 flex-shrink-0 bg-forest-950 shadow-md">
                     <Image
                       src="/images/founders-portrait.png"
-                      alt="Sachin & Rakhi Pandit"
+                      alt="Sachin & Rakhi Pandit - SP Financial Services"
                       fill
+                      priority
                       className="object-cover object-top"
                     />
                   </div>
                   <div className="text-left">
-                    <p className="text-xs font-bold text-white font-serif">
+                    <p className="text-sm font-bold text-white font-serif">
                       Sachin &amp; Rakhi Pandit
                     </p>
-                    <p className="text-[10px] text-gold-300 font-semibold uppercase tracking-wider">
-                      MDRT USA · 16+ Yrs Advisory
+                    <p className="text-[10px] text-gold-300 font-bold uppercase tracking-wider">
+                      MDRT USA · 16+ Yrs Trust
                     </p>
                   </div>
                 </div>
@@ -281,6 +282,88 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* =========================================================================
+          2.5. FOUNDERS SPOTLIGHT SECTION (High Clarity on Mobile & Laptop)
+         ========================================================================= */}
+      <SectionWrapper className="bg-cream-100 organic-texture border-b border-cream-300">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+          {/* High-Resolution Portrait Card (5 cols) */}
+          <div className="lg:col-span-5 flex justify-center">
+            <div className="relative w-full max-w-sm sm:max-w-md aspect-square rounded-3xl overflow-hidden p-2.5 bg-gradient-to-br from-gold-400 via-cream-200 to-forest-900 shadow-2xl">
+              <div className="relative w-full h-full rounded-2xl overflow-hidden bg-forest-950">
+                <Image
+                  src="/images/founders-portrait.png"
+                  alt="Sachin Pandit & Rakhi Pandit - Owners of SP Financial Services"
+                  fill
+                  priority
+                  className="object-cover object-top"
+                  sizes="(max-width: 768px) 100vw, 500px"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-forest-950/85 via-transparent to-transparent" />
+                <div className="absolute bottom-4 left-4 right-4 text-center p-3 rounded-xl bg-forest-950/95 backdrop-blur-sm border border-gold-400/40 shadow-lg">
+                  <h3 className="font-serif text-lg sm:text-xl font-bold text-white">
+                    Sachin Pandit &amp; Rakhi Pandit
+                  </h3>
+                  <p className="text-[11px] text-gold-300 font-bold tracking-wider uppercase mt-0.5">
+                    Owners &amp; Wealth Advisors · Kurla, Mumbai
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Founders Story & Credentials (7 cols) */}
+          <div className="lg:col-span-7 space-y-5">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-forest-900/10 border border-forest-900/20 text-forest-800 text-xs font-bold uppercase tracking-widest">
+              <Award className="w-3.5 h-3.5 text-gold-500" /> Leadership &amp; Trust
+            </div>
+
+            <h2 className="font-serif fluid-h2 font-bold text-forest-900 leading-tight">
+              Meet the Pillars Behind SP Financial Services
+            </h2>
+
+            <p className="text-xs sm:text-sm md:text-base text-gray-700 leading-relaxed font-medium">
+              Founded and managed by <strong>Sachin Pandit</strong> (6x MDRT USA Award Winner) and{" "}
+              <strong>Rakhi Pandit</strong>, SP Financial Services has been the trusted financial
+              partner for over 1,500+ families and business owners across Mumbai and India for more than
+              16 years.
+            </p>
+
+            {/* Value Highlights */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+              <div className="p-3.5 rounded-xl bg-white border border-cream-300 shadow-sm flex items-start gap-3">
+                <div className="p-2 rounded-lg bg-forest-900 text-gold-400 flex-shrink-0">
+                  <Trophy className="w-4 h-4" />
+                </div>
+                <div>
+                  <h4 className="font-serif font-bold text-sm text-forest-900">MDRT USA Certified</h4>
+                  <p className="text-[11px] text-gray-600">Top 1% global financial advisory standards.</p>
+                </div>
+              </div>
+
+              <div className="p-3.5 rounded-xl bg-white border border-cream-300 shadow-sm flex items-start gap-3">
+                <div className="p-2 rounded-lg bg-forest-900 text-gold-400 flex-shrink-0">
+                  <Shield className="w-4 h-4" />
+                </div>
+                <div>
+                  <h4 className="font-serif font-bold text-sm text-forest-900">LIC &amp; NJ Wealth Partner</h4>
+                  <p className="text-[11px] text-gray-600">Authorized life &amp; mutual fund portfolio advisory.</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="flex flex-wrap items-center gap-3 pt-2">
+              <PrimaryButton href="/about" size="md" variant="gold" icon={<ArrowRight className="w-4 h-4" />}>
+                Read Founders Full Story
+              </PrimaryButton>
+              <SecondaryButton href="/contact" size="md" variant="white">
+                Book Consultation with Sachin Pandit
+              </SecondaryButton>
+            </div>
+          </div>
+        </div>
+      </SectionWrapper>
 
       {/* =========================================================================
           3. SERVICES GRID
