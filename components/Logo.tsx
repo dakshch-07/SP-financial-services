@@ -12,7 +12,7 @@ interface LogoProps {
 
 export const LogoMark: React.FC<{ className?: string; size?: number }> = ({
   className = "",
-  size = 42,
+  size = 40,
 }) => {
   return (
     <svg
@@ -21,7 +21,7 @@ export const LogoMark: React.FC<{ className?: string; size?: number }> = ({
       viewBox="0 0 100 100"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className={`transition-transform duration-200 group-hover:scale-105 ${className}`}
+      className={`transition-transform duration-200 group-hover:scale-105 flex-shrink-0 ${className}`}
     >
       {/* Outer Classic Gold Circular Ring */}
       <circle
@@ -30,18 +30,18 @@ export const LogoMark: React.FC<{ className?: string; size?: number }> = ({
         r="46"
         fill="#08201D"
         stroke="#D4AF37"
-        strokeWidth="3"
+        strokeWidth="3.5"
       />
 
       {/* Inner Subtle Ring */}
       <circle
         cx="50"
         cy="50"
-        r="40"
+        r="39"
         fill="#0C2D27"
         stroke="#D4AF37"
-        strokeWidth="1"
-        strokeOpacity="0.5"
+        strokeWidth="1.2"
+        strokeOpacity="0.6"
       />
 
       {/* Clean, Simple, Classic Serif Monogram SP */}
@@ -59,7 +59,7 @@ export const LogoMark: React.FC<{ className?: string; size?: number }> = ({
       </text>
 
       {/* Small Classic Gold Star Accent at Top */}
-      <circle cx="50" cy="19" r="2" fill="#D4AF37" />
+      <circle cx="50" cy="18" r="2.2" fill="#D4AF37" />
     </svg>
   );
 };
@@ -73,9 +73,9 @@ export const Logo: React.FC<LogoProps> = ({
   const isLight = variant === "light";
 
   const sizeDimensions = {
-    sm: 36,
-    md: 42,
-    lg: 52,
+    sm: 34,
+    md: 40,
+    lg: 48,
   }[size];
 
   return (
@@ -83,17 +83,15 @@ export const Logo: React.FC<LogoProps> = ({
       <LogoMark size={sizeDimensions} />
 
       {withWordmark && (
-        <div className="flex flex-col">
-          <div className="flex items-center gap-1.5">
-            <span
-              className={`font-serif font-bold tracking-wider leading-none text-base sm:text-lg md:text-xl ${
-                isLight ? "text-white" : "text-forest-900"
-              }`}
-            >
-              SP FINANCIAL
-            </span>
-          </div>
-          <span className="text-[9px] sm:text-[10px] tracking-[0.25em] text-gold-400 font-bold uppercase mt-1">
+        <div className="flex flex-col justify-center">
+          <span
+            className={`font-serif font-bold tracking-wider leading-none text-base sm:text-lg md:text-[1.15rem] ${
+              isLight ? "text-white" : "text-forest-900"
+            }`}
+          >
+            SP FINANCIAL
+          </span>
+          <span className="text-[8.5px] sm:text-[9.5px] tracking-[0.24em] text-gold-400 font-bold uppercase mt-1 leading-none">
             SERVICES · WEALTH ADVISORY
           </span>
         </div>

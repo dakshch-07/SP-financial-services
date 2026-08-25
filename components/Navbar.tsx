@@ -4,9 +4,8 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Phone, MessageCircle, ArrowRight, Calculator } from "lucide-react";
+import { Menu, X, Phone, MessageCircle, ArrowRight } from "lucide-react";
 import { Logo } from "./Logo";
-import { PrimaryButton } from "./Buttons";
 import { BUSINESS_INFO } from "@/lib/data";
 
 const NAV_LINKS = [
@@ -26,7 +25,7 @@ export const Navbar: React.FC = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 40) {
+      if (window.scrollY > 30) {
         setIsScrolled(true);
       } else {
         setIsScrolled(false);
@@ -46,33 +45,35 @@ export const Navbar: React.FC = () => {
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled
-            ? "bg-forest-950/95 backdrop-blur-md py-3 shadow-lg shadow-black/15 border-b border-forest-800/80"
-            : "bg-gradient-to-b from-forest-950/90 via-forest-950/40 to-transparent py-4 sm:py-5"
+            ? "bg-forest-950/95 backdrop-blur-md py-3 shadow-lg shadow-black/20 border-b border-forest-800/80"
+            : "bg-gradient-to-b from-forest-950/95 via-forest-950/60 to-transparent py-4 sm:py-5"
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between">
-            {/* SP Monogram & Wordmark Logo */}
-            <Logo variant="light" size="md" />
+          <div className="flex items-center justify-between h-12 sm:h-14">
+            {/* 1. Left: SP Logo */}
+            <div className="flex items-center">
+              <Logo variant="light" size="md" />
+            </div>
 
-            {/* Desktop Navigation Links */}
-            <nav className="hidden xl:flex items-center gap-7">
+            {/* 2. Center: Desktop Navigation Links (Strictly Aligned & Spaced) */}
+            <nav className="hidden xl:flex items-center justify-center gap-7 lg:gap-8">
               {NAV_LINKS.map((link) => {
                 const isActive = pathname === link.href;
                 return (
                   <Link
                     key={link.name}
                     href={link.href}
-                    className={`relative text-xs uppercase tracking-[0.18em] font-bold transition-colors duration-200 py-1 ${
+                    className={`relative text-xs uppercase tracking-[0.16em] font-bold py-1.5 transition-colors duration-200 flex items-center justify-center ${
                       isActive ? "text-gold-400" : "text-gray-200 hover:text-gold-300"
                     }`}
                   >
-                    {link.name}
+                    <span>{link.name}</span>
                     {isActive && (
                       <motion.div
                         layoutId="navUnderline"
                         className="absolute bottom-0 left-0 right-0 h-[2px] bg-gold-400 rounded-full"
-                        transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                        transition={{ type: "spring", stiffness: 400, damping: 30 }}
                       />
                     )}
                   </Link>
@@ -80,52 +81,44 @@ export const Navbar: React.FC = () => {
               })}
             </nav>
 
-            {/* CTA Buttons (Desktop) */}
+            {/* 3. Right: Action Buttons (Equal Height & Vertically Centered) */}
             <div className="hidden md:flex items-center gap-3">
               <a
                 href={BUSINESS_INFO.contact.whatsapp}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="WhatsApp Us"
-                className="p-2.5 rounded-full bg-forest-800 text-emerald-300 hover:bg-forest-700 hover:text-white border border-forest-700 transition-all"
+                className="w-10 h-10 rounded-full bg-emerald-800/80 hover:bg-emerald-700 text-white flex items-center justify-center border border-emerald-500/30 transition-all shadow-sm"
               >
                 <MessageCircle className="w-4 h-4" />
               </a>
 
-              <PrimaryButton
+              <Link
                 href="/contact"
-                size="sm"
-                variant="gold"
-                icon={<ArrowRight className="w-3.5 h-3.5" />}
+                className="h-10 px-5 rounded-full bg-gradient-to-r from-[#DFBE5B] via-[#D4AF37] to-[#C5A03A] text-forest-950 text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-1.5 shadow-gold hover:brightness-105 active:scale-[0.98] transition-all"
               >
-                Free Consultation
-              </PrimaryButton>
+                <span>Free Consultation</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </Link>
             </div>
 
-            {/* Mobile Actions & Hamburger */}
-            <div className="flex items-center gap-2 xl:hidden">
+            {/* Mobile Hamburger Controls */}
+            <div className="flex items-center gap-2.5 xl:hidden">
               <a
                 href={BUSINESS_INFO.contact.whatsapp}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2 text-emerald-400 hover:text-white transition-colors"
+                className="w-9 h-9 rounded-full bg-emerald-800/80 flex items-center justify-center text-white border border-emerald-500/30"
                 aria-label="WhatsApp"
               >
-                <MessageCircle className="w-5 h-5" />
-              </a>
-              <a
-                href={`tel:${BUSINESS_INFO.contact.primaryPhone}`}
-                className="p-2 text-gold-400 hover:text-white transition-colors"
-                aria-label="Call Sachin Pandit"
-              >
-                <Phone className="w-5 h-5" />
+                <MessageCircle className="w-4 h-4" />
               </a>
               <button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="p-2 text-white hover:text-gold-400 transition-colors focus:outline-none"
+                className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-white hover:text-gold-400 transition-colors focus:outline-none"
                 aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
               >
-                {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+                {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
               </button>
             </div>
           </div>
@@ -170,15 +163,14 @@ export const Navbar: React.FC = () => {
             </div>
 
             <div className="pt-6 border-t border-forest-800 space-y-4">
-              <PrimaryButton
+              <Link
                 href="/contact"
-                size="md"
-                variant="gold"
-                className="w-full text-center"
                 onClick={() => setIsMobileMenuOpen(false)}
+                className="w-full py-3.5 px-4 rounded-full bg-gradient-to-r from-[#DFBE5B] via-[#D4AF37] to-[#C5A03A] text-forest-950 text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-1.5 shadow-gold text-center block"
               >
-                Get Free Consultation
-              </PrimaryButton>
+                <span>Get Free Consultation</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </Link>
 
               <div className="grid grid-cols-2 gap-3 pt-1">
                 <a
