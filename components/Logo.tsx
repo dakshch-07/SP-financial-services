@@ -12,7 +12,7 @@ interface LogoProps {
 
 export const LogoMark: React.FC<{ className?: string; size?: number }> = ({
   className = "",
-  size = 40,
+  size = 42,
 }) => {
   return (
     <svg
@@ -21,45 +21,107 @@ export const LogoMark: React.FC<{ className?: string; size?: number }> = ({
       viewBox="0 0 100 100"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className={`transition-transform duration-200 group-hover:scale-105 flex-shrink-0 ${className}`}
+      className={`transition-transform duration-300 group-hover:scale-105 flex-shrink-0 ${className}`}
     >
-      {/* Outer Classic Gold Circular Ring */}
+      <defs>
+        {/* Luxury Gold Gradient */}
+        <linearGradient id="spGoldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#F3E7BE" />
+          <stop offset="35%" stopColor="#D4AF37" />
+          <stop offset="70%" stopColor="#E5C365" />
+          <stop offset="100%" stopColor="#B38F24" />
+        </linearGradient>
+
+        {/* Growth Emerald Leaf Gradient */}
+        <linearGradient id="spLeafGrad" x1="0%" y1="100%" x2="50%" y2="0%">
+          <stop offset="0%" stopColor="#059669" />
+          <stop offset="50%" stopColor="#10B981" />
+          <stop offset="100%" stopColor="#34D399" />
+        </linearGradient>
+
+        {/* Background Dark Radial Gradient */}
+        <radialGradient id="spBgGrad" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stopColor="#0E3630" />
+          <stop offset="100%" stopColor="#061B18" />
+        </radialGradient>
+      </defs>
+
+      {/* Outer Premium Circular Seal */}
       <circle
         cx="50"
         cy="50"
         r="46"
-        fill="#08201D"
-        stroke="#D4AF37"
-        strokeWidth="3.5"
+        fill="url(#spBgGrad)"
+        stroke="url(#spGoldGrad)"
+        strokeWidth="2.8"
       />
 
-      {/* Inner Subtle Ring */}
+      {/* Inner Elegant Thin Accent Ring */}
       <circle
         cx="50"
         cy="50"
-        r="39"
-        fill="#0C2D27"
-        stroke="#D4AF37"
-        strokeWidth="1.2"
-        strokeOpacity="0.6"
+        r="41.5"
+        stroke="url(#spGoldGrad)"
+        strokeWidth="0.8"
+        strokeOpacity="0.45"
       />
 
-      {/* Clean, Simple, Classic Serif Monogram SP */}
-      <text
-        x="50"
-        y="58"
-        textAnchor="middle"
-        fontFamily="Playfair Display, Georgia, serif"
-        fontWeight="bold"
-        fontSize="28"
-        fill="#FFFFFF"
-        letterSpacing="1"
-      >
-        SP
-      </text>
+      {/* --- CENTRAL GROWTH STEM & SHOOT --- */}
+      {/* Central Rising Stem */}
+      <path
+        d="M 50 75 L 50 40"
+        stroke="url(#spGoldGrad)"
+        strokeWidth="2.5"
+        strokeLinecap="round"
+      />
 
-      {/* Small Classic Gold Star Accent at Top */}
-      <circle cx="50" cy="18" r="2.2" fill="#D4AF37" />
+      {/* Upward Growing Green Sprout / Leaf (Life & Health Protection) */}
+      <path
+        d="M 50 40 C 42 34 40 22 49 16 C 53 23 53 32 50 40 Z"
+        fill="url(#spLeafGrad)"
+        stroke="#10B981"
+        strokeWidth="0.5"
+      />
+      {/* Secondary Mini Sprout Leaf */}
+      <path
+        d="M 46 36 C 39 34 38 27 44 24 C 47 28 47 33 46 36 Z"
+        fill="url(#spLeafGrad)"
+        opacity="0.9"
+      />
+
+      {/* Rising Growth Wealth Arrow (Ascending Capital & Wealth Expansion) */}
+      <path
+        d="M 50 40 Q 55 33 63 21"
+        stroke="url(#spGoldGrad)"
+        strokeWidth="2.4"
+        strokeLinecap="round"
+      />
+      {/* Arrow Head */}
+      <path
+        d="M 58 19 L 66 20 L 64 28 Z"
+        fill="url(#spGoldGrad)"
+      />
+
+      {/* --- MONOGRAM LETTERS: S & P --- */}
+      {/* Letter 'S' on the Left */}
+      <path
+        d="M 43 49 C 41 46 35 45 30 47 C 25.5 48.8 24 53 26 56.5 C 28 60 37 60.5 39 64 C 41 67.5 38 72 31 72 C 26 72 22 69 21 66"
+        stroke="url(#spGoldGrad)"
+        strokeWidth="2.8"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        fill="none"
+      />
+
+      {/* Letter 'P' on the Right (Connecting to the Central Upward Stem) */}
+      <path
+        d="M 50 48 L 63 48 C 70 48 74 52 74 57 C 74 62 70 66 63 66 L 50 66"
+        stroke="url(#spGoldGrad)"
+        strokeWidth="2.8"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        fill="none"
+      />
     </svg>
   );
 };
@@ -73,9 +135,9 @@ export const Logo: React.FC<LogoProps> = ({
   const isLight = variant === "light";
 
   const sizeDimensions = {
-    sm: 34,
-    md: 40,
-    lg: 48,
+    sm: 36,
+    md: 42,
+    lg: 50,
   }[size];
 
   return (
@@ -91,7 +153,7 @@ export const Logo: React.FC<LogoProps> = ({
           >
             SP FINANCIAL
           </span>
-          <span className="text-[8.5px] sm:text-[9.5px] tracking-[0.24em] text-gold-400 font-bold uppercase mt-1 leading-none">
+          <span className="text-[8px] sm:text-[9.5px] tracking-[0.24em] text-gold-400 font-bold uppercase mt-1 leading-none">
             SERVICES · WEALTH ADVISORY
           </span>
         </div>

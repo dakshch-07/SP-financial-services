@@ -8,7 +8,7 @@ export const Preloader: React.FC = () => {
   const shouldReduceMotion = useReducedMotion();
 
   useEffect(() => {
-    const hasSeenPreloader = sessionStorage.getItem("sp_preloader_seen_v4");
+    const hasSeenPreloader = sessionStorage.getItem("sp_preloader_seen_v5");
     if (hasSeenPreloader || shouldReduceMotion) {
       setIsLoading(false);
       return;
@@ -16,15 +16,15 @@ export const Preloader: React.FC = () => {
 
     const timer = setTimeout(() => {
       setIsLoading(false);
-      sessionStorage.setItem("sp_preloader_seen_v4", "true");
-    }, 1600);
+      sessionStorage.setItem("sp_preloader_seen_v5", "true");
+    }, 1500);
 
     return () => clearTimeout(timer);
   }, [shouldReduceMotion]);
 
   const handleSkip = () => {
     setIsLoading(false);
-    sessionStorage.setItem("sp_preloader_seen_v4", "true");
+    sessionStorage.setItem("sp_preloader_seen_v5", "true");
   };
 
   return (
@@ -42,7 +42,7 @@ export const Preloader: React.FC = () => {
           aria-label="SP Financial Services loading - Click to skip"
         >
           <div className="relative flex flex-col items-center max-w-md px-6 text-center">
-            {/* Simple Classic Gold Seal */}
+            {/* Modern Growth Seal SVG */}
             <motion.div
               initial={{ scale: 0.85, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
@@ -53,50 +53,94 @@ export const Preloader: React.FC = () => {
                 viewBox="0 0 100 100"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
-                className="w-full h-full drop-shadow-[0_4px_16px_rgba(212,175,55,0.35)]"
+                className="w-full h-full drop-shadow-[0_4px_20px_rgba(212,175,55,0.4)]"
               >
+                <defs>
+                  <linearGradient id="spPreGold" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="#F3E7BE" />
+                    <stop offset="50%" stopColor="#D4AF37" />
+                    <stop offset="100%" stopColor="#B38F24" />
+                  </linearGradient>
+                  <linearGradient id="spPreLeaf" x1="0%" y1="100%" x2="50%" y2="0%">
+                    <stop offset="0%" stopColor="#059669" />
+                    <stop offset="100%" stopColor="#34D399" />
+                  </linearGradient>
+                </defs>
+
                 {/* Outer Ring */}
                 <motion.circle
                   cx="50"
                   cy="50"
                   r="46"
                   fill="#08201D"
-                  stroke="#D4AF37"
+                  stroke="url(#spPreGold)"
                   strokeWidth="3"
                   initial={{ pathLength: 0 }}
                   animate={{ pathLength: 1 }}
                   transition={{ duration: 0.8, ease: "easeInOut" }}
                 />
 
-                {/* Inner Ring */}
-                <motion.circle
-                  cx="50"
-                  cy="50"
-                  r="40"
-                  fill="#0C2D27"
-                  stroke="#D4AF37"
-                  strokeWidth="1"
-                  strokeOpacity="0.5"
-                  initial={{ scale: 0.8, opacity: 0 }}
-                  animate={{ scale: 1, opacity: 1 }}
-                  transition={{ delay: 0.2, duration: 0.4 }}
+                {/* Central Stem */}
+                <motion.path
+                  d="M 50 75 L 50 40"
+                  stroke="url(#spPreGold)"
+                  strokeWidth="2.5"
+                  strokeLinecap="round"
+                  initial={{ pathLength: 0 }}
+                  animate={{ pathLength: 1 }}
+                  transition={{ delay: 0.3, duration: 0.4 }}
                 />
 
-                {/* Clean SP Monogram */}
-                <motion.text
-                  x="50"
-                  y="58"
-                  textAnchor="middle"
-                  fontFamily="Playfair Display, Georgia, serif"
-                  fontWeight="bold"
-                  fontSize="28"
-                  fill="#FFFFFF"
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
+                {/* Sprout Leaf */}
+                <motion.path
+                  d="M 50 40 C 42 34 40 22 49 16 C 53 23 53 32 50 40 Z"
+                  fill="url(#spPreLeaf)"
+                  initial={{ scale: 0, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  transition={{ delay: 0.5, duration: 0.4 }}
+                />
+
+                {/* Arrow */}
+                <motion.path
+                  d="M 50 40 Q 55 33 63 21"
+                  stroke="url(#spPreGold)"
+                  strokeWidth="2.4"
+                  strokeLinecap="round"
+                  initial={{ pathLength: 0 }}
+                  animate={{ pathLength: 1 }}
                   transition={{ delay: 0.4, duration: 0.4 }}
-                >
-                  SP
-                </motion.text>
+                />
+                <motion.path
+                  d="M 58 19 L 66 20 L 64 28 Z"
+                  fill="url(#spPreGold)"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.6, duration: 0.3 }}
+                />
+
+                {/* S & P */}
+                <motion.path
+                  d="M 43 49 C 41 46 35 45 30 47 C 25.5 48.8 24 53 26 56.5 C 28 60 37 60.5 39 64 C 41 67.5 38 72 31 72 C 26 72 22 69 21 66"
+                  stroke="url(#spPreGold)"
+                  strokeWidth="2.8"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  fill="none"
+                  initial={{ pathLength: 0 }}
+                  animate={{ pathLength: 1 }}
+                  transition={{ delay: 0.4, duration: 0.5 }}
+                />
+                <motion.path
+                  d="M 50 48 L 63 48 C 70 48 74 52 74 57 C 74 62 70 66 63 66 L 50 66"
+                  stroke="url(#spPreGold)"
+                  strokeWidth="2.8"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  fill="none"
+                  initial={{ pathLength: 0 }}
+                  animate={{ pathLength: 1 }}
+                  transition={{ delay: 0.4, duration: 0.5 }}
+                />
               </svg>
             </motion.div>
 
