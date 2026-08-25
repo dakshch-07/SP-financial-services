@@ -90,22 +90,22 @@ export const CompactHeroCalculator: React.FC<{ className?: string }> = ({ classN
 
   return (
     <div
-      className={`relative w-full max-w-[480px] bg-forest-950/95 backdrop-blur-xl rounded-3xl p-5 sm:p-6 shadow-2xl border border-gold-400/40 text-white flex flex-col justify-between ${className}`}
+      className={`relative w-full max-w-[480px] bg-forest-950/95 backdrop-blur-xl rounded-3xl p-4 sm:p-6 shadow-2xl border border-gold-400/40 text-white flex flex-col justify-between ${className}`}
     >
       {/* Header Pill Switcher */}
-      <div className="bg-forest-900/90 p-1.5 rounded-2xl border border-forest-800 mb-5">
+      <div className="bg-forest-900/90 p-1 sm:p-1.5 rounded-2xl border border-forest-800 mb-3 sm:mb-5">
         <div className="grid grid-cols-3 gap-1">
           {[
-            { id: "sip", label: "SIP Calc", icon: <TrendingUp className="w-3.5 h-3.5" /> },
-            { id: "homeloan", label: "Home Loan", icon: <Home className="w-3.5 h-3.5" /> },
-            { id: "loan", label: "Loan EMI", icon: <CreditCard className="w-3.5 h-3.5" /> },
+            { id: "sip", label: "SIP Calc", icon: <TrendingUp className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },
+            { id: "homeloan", label: "Home Loan", icon: <Home className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },
+            { id: "loan", label: "Loan EMI", icon: <CreditCard className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },
           ].map((tab) => {
             const isActive = activeTab === tab.id;
             return (
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id as CalculatorType)}
-                className={`relative flex items-center justify-center gap-1.5 py-2 px-2 rounded-xl text-[11px] sm:text-xs font-bold uppercase tracking-wider transition-all duration-300 select-none ${
+                className={`relative flex items-center justify-center gap-1 sm:gap-1.5 py-1.5 sm:py-2 px-1.5 sm:px-2 rounded-xl text-[10.5px] sm:text-xs font-bold uppercase tracking-wider transition-all duration-300 select-none ${
                   isActive ? "text-forest-950" : "text-gray-300 hover:text-white"
                 }`}
               >

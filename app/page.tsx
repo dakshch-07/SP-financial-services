@@ -95,7 +95,7 @@ export default function HomePage() {
               {/* Main Fluid Heading */}
               <motion.h1
                 variants={fadeUp}
-                className="font-serif fluid-h1 font-bold text-white tracking-tight leading-tight drop-shadow-md"
+                className="font-serif fluid-h1 font-bold text-white tracking-tight leading-tight drop-shadow-md text-center lg:text-left"
               >
                 Smart Wealth Planning &amp; Assured Protection for{" "}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-300 via-gold-400 to-amber-200">
@@ -103,20 +103,28 @@ export default function HomePage() {
                 </span>
               </motion.h1>
 
-              {/* Subhead Tagline */}
+              {/* Subhead Tagline (Desktop) */}
               <motion.p
                 variants={fadeUp}
-                className="fluid-body text-gray-200 font-medium max-w-2xl drop-shadow-sm"
+                className="fluid-body text-gray-200 font-medium max-w-2xl drop-shadow-sm text-center lg:text-left hidden sm:block"
               >
                 &ldquo;Secure Today. Assured Tomorrow.&rdquo; Trusted by over 1,500+ families &amp;
                 business owners across Mumbai for 16+ years in LIC life insurance, Star Health,
                 NJ Mutual Funds, SIPs, and loan advisory.
               </motion.p>
 
+              {/* Mobile First-Fold Interactive Calculator (Visible immediately on mobile open) */}
+              <motion.div
+                variants={fadeUp}
+                className="block lg:hidden w-full my-2"
+              >
+                <CompactHeroCalculator />
+              </motion.div>
+
               {/* CTAs */}
               <motion.div
                 variants={fadeUp}
-                className="flex flex-col sm:flex-row items-center gap-4 pt-1 w-full sm:w-auto"
+                className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3.5 pt-1 w-full sm:w-auto"
               >
                 <PrimaryButton
                   href="/contact"
@@ -143,7 +151,7 @@ export default function HomePage() {
               {/* Founders Trust Card & Trust Indicators */}
               <motion.div
                 variants={fadeUp}
-                className="pt-2 flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto"
+                className="pt-2 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 w-full sm:w-auto"
               >
                 {/* Mini Founders Badge */}
                 <div className="flex items-center gap-3.5 p-3 pr-5 rounded-2xl bg-forest-900/90 border border-forest-700/90 backdrop-blur-md shadow-lg">
@@ -178,12 +186,12 @@ export default function HomePage() {
               </motion.div>
             </motion.div>
 
-            {/* Right Column: Centerpiece Compact Interactive Calculator (5 cols) */}
+            {/* Right Column: Desktop Interactive Calculator (5 cols) */}
             <motion.div
               initial={{ opacity: 0, scale: 0.94, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               transition={{ delay: 0.25, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-              className="lg:col-span-5 flex justify-center lg:justify-end"
+              className="hidden lg:flex lg:col-span-5 justify-center lg:justify-end"
             >
               <CompactHeroCalculator />
             </motion.div>
