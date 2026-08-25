@@ -27,12 +27,12 @@ export default function AchievementsPage() {
 
   return (
     <>
-      {/* High-Contrast Page Hero with Background Image */}
+      {/* High-Contrast Page Hero with Real Provided Background Image */}
       <PageHero
         title="Awards & Milestones"
         subtitle="Our success is solely due to the trust our clients have placed in us."
         breadcrumb="Achievements"
-        bgImage="/images/hero-bg-1.jpg"
+        bgImage="/images/awards/award-2022.png"
       />
 
       {/* Headline Stat Band */}

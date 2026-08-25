@@ -40,9 +40,10 @@ import {
 } from "@/lib/data";
 
 const HERO_BG_IMAGES = [
-  "/images/hero-bg-1.jpg", // Financial District / Corporate Skyline
-  "/images/hero-bg-2.jpg", // Financial Advisory / Consultation Meeting
-  "/images/hero-bg-3.jpg", // Modern Investment Office / Wealth Growth
+  "/images/awards/award-2023.png", // Sachin & Rakhi Pandit on LIC Grand Convention Stage
+  "/images/founders-portrait.jpg", // Sachin & Rakhi Pandit Official High-Res Portrait
+  "/images/awards/award-2019.png", // Sachin & Rakhi Pandit Double Shatakveer Stage Moment
+  "/images/awards/award-2022.png", // Sachin Pandit MDRT / TOT Convention Stage
 ];
 
 export default function HomePage() {

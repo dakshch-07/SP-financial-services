@@ -43,12 +43,12 @@ export default function ContactPage() {
 
   return (
     <>
-      {/* High-Contrast Page Hero with Background Image */}
+      {/* High-Contrast Page Hero with Real Provided Background Image */}
       <PageHero
         title="Get in Touch"
         subtitle="A goal without a plan is just a wish — let's build yours together."
         breadcrumb="Contact Us"
-        bgImage="/images/hero-bg-1.jpg"
+        bgImage="/images/founders-portrait.jpg"
       />
 
       {/* Contact Details & Form */}
