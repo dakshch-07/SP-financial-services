@@ -246,7 +246,6 @@ export const AWARDS_TIMELINE = [
     organization: "Million Dollar Round Table (MDRT USA)",
     description: "Premier international association for financial professionals, representing the top tier of insurance and financial advisors worldwide.",
     highlight: true,
-    trophyImage: "/images/awards/trophy-mdrt.png",
   },
   {
     year: "Last 6 Years",
@@ -254,7 +253,6 @@ export const AWARDS_TIMELINE = [
     organization: "Life Insurance Corporation of India (LIC)",
     description: "Recognized consecutively for highest corporate business volume, exemplary ethical advisory, and client retention standards.",
     highlight: true,
-    trophyImage: "/images/awards/trophy-lic.png",
   },
   {
     year: "Last 3 Years",
@@ -283,45 +281,6 @@ export const AWARDS_TIMELINE = [
     organization: "LIC, NJ Wealth & Industry Councils",
     description: "Comprehensive array of awards honoring 16+ years of honest client-first advisory in Mumbai.",
     highlight: false,
-  },
-];
-
-export const AWARD_GALLERY_PHOTOS = [
-  {
-    year: "2018",
-    title: "LIC Shatakveer Felicitation Ceremony",
-    src: "/images/awards/award-2018.png",
-    description: "Sachin Pandit receiving the prestigious Shatakveer recognition from LIC leadership.",
-  },
-  {
-    year: "2019",
-    title: "Double Shatakveer Gala Celebration",
-    src: "/images/awards/award-2019.png",
-    description: "Sachin & Rakhi Pandit felicitated with the Double Shatakveer trophy at the grand Mumbai convention.",
-  },
-  {
-    year: "2020",
-    title: "Corporate Excellence Award Felicitation",
-    src: "/images/awards/award-2020.png",
-    description: "Recognized by LIC senior division executives for resilience and client commitment.",
-  },
-  {
-    year: "2021",
-    title: "MDRT Qualifiers Mumbai Division Meet",
-    src: "/images/awards/award-2021.png",
-    description: "Grand honors presented to Sachin Pandit at the MDRT Qualifiers Mumbai Division gathering.",
-  },
-  {
-    year: "2022",
-    title: "TOT / COT / MDRT Convention",
-    src: "/images/awards/award-2022.png",
-    description: "Sachin Pandit recognized at the prestigious TOT / COT / MDRT Convention, Mumbai Division-II.",
-  },
-  {
-    year: "2023",
-    title: "LIC Grand Convention Stage Honors",
-    src: "/images/awards/award-2023.png",
-    description: "Sachin & Rakhi Pandit honored on stage at the LIC Grand Annual Convention celebrating 6 consecutive years of MDRT excellence.",
   },
 ];
 

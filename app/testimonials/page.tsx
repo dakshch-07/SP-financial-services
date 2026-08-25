@@ -26,12 +26,11 @@ export default function TestimonialsPage() {
 
   return (
     <>
-      {/* High-Contrast Page Hero with Real Provided Background Image */}
+      {/* High-Contrast Luxury Page Hero */}
       <PageHero
         title="What Our Clients Say"
         subtitle="Real feedback from prominent film directors, corporate HR leaders, entrepreneurs, and families who trust SP Financial Services."
         breadcrumb="Testimonials"
-        bgImage="/images/awards/award-2019.png"
       />
 
       {/* Featured Video */}

@@ -25,12 +25,11 @@ import { BUSINESS_INFO, AWARDS_TIMELINE } from "@/lib/data";
 export default function AboutPage() {
   return (
     <>
-      {/* High-Contrast Page Hero with Real Provided Background Image */}
+      {/* High-Contrast Luxury Page Hero */}
       <PageHero
         title="About SP Financial Services"
         subtitle="Over 16 years of disciplined wealth management, MDRT USA-certified standards, and unwavering commitment to 1,500+ clients across Mumbai."
         breadcrumb="About Us"
-        bgImage="/images/awards/award-2023.png"
       />
 
       {/* Founder Profile */}

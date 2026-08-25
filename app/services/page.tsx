@@ -45,12 +45,11 @@ export default function ServicesPage() {
 
   return (
     <>
-      {/* High-Contrast Page Hero with Real Provided Background Image */}
+      {/* High-Contrast Luxury Page Hero */}
       <PageHero
         title="Insurance & Financial Advisory"
         subtitle="A comprehensive spectrum of life, health, general insurance, NJ Mutual Funds, and loan advisory engineered to protect and multiply your family's wealth."
         breadcrumb="Services"
-        bgImage="/images/awards/award-2021.png"
       />
 
       {/* Core Services Grid */}

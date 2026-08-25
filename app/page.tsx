@@ -39,25 +39,9 @@ import {
   WHY_CHOOSE_US_POINTS,
 } from "@/lib/data";
 
-const HERO_BG_IMAGES = [
-  "/images/awards/award-2023.png", // Sachin & Rakhi Pandit on LIC Grand Convention Stage
-  "/images/founders-portrait.jpg", // Sachin & Rakhi Pandit Official High-Res Portrait
-  "/images/awards/award-2019.png", // Sachin & Rakhi Pandit Double Shatakveer Stage Moment
-  "/images/awards/award-2022.png", // Sachin Pandit MDRT / TOT Convention Stage
-];
-
 export default function HomePage() {
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
   const [activeTestimonialIdx, setActiveTestimonialIdx] = useState(0);
-  const [bgImageIdx, setBgImageIdx] = useState(0);
-
-  // Background image crossfade interval
-  useEffect(() => {
-    const bgTimer = setInterval(() => {
-      setBgImageIdx((prev) => (prev + 1) % HERO_BG_IMAGES.length);
-    }, 6000);
-    return () => clearInterval(bgTimer);
-  }, []);
 
   // Testimonial carousel interval
   useEffect(() => {
@@ -80,40 +64,14 @@ export default function HomePage() {
   return (
     <>
       {/* =========================================================================
-          1. HERO SECTION (With 3 Rotating Financial BG Images + Right-Side Calculator)
+          1. HERO SECTION (Clean Luxury Canvas + Right-Side Calculator)
          ========================================================================= */}
       <section className="relative min-h-[92vh] lg:min-h-screen bg-forest-950 text-white flex items-center justify-center pt-28 pb-16 overflow-hidden">
-        {/* Rotating High-Resolution Financial Consultancy Background Images */}
-        <div className="absolute inset-0 z-0 overflow-hidden">
-          <AnimatePresence mode="sync">
-            <motion.div
-              key={bgImageIdx}
-              initial={{ opacity: 0, scale: 1.05 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 1.5, ease: "easeInOut" }}
-              className="absolute inset-0 w-full h-full"
-            >
-              <Image
-                src={HERO_BG_IMAGES[bgImageIdx]}
-                alt="Financial Consultancy & Wealth Planning"
-                fill
-                priority
-                className="object-cover object-center"
-              />
-            </motion.div>
-          </AnimatePresence>
-
-          {/* Heavy Dark Forest/Navy Gradient Overlays for 100% Crystal-Clear Text Readability */}
-          <div className="absolute inset-0 bg-gradient-to-r from-forest-950/98 via-forest-950/90 to-navy-950/85 z-[1]" />
-          <div className="absolute inset-0 bg-forest-950/50 z-[1]" />
-          <div className="absolute inset-0 dark-mesh-pattern opacity-40 z-[2]" />
-          <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-forest-950 to-transparent z-[2]" />
-        </div>
-
-        {/* Ambient Radial Accent Glows */}
-        <div className="absolute top-1/4 left-5 w-96 h-96 bg-forest-600/20 rounded-full blur-3xl pointer-events-none z-[2]" />
-        <div className="absolute top-1/3 right-10 w-96 h-96 bg-gold-400/15 rounded-full blur-3xl pointer-events-none z-[2]" />
+        {/* Luxury Deep Emerald & Forest Ambient Canvas */}
+        <div className="absolute inset-0 z-0 bg-[radial-gradient(circle_at_20%_20%,rgba(212,175,55,0.12),transparent_40%),radial-gradient(circle_at_80%_30%,rgba(16,185,129,0.1),transparent_50%),radial-gradient(circle_at_50%_80%,rgba(12,45,39,0.9),transparent_60%)]" />
+        <div className="absolute -top-32 -left-32 w-[500px] h-[500px] bg-forest-600/20 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute top-1/4 -right-32 w-[500px] h-[500px] bg-gold-400/15 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute bottom-0 left-0 right-0 h-28 bg-gradient-to-t from-forest-950 to-transparent" />
 
         {/* Main Hero Container */}
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full z-10">
@@ -229,20 +187,6 @@ export default function HomePage() {
             >
               <CompactHeroCalculator />
             </motion.div>
-          </div>
-
-          {/* Background image indicator dots */}
-          <div className="flex justify-center items-center gap-2 pt-10">
-            {HERO_BG_IMAGES.map((_, idx) => (
-              <button
-                key={idx}
-                onClick={() => setBgImageIdx(idx)}
-                className={`h-1.5 rounded-full transition-all duration-300 ${
-                  bgImageIdx === idx ? "w-6 bg-gold-400" : "w-1.5 bg-white/30 hover:bg-white/60"
-                }`}
-                aria-label={`Background Slide ${idx + 1}`}
-              />
-            ))}
           </div>
         </div>
       </section>
