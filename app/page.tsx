@@ -29,6 +29,7 @@ import { SectionWrapper } from "@/components/SectionWrapper";
 import { CountUp } from "@/components/CountUp";
 import { PrimaryButton, SecondaryButton } from "@/components/Buttons";
 import { CompactHeroCalculator } from "@/components/CompactHeroCalculator";
+import { ReelsShowcase } from "@/components/ReelsShowcase";
 import { VideoModal } from "@/components/VideoModal";
 import { fadeUp, staggerContainer, cardHoverVariants } from "@/lib/motion-variants";
 import {
@@ -565,6 +566,11 @@ export default function HomePage() {
           </div>
         </div>
       </SectionWrapper>
+
+      {/* =========================================================================
+          4.5. FINANCIAL WISDOM & REELS SHOWCASE (Real Client Awareness Posters)
+         ========================================================================= */}
+      <ReelsShowcase />
 
       {/* =========================================================================
           5. TESTIMONIAL TEASER

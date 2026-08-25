@@ -351,3 +351,57 @@ export const WHY_CHOOSE_US_POINTS = [
     color: "bg-cyan-50 text-cyan-700",
   },
 ];
+
+export const FINANCIAL_REELS_DATA = [
+  {
+    id: "topup-sip",
+    title: "Top-Up SIP: Paisa Double (2x / 4x)",
+    topic: "Wealth Compounding",
+    badge: "SIP Strategy",
+    image: "/images/reels/reel-topup-sip.jpg",
+    description: "Learn how step-up SIPs multiply wealth significantly faster than static investments.",
+    speakers: "Sachin Pandit",
+    tagColor: "bg-emerald-500/20 text-emerald-300 border-emerald-500/40",
+  },
+  {
+    id: "mutual-funds-5-reasons",
+    title: "5 Reasons to Invest in Mutual Funds",
+    topic: "Mutual Funds",
+    badge: "Smart Investing",
+    image: "/images/reels/reel-mutual-funds-5-reasons.jpg",
+    description: "Key principles why mutual funds beat inflation and generate superior long-term returns.",
+    speakers: "Sachin & Rakhi Pandit",
+    tagColor: "bg-gold-400/20 text-gold-300 border-gold-400/40",
+  },
+  {
+    id: "mediclaim-warning",
+    title: "Mediclaim Policy Nahi Thi!",
+    topic: "Health Protection",
+    badge: "Emergency Shield",
+    image: "/images/reels/reel-mediclaim-warning.jpg",
+    description: "Why medical emergencies without insurance wipe out years of hard-earned savings.",
+    speakers: "Sachin Pandit",
+    tagColor: "bg-rose-500/20 text-rose-300 border-rose-500/40",
+  },
+  {
+    id: "mediclaim-youth",
+    title: "Mediclaim Policy for 18–40 Years",
+    topic: "Family Health",
+    badge: "Youth Advantage",
+    image: "/images/reels/reel-mediclaim-youth.jpg",
+    description: "Why taking health insurance early locks in the lowest premiums and widest coverage.",
+    speakers: "Sachin & Rakhi Pandit",
+    tagColor: "bg-blue-500/20 text-blue-300 border-blue-500/40",
+  },
+  {
+    id: "why-choose-professional",
+    title: "Why Choose a Professional Advisor?",
+    topic: "Expert Guidance",
+    badge: "MDRT Standards",
+    image: "/images/reels/reel-why-choose-professional.jpg",
+    description: "The difference between DIY financial mistakes and certified professional guidance.",
+    speakers: "Sachin Pandit",
+    tagColor: "bg-purple-500/20 text-purple-300 border-purple-500/40",
+  },
+];
+

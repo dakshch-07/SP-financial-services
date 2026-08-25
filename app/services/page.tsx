@@ -20,6 +20,7 @@ import {
 import { SectionWrapper } from "@/components/SectionWrapper";
 import { PrimaryButton } from "@/components/Buttons";
 import { PageHero } from "@/components/PageHero";
+import { ReelsShowcase } from "@/components/ReelsShowcase";
 import { cardHoverVariants } from "@/lib/motion-variants";
 import {
   CORE_SERVICES,
@@ -255,6 +256,9 @@ export default function ServicesPage() {
           </AnimatePresence>
         </div>
       </SectionWrapper>
+
+      {/* Video Reels & Knowledge Section */}
+      <ReelsShowcase />
     </>
   );
 }
