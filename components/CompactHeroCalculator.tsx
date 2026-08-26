@@ -90,10 +90,10 @@ export const CompactHeroCalculator: React.FC<{ className?: string }> = ({ classN
 
   return (
     <div
-      className={`relative w-full max-w-[480px] bg-forest-950/95 backdrop-blur-xl rounded-3xl p-4 sm:p-6 shadow-2xl border border-gold-400/40 text-white flex flex-col justify-between ${className}`}
+      className={`relative w-full max-w-[480px] bg-forest-950/95 backdrop-blur-xl rounded-3xl p-3 sm:p-5 shadow-2xl border border-gold-400/40 text-white flex flex-col justify-between ${className}`}
     >
       {/* Header Pill Switcher */}
-      <div className="bg-forest-900/90 p-1 sm:p-1.5 rounded-2xl border border-forest-800 mb-3 sm:mb-5">
+      <div className="bg-forest-900/90 p-1 rounded-xl border border-forest-800 mb-2.5 sm:mb-4">
         <div className="grid grid-cols-3 gap-1">
           {[
             { id: "sip", label: "SIP Calc", icon: <TrendingUp className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> },
@@ -105,14 +105,14 @@ export const CompactHeroCalculator: React.FC<{ className?: string }> = ({ classN
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id as CalculatorType)}
-                className={`relative flex items-center justify-center gap-1 sm:gap-1.5 py-1.5 sm:py-2 px-1.5 sm:px-2 rounded-xl text-[10.5px] sm:text-xs font-bold uppercase tracking-wider transition-all duration-300 select-none ${
+                className={`relative flex items-center justify-center gap-1 py-1 sm:py-1.5 px-1 sm:px-2 rounded-lg text-[10px] sm:text-xs font-bold uppercase tracking-wider transition-all duration-300 select-none ${
                   isActive ? "text-forest-950" : "text-gray-300 hover:text-white"
                 }`}
               >
                 {isActive && (
                   <motion.div
                     layoutId="activeCompactCalcPill"
-                    className="absolute inset-0 bg-gradient-to-r from-[#DFBE5B] via-[#D4AF37] to-[#C5A03A] rounded-xl shadow-gold"
+                    className="absolute inset-0 bg-gradient-to-r from-[#DFBE5B] via-[#D4AF37] to-[#C5A03A] rounded-lg shadow-gold"
                     transition={{ type: "spring", stiffness: 450, damping: 35 }}
                   />
                 )}
@@ -136,13 +136,13 @@ export const CompactHeroCalculator: React.FC<{ className?: string }> = ({ classN
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.25 }}
-            className="space-y-4"
+            className="space-y-3 sm:space-y-4"
           >
             {/* Monthly Investment */}
             <div>
-              <div className="flex justify-between items-center text-xs font-bold mb-1">
+              <div className="flex justify-between items-center text-[11px] sm:text-xs font-bold mb-1">
                 <span className="text-gray-300">Monthly Investment</span>
-                <span className="text-gold-300 font-mono bg-forest-900 px-2 py-0.5 rounded-lg border border-forest-800">
+                <span className="text-gold-300 font-mono bg-forest-900 px-1.5 py-0.5 rounded border border-forest-800">
                   {formatINR(sipMonthly)}
                 </span>
               </div>
@@ -158,9 +158,9 @@ export const CompactHeroCalculator: React.FC<{ className?: string }> = ({ classN
             </div>
 
             {/* Return Rate & Time Horizon in 2-col */}
-            <div className="grid grid-cols-2 gap-3">
+            <div className="grid grid-cols-2 gap-2 sm:gap-3">
               <div>
-                <div className="flex justify-between items-center text-[11px] font-bold mb-1">
+                <div className="flex justify-between items-center text-[10px] sm:text-[11px] font-bold mb-1">
                   <span className="text-gray-300">Exp. Return</span>
                   <span className="text-gold-300 font-mono">{sipRate}% p.a.</span>
                 </div>
@@ -176,7 +176,7 @@ export const CompactHeroCalculator: React.FC<{ className?: string }> = ({ classN
               </div>
 
               <div>
-                <div className="flex justify-between items-center text-[11px] font-bold mb-1">
+                <div className="flex justify-between items-center text-[10px] sm:text-[11px] font-bold mb-1">
                   <span className="text-gray-300">Horizon</span>
                   <span className="text-gold-300 font-mono">{sipYears} Yrs</span>
                 </div>
@@ -193,15 +193,15 @@ export const CompactHeroCalculator: React.FC<{ className?: string }> = ({ classN
             </div>
 
             {/* Live Result Display Box */}
-            <div className="bg-forest-900/90 rounded-2xl p-3.5 border border-forest-800/90 flex items-center justify-between gap-3">
+            <div className="bg-forest-900/90 rounded-xl sm:rounded-2xl p-2.5 sm:p-3.5 border border-forest-800/90 flex items-center justify-between gap-2 sm:gap-3">
               <div>
-                <span className="text-[10px] uppercase font-bold tracking-wider text-gold-400 block">
+                <span className="text-[9px] sm:text-[10px] uppercase font-bold tracking-wider text-gold-400 block">
                   Est. Maturity Wealth
                 </span>
-                <div className="font-serif text-xl sm:text-2xl font-bold text-white text-transparent bg-clip-text bg-gradient-to-r from-gold-300 via-gold-400 to-amber-200">
+                <div className="font-serif text-lg sm:text-2xl font-bold text-white text-transparent bg-clip-text bg-gradient-to-r from-gold-300 via-gold-400 to-amber-200 leading-tight">
                   {formatINR(sipMaturity)}
                 </div>
-                <div className="text-[10px] text-gray-300 mt-0.5 space-x-2">
+                <div className="text-[9px] sm:text-[10px] text-gray-300 mt-0.5 space-x-1.5 sm:space-x-2">
                   <span>Invested: {formatINR(sipTotalInvested)}</span>
                   <span>·</span>
                   <span className="text-gold-300 font-semibold">Gained: {formatINR(sipWealthGained)}</span>
@@ -209,7 +209,7 @@ export const CompactHeroCalculator: React.FC<{ className?: string }> = ({ classN
               </div>
 
               {/* Mini SVG Donut */}
-              <div className="relative w-14 h-14 flex-shrink-0 flex items-center justify-center">
+              <div className="relative w-12 h-12 sm:w-14 sm:h-14 flex-shrink-0 flex items-center justify-center">
                 <svg className="w-full h-full transform -rotate-90" viewBox="0 0 80 80">
                   <circle cx="40" cy="40" r="34" stroke="#D4AF37" strokeWidth="10" fill="transparent" />
                   <circle
@@ -224,7 +224,7 @@ export const CompactHeroCalculator: React.FC<{ className?: string }> = ({ classN
                     className="transition-all duration-300"
                   />
                 </svg>
-                <span className="absolute text-[10px] font-bold text-gold-300">
+                <span className="absolute text-[9px] sm:text-[10px] font-bold text-gold-300">
                   {(sipMaturity / (sipTotalInvested || 1)).toFixed(1)}x
                 </span>
               </div>
@@ -239,7 +239,7 @@ export const CompactHeroCalculator: React.FC<{ className?: string }> = ({ classN
               )}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full py-2.5 px-4 rounded-xl bg-gradient-to-r from-[#D4AF37] via-[#E2C365] to-[#D4AF37] text-forest-950 font-bold uppercase tracking-wider text-xs hover:brightness-105 transition-all shadow-gold flex items-center justify-center gap-1.5"
+              className="w-full py-2 sm:py-2.5 px-3 sm:px-4 rounded-lg sm:rounded-xl bg-gradient-to-r from-[#D4AF37] via-[#E2C365] to-[#D4AF37] text-forest-950 font-bold uppercase tracking-wider text-[10px] sm:text-xs hover:brightness-105 transition-all shadow-gold flex items-center justify-center gap-1.5"
             >
               <MessageCircle className="w-3.5 h-3.5" /> Start This SIP on WhatsApp
             </a>
@@ -254,12 +254,12 @@ export const CompactHeroCalculator: React.FC<{ className?: string }> = ({ classN
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.25 }}
-            className="space-y-4"
+            className="space-y-3 sm:space-y-4"
           >
             <div>
-              <div className="flex justify-between items-center text-xs font-bold mb-1">
+              <div className="flex justify-between items-center text-[11px] sm:text-xs font-bold mb-1">
                 <span className="text-gray-300">Home Loan Amount</span>
-                <span className="text-gold-300 font-mono bg-forest-900 px-2 py-0.5 rounded-lg border border-forest-800">
+                <span className="text-gold-300 font-mono bg-forest-900 px-1.5 py-0.5 rounded border border-forest-800">
                   {formatINR(homeAmount)}
                 </span>
               </div>
@@ -274,9 +274,9 @@ export const CompactHeroCalculator: React.FC<{ className?: string }> = ({ classN
               />
             </div>
 
-            <div className="grid grid-cols-2 gap-3">
+            <div className="grid grid-cols-2 gap-2 sm:gap-3">
               <div>
-                <div className="flex justify-between items-center text-[11px] font-bold mb-1">
+                <div className="flex justify-between items-center text-[10px] sm:text-[11px] font-bold mb-1">
                   <span className="text-gray-300">Interest Rate</span>
                   <span className="text-gold-300 font-mono">{homeRate}%</span>
                 </div>
@@ -292,7 +292,7 @@ export const CompactHeroCalculator: React.FC<{ className?: string }> = ({ classN
               </div>
 
               <div>
-                <div className="flex justify-between items-center text-[11px] font-bold mb-1">
+                <div className="flex justify-between items-center text-[10px] sm:text-[11px] font-bold mb-1">
                   <span className="text-gray-300">Tenure</span>
                   <span className="text-gold-300 font-mono">{homeYears} Yrs</span>
                 </div>
@@ -308,22 +308,22 @@ export const CompactHeroCalculator: React.FC<{ className?: string }> = ({ classN
               </div>
             </div>
 
-            <div className="bg-forest-900/90 rounded-2xl p-3.5 border border-forest-800/90 flex items-center justify-between gap-3">
+            <div className="bg-forest-900/90 rounded-xl sm:rounded-2xl p-2.5 sm:p-3.5 border border-forest-800/90 flex items-center justify-between gap-2 sm:gap-3">
               <div>
-                <span className="text-[10px] uppercase font-bold tracking-wider text-gold-400 block">
+                <span className="text-[9px] sm:text-[10px] uppercase font-bold tracking-wider text-gold-400 block">
                   Monthly Home Loan EMI
                 </span>
-                <div className="font-serif text-xl sm:text-2xl font-bold text-white text-transparent bg-clip-text bg-gradient-to-r from-gold-300 via-gold-400 to-amber-200">
+                <div className="font-serif text-lg sm:text-2xl font-bold text-white text-transparent bg-clip-text bg-gradient-to-r from-gold-300 via-gold-400 to-amber-200 leading-tight">
                   {formatINR(homeEmi)}
                 </div>
-                <div className="text-[10px] text-gray-300 mt-0.5 space-x-2">
+                <div className="text-[9px] sm:text-[10px] text-gray-300 mt-0.5 space-x-1.5 sm:space-x-2">
                   <span>Interest: {formatINR(homeTotalInterest)}</span>
                   <span>·</span>
                   <span>Total: {formatINR(homeTotalPayable)}</span>
                 </div>
               </div>
 
-              <div className="relative w-14 h-14 flex-shrink-0 flex items-center justify-center">
+              <div className="relative w-12 h-12 sm:w-14 sm:h-14 flex-shrink-0 flex items-center justify-center">
                 <svg className="w-full h-full transform -rotate-90" viewBox="0 0 80 80">
                   <circle cx="40" cy="40" r="34" stroke="#DFBE5B" strokeWidth="10" fill="transparent" />
                   <circle
@@ -337,7 +337,7 @@ export const CompactHeroCalculator: React.FC<{ className?: string }> = ({ classN
                     fill="transparent"
                   />
                 </svg>
-                <span className="absolute text-[10px] font-bold text-white">{homePrincipalPct}%</span>
+                <span className="absolute text-[9px] sm:text-[10px] font-bold text-white">{homePrincipalPct}%</span>
               </div>
             </div>
 
@@ -349,7 +349,7 @@ export const CompactHeroCalculator: React.FC<{ className?: string }> = ({ classN
               )}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full py-2.5 px-4 rounded-xl bg-gradient-to-r from-[#D4AF37] via-[#E2C365] to-[#D4AF37] text-forest-950 font-bold uppercase tracking-wider text-xs hover:brightness-105 transition-all shadow-gold flex items-center justify-center gap-1.5"
+              className="w-full py-2 sm:py-2.5 px-3 sm:px-4 rounded-lg sm:rounded-xl bg-gradient-to-r from-[#D4AF37] via-[#E2C365] to-[#D4AF37] text-forest-950 font-bold uppercase tracking-wider text-[10px] sm:text-xs hover:brightness-105 transition-all shadow-gold flex items-center justify-center gap-1.5"
             >
               <MessageCircle className="w-3.5 h-3.5" /> Consult on Home Loan
             </a>
@@ -364,12 +364,12 @@ export const CompactHeroCalculator: React.FC<{ className?: string }> = ({ classN
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.25 }}
-            className="space-y-4"
+            className="space-y-3 sm:space-y-4"
           >
             <div>
-              <div className="flex justify-between items-center text-xs font-bold mb-1">
+              <div className="flex justify-between items-center text-[11px] sm:text-xs font-bold mb-1">
                 <span className="text-gray-300">Loan Amount</span>
-                <span className="text-gold-300 font-mono bg-forest-900 px-2 py-0.5 rounded-lg border border-forest-800">
+                <span className="text-gold-300 font-mono bg-forest-900 px-1.5 py-0.5 rounded border border-forest-800">
                   {formatINR(loanAmount)}
                 </span>
               </div>
@@ -384,9 +384,9 @@ export const CompactHeroCalculator: React.FC<{ className?: string }> = ({ classN
               />
             </div>
 
-            <div className="grid grid-cols-2 gap-3">
+            <div className="grid grid-cols-2 gap-2 sm:gap-3">
               <div>
-                <div className="flex justify-between items-center text-[11px] font-bold mb-1">
+                <div className="flex justify-between items-center text-[10px] sm:text-[11px] font-bold mb-1">
                   <span className="text-gray-300">Interest Rate</span>
                   <span className="text-gold-300 font-mono">{loanRate}%</span>
                 </div>
@@ -402,7 +402,7 @@ export const CompactHeroCalculator: React.FC<{ className?: string }> = ({ classN
               </div>
 
               <div>
-                <div className="flex justify-between items-center text-[11px] font-bold mb-1">
+                <div className="flex justify-between items-center text-[10px] sm:text-[11px] font-bold mb-1">
                   <span className="text-gray-300">Tenure</span>
                   <span className="text-gold-300 font-mono">{loanYears} Yrs</span>
                 </div>
@@ -418,22 +418,22 @@ export const CompactHeroCalculator: React.FC<{ className?: string }> = ({ classN
               </div>
             </div>
 
-            <div className="bg-forest-900/90 rounded-2xl p-3.5 border border-forest-800/90 flex items-center justify-between gap-3">
+            <div className="bg-forest-900/90 rounded-xl sm:rounded-2xl p-2.5 sm:p-3.5 border border-forest-800/90 flex items-center justify-between gap-2 sm:gap-3">
               <div>
-                <span className="text-[10px] uppercase font-bold tracking-wider text-gold-400 block">
+                <span className="text-[9px] sm:text-[10px] uppercase font-bold tracking-wider text-gold-400 block">
                   Monthly Loan EMI
                 </span>
-                <div className="font-serif text-xl sm:text-2xl font-bold text-white text-transparent bg-clip-text bg-gradient-to-r from-gold-300 via-gold-400 to-amber-200">
+                <div className="font-serif text-lg sm:text-2xl font-bold text-white text-transparent bg-clip-text bg-gradient-to-r from-gold-300 via-gold-400 to-amber-200 leading-tight">
                   {formatINR(loanEmi)}
                 </div>
-                <div className="text-[10px] text-gray-300 mt-0.5 space-x-2">
+                <div className="text-[9px] sm:text-[10px] text-gray-300 mt-0.5 space-x-1.5 sm:space-x-2">
                   <span>Interest: {formatINR(loanTotalInterest)}</span>
                   <span>·</span>
                   <span>Total: {formatINR(loanTotalPayable)}</span>
                 </div>
               </div>
 
-              <div className="relative w-14 h-14 flex-shrink-0 flex items-center justify-center">
+              <div className="relative w-12 h-12 sm:w-14 sm:h-14 flex-shrink-0 flex items-center justify-center">
                 <svg className="w-full h-full transform -rotate-90" viewBox="0 0 80 80">
                   <circle cx="40" cy="40" r="34" stroke="#DFBE5B" strokeWidth="10" fill="transparent" />
                   <circle
@@ -447,7 +447,7 @@ export const CompactHeroCalculator: React.FC<{ className?: string }> = ({ classN
                     fill="transparent"
                   />
                 </svg>
-                <span className="absolute text-[10px] font-bold text-white">{loanPrincipalPct}%</span>
+                <span className="absolute text-[9px] sm:text-[10px] font-bold text-white">{loanPrincipalPct}%</span>
               </div>
             </div>
 
@@ -459,7 +459,7 @@ export const CompactHeroCalculator: React.FC<{ className?: string }> = ({ classN
               )}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full py-2.5 px-4 rounded-xl bg-gradient-to-r from-[#D4AF37] via-[#E2C365] to-[#D4AF37] text-forest-950 font-bold uppercase tracking-wider text-xs hover:brightness-105 transition-all shadow-gold flex items-center justify-center gap-1.5"
+              className="w-full py-2 sm:py-2.5 px-3 sm:px-4 rounded-lg sm:rounded-xl bg-gradient-to-r from-[#D4AF37] via-[#E2C365] to-[#D4AF37] text-forest-950 font-bold uppercase tracking-wider text-[10px] sm:text-xs hover:brightness-105 transition-all shadow-gold flex items-center justify-center gap-1.5"
             >
               <MessageCircle className="w-3.5 h-3.5" /> Inquire on WhatsApp
             </a>

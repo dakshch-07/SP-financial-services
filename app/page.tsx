@@ -66,7 +66,7 @@ export default function HomePage() {
       {/* =========================================================================
           1. HERO SECTION (Clean Luxury Canvas + Right-Side Calculator)
          ========================================================================= */}
-      <section className="relative min-h-[92vh] lg:min-h-screen bg-forest-950 text-white flex items-center justify-center pt-28 pb-16 overflow-hidden">
+      <section className="relative min-h-[92vh] lg:min-h-screen bg-forest-950 text-white flex items-center justify-center pt-[5.5rem] lg:pt-28 pb-10 lg:pb-16 overflow-hidden">
         {/* Luxury Deep Emerald & Forest Ambient Canvas */}
         <div className="absolute inset-0 z-0 bg-[radial-gradient(circle_at_20%_20%,rgba(212,175,55,0.12),transparent_40%),radial-gradient(circle_at_80%_30%,rgba(16,185,129,0.1),transparent_50%),radial-gradient(circle_at_50%_80%,rgba(12,45,39,0.9),transparent_60%)]" />
         <div className="absolute -top-32 -left-32 w-[500px] h-[500px] bg-forest-600/20 rounded-full blur-3xl pointer-events-none" />
@@ -75,27 +75,27 @@ export default function HomePage() {
 
         {/* Main Hero Container */}
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 lg:gap-12 items-center">
             {/* Left Content Column (7 cols) */}
             <motion.div
               initial="hidden"
               animate="visible"
               variants={staggerContainer}
-              className="lg:col-span-7 flex flex-col items-center lg:items-start text-center lg:text-left space-y-6"
+              className="lg:col-span-7 flex flex-col items-center lg:items-start text-center lg:text-left space-y-4 lg:space-y-6"
             >
               {/* Gold MDRT Badge */}
               <motion.div
                 variants={fadeUp}
-                className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gold-400/20 border border-gold-400/40 text-gold-300 text-[11px] sm:text-xs font-bold tracking-[0.18em] uppercase shadow-md backdrop-blur-sm"
+                className="inline-flex items-center gap-1.5 lg:gap-2 px-3 py-1 lg:px-3.5 lg:py-1.5 rounded-full bg-gold-400/20 border border-gold-400/40 text-gold-300 text-[9.5px] sm:text-xs font-bold tracking-[0.15em] lg:tracking-[0.18em] uppercase shadow-md backdrop-blur-sm"
               >
-                <Award className="w-3.5 h-3.5 text-gold-400" />
+                <Award className="w-3 h-3 lg:w-3.5 lg:h-3.5 text-gold-400" />
                 <span>6x MDRT USA Award Winner · Sachin Pandit</span>
               </motion.div>
 
-              {/* Main Fluid Heading */}
+              {/* Main Heading */}
               <motion.h1
                 variants={fadeUp}
-                className="font-serif fluid-h1 font-bold text-white tracking-tight leading-tight drop-shadow-md text-center lg:text-left"
+                className="font-serif text-[1.8rem] leading-[1.15] lg:fluid-h1 font-bold text-white tracking-tight drop-shadow-md text-center lg:text-left"
               >
                 Smart Wealth Planning &amp; Assured Protection for{" "}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-300 via-gold-400 to-amber-200">
