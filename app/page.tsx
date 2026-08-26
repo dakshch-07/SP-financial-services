@@ -428,28 +428,46 @@ export default function HomePage() {
         </div>
 
         {/* Full Pill Tag Cloud */}
-        <div className="mt-12 p-8 rounded-3xl bg-forest-950 text-white shadow-xl text-center">
-          <h3 className="font-serif text-xl sm:text-2xl font-bold text-white mb-3">
+        <div className="mt-8 sm:mt-12 p-4 sm:p-8 rounded-2xl sm:rounded-3xl bg-forest-950 text-white shadow-xl text-center">
+          <h3 className="font-serif text-[1.15rem] sm:text-2xl font-bold text-white mb-1.5 sm:mb-3 leading-tight">
             Full Spectrum of Risk &amp; Investment Coverage
           </h3>
-          <p className="text-xs sm:text-sm text-gray-300 max-w-2xl mx-auto mb-6">
-            We structure policies for private individuals, families, NRIs, and corporate enterprises:
+          <p className="text-gray-300 text-[11px] sm:text-sm mb-5 sm:mb-8">
+            We structure policies for private individuals, families, NRIs, and corporate
+            enterprises:
           </p>
 
-          <div className="flex flex-wrap justify-center gap-2 max-w-4xl mx-auto mb-6">
-            {ALL_COVERAGE_TYPES.map((cov) => (
+          <div className="flex flex-wrap justify-center gap-1.5 sm:gap-3">
+            {[
+              "Life Insurance",
+              "Travel Insurance",
+              "Motor Insurance",
+              "Workmen's Compensation",
+              "Marine Insurance",
+              "Fire Insurance",
+              "Mediclaim Insurance",
+              "Group Mediclaim",
+              "Personal Accident",
+              "Corporate Insurance",
+              "Keyman Insurance",
+              "Child Education Plans",
+              "Retirement & Pension",
+              "SIP & Mutual Funds",
+            ].map((tag) => (
               <span
-                key={cov.name}
-                className="px-3.5 py-1.5 rounded-full bg-forest-900 border border-forest-800 text-xs text-gray-200 font-medium hover:border-gold-400 hover:text-gold-300 transition-colors"
+                key={tag}
+                className="px-2.5 py-1 sm:px-4 sm:py-2 rounded-full border border-forest-700 bg-forest-900/50 text-emerald-100 text-[9px] sm:text-sm font-medium hover:bg-forest-800 transition-colors cursor-default"
               >
-                {cov.name}
+                {tag}
               </span>
             ))}
           </div>
 
-          <PrimaryButton href="/services" variant="gold" size="md">
-            View All Services &amp; Asset Allocation Tiers
-          </PrimaryButton>
+          <div className="mt-6 sm:mt-10">
+            <PrimaryButton href="/services" size="md" variant="gold" className="w-full sm:w-auto">
+              View All Services
+            </PrimaryButton>
+          </div>
         </div>
       </SectionWrapper>
 
