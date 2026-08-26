@@ -16,7 +16,7 @@
   --font-serif: 'NormalAmpersand', 'Playfair Display', Georgia, serif;
   --font-sans: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --bg-cream: #FBF9F5;
-  --color-forest: #08201D;
+  --color-forest: #061428;   /* remapped to deep navy */
   --color-gold: #D4AF37;
 }
 
@@ -56,13 +56,13 @@ body {
   line-height: 1.65;
 }
 
-/* Custom Scrollbar */
+/* Custom Scrollbar — navy blue + gold */
 ::-webkit-scrollbar {
   width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #08201D;
+  background: #061428;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -79,26 +79,26 @@ h1, h2, h3, h4, .font-serif {
   font-family: var(--font-serif);
 }
 
-/* Subtle Organic Leaf-Line & Financial Growth Motif */
+/* Subtle Blue-Gold Ambient Texture (matches logo palette) */
 .organic-texture {
-  background-image: radial-gradient(circle at 15% 50%, rgba(30, 143, 95, 0.05) 0%, transparent 40%),
+  background-image: radial-gradient(circle at 15% 50%, rgba(26, 66, 128, 0.06) 0%, transparent 40%),
                     radial-gradient(circle at 85% 30%, rgba(212, 175, 55, 0.06) 0%, transparent 45%);
 }
 
 .dark-mesh-pattern {
-  background-image: 
-    radial-gradient(circle at 20% 20%, rgba(30, 143, 95, 0.15) 0%, transparent 50%),
-    radial-gradient(circle at 80% 80%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
+  background-image:
+    radial-gradient(circle at 20% 20%, rgba(26, 66, 128, 0.18) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(212, 175, 55, 0.10) 0%, transparent 50%),
     linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
     linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
   background-size: 100% 100%, 100% 100%, 32px 32px, 32px 32px;
 }
 
-/* Custom Range Slider Styling for Calculators */
+/* Custom Range Slider — navy + gold */
 input[type="range"] {
   -webkit-appearance: none;
   appearance: none;
-  background: #EAE5D8;
+  background: #E6EDF8;
   border-radius: 9999px;
   height: 8px;
   outline: none;
@@ -111,26 +111,26 @@ input[type="range"]::-webkit-slider-thumb {
   width: 24px;
   height: 24px;
   border-radius: 50%;
-  background: #0F3B32;
+  background: #0D2345;
   border: 3px solid #D4AF37;
   cursor: pointer;
-  box-shadow: 0 2px 8px rgba(8, 32, 29, 0.3);
+  box-shadow: 0 2px 8px rgba(6, 20, 40, 0.3);
   transition: transform 0.15s ease, background 0.15s ease;
 }
 
 input[type="range"]::-webkit-slider-thumb:hover,
 input[type="range"]::-webkit-slider-thumb:active {
   transform: scale(1.15);
-  background: #08201D;
+  background: #061428;
 }
 
 input[type="range"]::-moz-range-thumb {
   width: 24px;
   height: 24px;
   border-radius: 50%;
-  background: #0F3B32;
+  background: #0D2345;
   border: 3px solid #D4AF37;
   cursor: pointer;
-  box-shadow: 0 2px 8px rgba(8, 32, 29, 0.3);
+  box-shadow: 0 2px 8px rgba(6, 20, 40, 0.3);
   transition: transform 0.15s ease;
 }

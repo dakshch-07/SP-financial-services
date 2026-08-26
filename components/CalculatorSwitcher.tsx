@@ -307,7 +307,7 @@ export const CalculatorSwitcher: React.FC<{ defaultTab?: CalculatorType; id?: st
                             cx="50"
                             cy="50"
                             r="40"
-                            stroke="#1E6B5C"
+                            stroke="#1A4280"
                             strokeWidth="14"
                             strokeDasharray={getDonutStroke(sipInvestedPct)}
                             strokeLinecap="round"
@@ -327,7 +327,7 @@ export const CalculatorSwitcher: React.FC<{ defaultTab?: CalculatorType; id?: st
                       <div className="space-y-3 w-full sm:w-auto">
                         <div className="flex items-center justify-between sm:justify-start gap-4">
                           <div className="flex items-center gap-2">
-                            <span className="w-3 h-3 rounded-full bg-[#1E6B5C]" />
+                            <span className="w-3 h-3 rounded-full bg-[#1A4280]" />
                             <span className="text-xs text-gray-300 font-medium">Invested:</span>
                           </div>
                           <span className="font-mono text-xs font-bold text-white">
@@ -503,7 +503,7 @@ export const CalculatorSwitcher: React.FC<{ defaultTab?: CalculatorType; id?: st
                             cx="50"
                             cy="50"
                             r="40"
-                            stroke="#1E6B5C"
+                            stroke="#1A4280"
                             strokeWidth="14"
                             strokeDasharray={getDonutStroke(homePrincipalPct)}
                             strokeLinecap="round"
@@ -520,7 +520,7 @@ export const CalculatorSwitcher: React.FC<{ defaultTab?: CalculatorType; id?: st
                       <div className="space-y-3 w-full sm:w-auto">
                         <div className="flex items-center justify-between sm:justify-start gap-4">
                           <div className="flex items-center gap-2">
-                            <span className="w-3 h-3 rounded-full bg-[#1E6B5C]" />
+                            <span className="w-3 h-3 rounded-full bg-[#1A4280]" />
                             <span className="text-xs text-gray-300 font-medium">Principal:</span>
                           </div>
                           <span className="font-mono text-xs font-bold text-white">
@@ -702,7 +702,7 @@ export const CalculatorSwitcher: React.FC<{ defaultTab?: CalculatorType; id?: st
                             cx="50"
                             cy="50"
                             r="40"
-                            stroke="#1E6B5C"
+                            stroke="#1A4280"
                             strokeWidth="14"
                             strokeDasharray={getDonutStroke(loanPrincipalPct)}
                             strokeLinecap="round"
@@ -719,7 +719,7 @@ export const CalculatorSwitcher: React.FC<{ defaultTab?: CalculatorType; id?: st
                       <div className="space-y-3 w-full sm:w-auto">
                         <div className="flex items-center justify-between sm:justify-start gap-4">
                           <div className="flex items-center gap-2">
-                            <span className="w-3 h-3 rounded-full bg-[#1E6B5C]" />
+                            <span className="w-3 h-3 rounded-full bg-[#1A4280]" />
                             <span className="text-xs text-gray-300 font-medium">Principal:</span>
                           </div>
                           <span className="font-mono text-xs font-bold text-white">

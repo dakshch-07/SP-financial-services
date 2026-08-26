@@ -72,7 +72,7 @@ export const Preloader: React.FC = () => {
                   cx="50"
                   cy="50"
                   r="46"
-                  fill="#08201D"
+                  fill="#061428"
                   stroke="url(#spPreGoldTriple)"
                   strokeWidth="3"
                   initial={{ pathLength: 0 }}
