@@ -313,7 +313,7 @@ export default function HomePage() {
               <PrimaryButton href="/about" size="md" variant="gold" icon={<ArrowRight className="w-4 h-4" />}>
                 Read Founders Full Story
               </PrimaryButton>
-              <SecondaryButton href="/contact" size="md" variant="white">
+              <SecondaryButton href="/contact" size="md" variant="navy">
                 Book Consultation with Sachin Pandit
               </SecondaryButton>
             </div>

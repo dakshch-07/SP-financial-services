@@ -23,7 +23,7 @@ export const SectionWrapper: React.FC<SectionWrapperProps> = ({
 
   if (shouldReduceMotion) {
     return (
-      <section id={id} className={`py-12 md:py-20 ${className}`}>
+      <section id={id} className={`py-10 md:py-16 ${className}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">{children}</div>
       </section>
     );
@@ -37,7 +37,7 @@ export const SectionWrapper: React.FC<SectionWrapperProps> = ({
       viewport={{ once: true, margin: "-60px" }}
       variants={stagger ? staggerContainer : fadeUp}
       transition={{ delay }}
-      className={`py-12 md:py-20 ${className}`}
+      className={`py-10 md:py-16 ${className}`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">{children}</div>
     </motion.section>
