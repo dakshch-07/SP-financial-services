@@ -167,7 +167,7 @@ export const CompactHeroCalculator: React.FC<{ className?: string }> = ({ classN
                 <input
                   type="range"
                   min={1}
-                  max={25}
+                  max={35}
                   step={0.5}
                   value={sipRate}
                   onChange={(e) => setSipRate(Number(e.target.value))}
@@ -183,7 +183,7 @@ export const CompactHeroCalculator: React.FC<{ className?: string }> = ({ classN
                 <input
                   type="range"
                   min={1}
-                  max={30}
+                  max={50}
                   step={1}
                   value={sipYears}
                   onChange={(e) => setSipYears(Number(e.target.value))}
