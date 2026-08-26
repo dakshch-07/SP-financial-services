@@ -133,10 +133,10 @@ export const Navbar: React.FC = () => {
             animate={{ opacity: 1, clipPath: "circle(150% at 100% 0%)" }}
             exit={{ opacity: 0, clipPath: "circle(0% at 100% 0%)" }}
             transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-            className="fixed inset-0 z-40 bg-forest-950/98 backdrop-blur-xl xl:hidden flex flex-col justify-between pt-24 pb-8 px-6 text-white overflow-y-auto"
+            className="fixed inset-0 z-40 bg-forest-950/98 backdrop-blur-xl xl:hidden flex flex-col justify-between pt-[5.5rem] pb-6 px-6 text-white overflow-y-auto"
           >
-            <div className="flex flex-col space-y-4 pt-2">
-              <span className="text-xs uppercase tracking-widest text-gold-400 font-semibold mb-1">
+            <div className="flex flex-col space-y-2.5">
+              <span className="text-[10px] uppercase tracking-[0.2em] text-gold-400 font-bold mb-1 opacity-80">
                 Navigation
               </span>
               {NAV_LINKS.map((link, idx) => {
@@ -146,13 +146,13 @@ export const Navbar: React.FC = () => {
                     key={link.name}
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.04 * idx, duration: 0.3 }}
+                    transition={{ delay: 0.03 * idx, duration: 0.3 }}
                   >
                     <Link
                       href={link.href}
                       onClick={() => setIsMobileMenuOpen(false)}
-                      className={`block font-serif text-xl sm:text-2xl font-medium tracking-wide py-1.5 ${
-                        isActive ? "text-gold-400 pl-2 border-l-2 border-gold-400" : "text-gray-200 hover:text-white"
+                      className={`block font-serif text-[1.35rem] font-medium tracking-wide py-1.5 ${
+                        isActive ? "text-gold-400 pl-3 border-l-[2.5px] border-gold-400" : "text-gray-300 hover:text-white pl-1"
                       }`}
                     >
                       {link.name}
@@ -162,37 +162,37 @@ export const Navbar: React.FC = () => {
               })}
             </div>
 
-            <div className="pt-6 border-t border-forest-800 space-y-4">
+            <div className="pt-5 border-t border-forest-800/80 space-y-3.5 mt-4">
               <Link
                 href="/contact"
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="w-full py-3.5 px-4 rounded-full bg-gradient-to-r from-[#DFBE5B] via-[#D4AF37] to-[#C5A03A] text-forest-950 text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-1.5 shadow-gold text-center block"
+                className="w-full py-3 px-4 rounded-full bg-gradient-to-r from-[#DFBE5B] via-[#D4AF37] to-[#C5A03A] text-forest-950 text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-1.5 shadow-gold text-center block active:scale-[0.98] transition-transform"
               >
                 <span>Get Free Consultation</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </Link>
 
-              <div className="grid grid-cols-2 gap-3 pt-1">
+              <div className="grid grid-cols-2 gap-3 pt-0.5">
                 <a
                   href={`tel:${BUSINESS_INFO.contact.primaryPhone}`}
-                  className="flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-white/10 text-white text-xs font-semibold hover:bg-white/20 transition-colors"
+                  className="flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl bg-white/10 text-white text-[11px] font-semibold hover:bg-white/20 transition-colors"
                 >
-                  <Phone className="w-4 h-4 text-gold-400" />
+                  <Phone className="w-3.5 h-3.5 text-gold-400" />
                   <span>Call Sachin</span>
                 </a>
                 <a
                   href={BUSINESS_INFO.contact.whatsapp}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-emerald-600/30 border border-emerald-500/40 text-emerald-300 text-xs font-semibold hover:bg-emerald-600/40 transition-colors"
+                  className="flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl bg-emerald-600/30 border border-emerald-500/40 text-emerald-300 text-[11px] font-semibold hover:bg-emerald-600/40 transition-colors"
                 >
-                  <MessageCircle className="w-4 h-4 text-emerald-400" />
+                  <MessageCircle className="w-3.5 h-3.5 text-emerald-400" />
                   <span>WhatsApp</span>
                 </a>
               </div>
 
-              <p className="text-[11px] text-center text-gray-400">
-                201/202 Sayba Palace, Kurla (W), Mumbai - 400070
+              <p className="text-[9.5px] text-center text-gray-400/80 uppercase tracking-widest pt-1">
+                Sayba Palace, Kurla (W), Mumbai
               </p>
             </div>
           </motion.div>
