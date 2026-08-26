@@ -99,10 +99,10 @@ export const ReelsShowcase: React.FC = () => {
           </motion.div>
         </div>
 
-        {/* Reels Grid — 2 cols on mobile, up to 5 on xl */}
+        {/* Reels Carousel / Grid — One liner horizontal scroll on mobile, Grid on desktop */}
         <motion.div
           layout
-          className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 sm:gap-6"
+          className="flex lg:grid lg:grid-cols-4 xl:grid-cols-5 gap-3 sm:gap-6 overflow-x-auto lg:overflow-x-visible pb-6 lg:pb-0 scrollbar-hide snap-x snap-mandatory"
         >
           <AnimatePresence>
             {filteredReels.map((reel) => (
@@ -114,7 +114,7 @@ export const ReelsShowcase: React.FC = () => {
                 exit={{ opacity: 0, scale: 0.92 }}
                 transition={{ duration: 0.3 }}
                 whileHover={{ y: -4 }}
-                className="group relative rounded-2xl sm:rounded-3xl overflow-hidden bg-forest-900 border border-forest-800 hover:border-gold-400/60 shadow-xl flex flex-col justify-between transition-all duration-300"
+                className="group relative flex-none w-[36vw] sm:w-[28vw] md:w-56 lg:w-auto lg:flex-initial snap-start rounded-2xl sm:rounded-3xl overflow-hidden bg-forest-900 border border-forest-800 hover:border-gold-400/60 shadow-xl flex flex-col justify-between transition-all duration-300"
               >
                 {/* 9:16 Video Poster */}
                 <div className="relative aspect-[9/16] w-full overflow-hidden bg-forest-950">
