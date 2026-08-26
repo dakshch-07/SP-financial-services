@@ -9,7 +9,7 @@ export const Preloader: React.FC = () => {
   const shouldReduceMotion = useReducedMotion();
 
   useEffect(() => {
-    const hasSeenPreloader = sessionStorage.getItem("sp_preloader_seen_v8");
+    const hasSeenPreloader = sessionStorage.getItem("sp_preloader_seen_v9");
     if (hasSeenPreloader || shouldReduceMotion) {
       setIsLoading(false);
       return;
@@ -17,7 +17,7 @@ export const Preloader: React.FC = () => {
 
     const timer = setTimeout(() => {
       setIsLoading(false);
-      sessionStorage.setItem("sp_preloader_seen_v8", "true");
+      sessionStorage.setItem("sp_preloader_seen_v9", "true");
     }, 1500);
 
     return () => clearTimeout(timer);
@@ -25,7 +25,7 @@ export const Preloader: React.FC = () => {
 
   const handleSkip = () => {
     setIsLoading(false);
-    sessionStorage.setItem("sp_preloader_seen_v8", "true");
+    sessionStorage.setItem("sp_preloader_seen_v9", "true");
   };
 
   return (
@@ -49,19 +49,20 @@ export const Preloader: React.FC = () => {
               initial={{ scale: 0.85, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ duration: 0.7, ease: "easeOut" }}
-              className="relative w-64 h-56 sm:w-80 sm:h-72 drop-shadow-[0_0_30px_rgba(212,175,55,0.15)]"
+              className="relative w-64 sm:w-80 drop-shadow-[0_0_30px_rgba(212,175,55,0.15)] flex justify-center items-center"
             >
               <Image 
                 src="/images/logo.png"
                 alt="SP Financial Services Logo"
-                fill
-                className="object-contain"
+                width={320}
+                height={240}
+                className="w-full h-auto object-contain"
                 priority
               />
             </motion.div>
 
             {/* Gold Underline Sweep Indicator */}
-            <div className="relative w-40 h-[2px] bg-white/5 mt-6 overflow-hidden rounded-full">
+            <div className="relative w-40 h-[2px] bg-white/5 mt-8 overflow-hidden rounded-full">
               <motion.div
                 initial={{ x: "-100%" }}
                 animate={{ x: "100%" }}
