@@ -26,9 +26,9 @@ export const PrimaryButton: React.FC<ButtonProps> = ({
   size = "md",
 }) => {
   const sizeClasses = {
-    sm: "px-4 py-2 text-xs font-semibold tracking-wider",
-    md: "px-6 py-3 text-sm font-semibold tracking-wider",
-    lg: "px-8 py-4 text-base font-semibold tracking-wider",
+    sm: "px-3 py-2 sm:px-4 sm:py-2 text-[10px] sm:text-xs font-semibold tracking-wider",
+    md: "px-4 py-2.5 sm:px-6 sm:py-3 text-[11px] sm:text-sm font-semibold tracking-wider",
+    lg: "px-4 py-3 sm:px-8 sm:py-4 text-[11px] sm:text-base font-semibold tracking-wider",
   }[size];
 
   const variantClasses = {
@@ -42,7 +42,7 @@ export const PrimaryButton: React.FC<ButtonProps> = ({
       onClick={onClick}
       className={`relative inline-flex items-center justify-center gap-2 rounded-full uppercase transition-all duration-300 ${sizeClasses} ${variantClasses} ${className}`}
     >
-      <span>{children}</span>
+      <span className="flex items-center justify-center gap-1.5">{children}</span>
       {icon && <span className="transition-transform duration-200 group-hover:translate-x-1">{icon}</span>}
     </button>
   );
@@ -76,9 +76,9 @@ export const SecondaryButton: React.FC<ButtonProps> = ({
   size = "md",
 }) => {
   const sizeClasses = {
-    sm: "px-4 py-2 text-xs font-semibold tracking-wider",
-    md: "px-6 py-3 text-sm font-semibold tracking-wider",
-    lg: "px-8 py-4 text-base font-semibold tracking-wider",
+    sm: "px-3 py-2 sm:px-4 sm:py-2 text-[10px] sm:text-xs font-semibold tracking-wider",
+    md: "px-4 py-2.5 sm:px-6 sm:py-3 text-[11px] sm:text-sm font-semibold tracking-wider",
+    lg: "px-4 py-3 sm:px-8 sm:py-4 text-[11px] sm:text-base font-semibold tracking-wider",
   }[size];
 
   const variantClasses = {
@@ -92,7 +92,7 @@ export const SecondaryButton: React.FC<ButtonProps> = ({
       onClick={onClick}
       className={`relative inline-flex items-center justify-center gap-2 rounded-full uppercase transition-all duration-300 ${sizeClasses} ${variantClasses} ${className}`}
     >
-      <span>{children}</span>
+      <span className="flex items-center justify-center gap-1.5">{children}</span>
       {icon && <span className="transition-transform duration-200 group-hover:translate-x-1">{icon}</span>}
     </button>
   );

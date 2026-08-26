@@ -124,16 +124,17 @@ export default function HomePage() {
               {/* CTAs */}
               <motion.div
                 variants={fadeUp}
-                className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3.5 pt-1 w-full sm:w-auto"
+                className="flex flex-row items-center justify-center lg:justify-start gap-2 sm:gap-3.5 pt-1 w-full sm:w-auto"
               >
                 <PrimaryButton
                   href="/contact"
                   size="lg"
                   variant="gold"
-                  icon={<ArrowRight className="w-4 h-4" />}
-                  className="w-full sm:w-auto shadow-lg"
+                  icon={<ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4" />}
+                  className="flex-1 sm:flex-none shadow-lg w-full"
                 >
-                  Get Free Consultation
+                  <span className="hidden sm:inline">Get Free Consultation</span>
+                  <span className="sm:hidden">Consultation</span>
                 </PrimaryButton>
 
                 <SecondaryButton
@@ -141,10 +142,11 @@ export default function HomePage() {
                   isExternal
                   size="lg"
                   variant="white"
-                  icon={<MessageCircle className="w-4 h-4 text-emerald-400" />}
-                  className="w-full sm:w-auto shadow-md"
+                  className="flex-1 sm:flex-none shadow-md w-full"
                 >
-                  WhatsApp Us Direct
+                  <MessageCircle className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-emerald-400" />
+                  <span className="hidden sm:inline">WhatsApp Us Direct</span>
+                  <span className="sm:hidden">WhatsApp</span>
                 </SecondaryButton>
               </motion.div>
 
