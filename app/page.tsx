@@ -339,7 +339,7 @@ export default function HomePage() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+        <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6 lg:gap-8">
           {[
             {
               title: "Life Insurance (LIC)",
@@ -389,29 +389,32 @@ export default function HomePage() {
               variants={cardHoverVariants}
               initial="rest"
               whileHover="hover"
-              className="bg-cream-50 rounded-3xl p-7 border border-cream-300/80 shadow-card flex flex-col justify-between hover:border-gold-400/50 hover:shadow-card-hover transition-all duration-300 group"
+              className="bg-cream-50 rounded-2xl sm:rounded-3xl p-3 sm:p-7 border border-cream-300/80 shadow-card flex flex-col justify-between hover:border-gold-400/50 hover:shadow-card-hover transition-all duration-300 group"
             >
               <div>
-                <div className="flex items-center justify-between mb-5">
+                <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-2 sm:mb-5 gap-2 sm:gap-0">
                   <div
-                    className={`w-12 h-12 rounded-2xl flex items-center justify-center border shadow-sm ${service.color} group-hover:scale-110 transition-transform`}
+                    className={`w-8 h-8 sm:w-12 sm:h-12 rounded-lg sm:rounded-2xl flex items-center justify-center border shadow-sm ${service.color} group-hover:scale-110 transition-transform [&>svg]:!w-4 [&>svg]:!h-4 sm:[&>svg]:!w-6 sm:[&>svg]:!h-6`}
                   >
                     {service.icon}
                   </div>
-                  <span className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-forest-900/10 text-forest-800">
+                  <span className="text-[8px] sm:text-[10px] font-bold uppercase tracking-wider px-1.5 sm:px-2.5 py-0.5 sm:py-1 rounded-full bg-forest-900/10 text-forest-800 line-clamp-1 w-full sm:w-auto text-center sm:text-left truncate">
                     {service.badge}
                   </span>
                 </div>
 
-                <h3 className="font-serif text-xl font-bold text-forest-900 mb-2.5 group-hover:text-forest-700 transition-colors">
+                <h3 className="font-serif text-[11px] sm:text-xl font-bold text-forest-900 mb-1 sm:mb-2.5 group-hover:text-forest-700 transition-colors line-clamp-2 leading-tight">
                   {service.title}
                 </h3>
-                <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">
+                <p className="hidden sm:block text-xs sm:text-sm text-gray-600 leading-relaxed">
+                  {service.desc}
+                </p>
+                <p className="sm:hidden text-[9px] text-gray-600 leading-snug line-clamp-3">
                   {service.desc}
                 </p>
               </div>
 
-              <div className="pt-6 mt-6 border-t border-cream-300 flex items-center justify-between">
+              <div className="hidden sm:flex pt-6 mt-6 border-t border-cream-300 items-center justify-between">
                 <Link
                   href="/contact"
                   className="text-xs font-bold uppercase tracking-wider text-forest-900 group-hover:text-gold-600 inline-flex items-center gap-1.5 transition-colors"
