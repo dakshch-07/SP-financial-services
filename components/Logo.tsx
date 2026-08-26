@@ -12,7 +12,7 @@ interface LogoProps {
 
 export const LogoMark: React.FC<{ className?: string; size?: number }> = ({
   className = "",
-  size = 42,
+  size = 44,
 }) => {
   return (
     <svg
@@ -24,35 +24,35 @@ export const LogoMark: React.FC<{ className?: string; size?: number }> = ({
       className={`transition-transform duration-300 group-hover:scale-105 flex-shrink-0 ${className}`}
     >
       <defs>
-        {/* Luxury Gold Gradient */}
-        <linearGradient id="spGoldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#F3E7BE" />
-          <stop offset="35%" stopColor="#D4AF37" />
-          <stop offset="70%" stopColor="#E5C365" />
+        {/* Luxury Multi-Tone Gold Metallic Gradient */}
+        <linearGradient id="spGoldGradTriple" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#F6ECCB" />
+          <stop offset="30%" stopColor="#E5C365" />
+          <stop offset="65%" stopColor="#D4AF37" />
           <stop offset="100%" stopColor="#B38F24" />
         </linearGradient>
 
-        {/* Growth Emerald Leaf Gradient */}
-        <linearGradient id="spLeafGrad" x1="0%" y1="100%" x2="50%" y2="0%">
-          <stop offset="0%" stopColor="#059669" />
+        {/* Emerald Growth Gradient */}
+        <linearGradient id="spEmeraldGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+          <stop offset="0%" stopColor="#065F46" />
           <stop offset="50%" stopColor="#10B981" />
           <stop offset="100%" stopColor="#34D399" />
         </linearGradient>
 
-        {/* Background Dark Radial Gradient */}
-        <radialGradient id="spBgGrad" cx="50%" cy="50%" r="50%">
-          <stop offset="0%" stopColor="#0E3630" />
-          <stop offset="100%" stopColor="#061B18" />
+        {/* Deep Forest Radial Gradient */}
+        <radialGradient id="spSealBg" cx="40%" cy="40%" r="60%">
+          <stop offset="0%" stopColor="#0D352E" />
+          <stop offset="100%" stopColor="#051714" />
         </radialGradient>
       </defs>
 
-      {/* Outer Premium Circular Seal */}
+      {/* Outer Luxury Circular Gold Seal */}
       <circle
         cx="50"
         cy="50"
         r="46"
-        fill="url(#spBgGrad)"
-        stroke="url(#spGoldGrad)"
+        fill="url(#spSealBg)"
+        stroke="url(#spGoldGradTriple)"
         strokeWidth="2.8"
       />
 
@@ -61,62 +61,75 @@ export const LogoMark: React.FC<{ className?: string; size?: number }> = ({
         cx="50"
         cy="50"
         r="41.5"
-        stroke="url(#spGoldGrad)"
+        stroke="url(#spGoldGradTriple)"
         strokeWidth="0.8"
-        strokeOpacity="0.45"
+        strokeOpacity="0.4"
       />
 
-      {/* --- CENTRAL GROWTH STEM & SHOOT --- */}
-      {/* Central Rising Stem */}
+      {/* --- TRIPLE ASCENDING GROWTH ARROWS (WEALTH · HEALTH · LIFE) --- */}
+      {/* 1. Emerald Backing Swoosh */}
       <path
-        d="M 50 75 L 50 40"
-        stroke="url(#spGoldGrad)"
-        strokeWidth="2.5"
+        d="M 32 80 C 44 80 60 66 73 28"
+        stroke="url(#spEmeraldGrad)"
+        strokeWidth="4"
+        strokeLinecap="round"
+        opacity="0.85"
+      />
+
+      {/* 2. Main Rising Arrow (Wealth & Business Growth) */}
+      <path
+        d="M 30 79 C 43 78 57 62 70 24"
+        stroke="url(#spGoldGradTriple)"
+        strokeWidth="3.2"
         strokeLinecap="round"
       />
-
-      {/* Upward Growing Green Sprout / Leaf (Life & Health Protection) */}
+      {/* Arrow Head 1 */}
       <path
-        d="M 50 40 C 42 34 40 22 49 16 C 53 23 53 32 50 40 Z"
-        fill="url(#spLeafGrad)"
-        stroke="#10B981"
-        strokeWidth="0.5"
-      />
-      {/* Secondary Mini Sprout Leaf */}
-      <path
-        d="M 46 36 C 39 34 38 27 44 24 C 47 28 47 33 46 36 Z"
-        fill="url(#spLeafGrad)"
-        opacity="0.9"
+        d="M 61 27 L 72 21 L 73 32 Z"
+        fill="url(#spGoldGradTriple)"
       />
 
-      {/* Rising Growth Wealth Arrow (Ascending Capital & Wealth Expansion) */}
+      {/* 3. Secondary Rising Arrow (Health Protection Increase) */}
       <path
-        d="M 50 40 Q 55 33 63 21"
-        stroke="url(#spGoldGrad)"
-        strokeWidth="2.4"
+        d="M 40 80 C 50 79 62 66 78 40"
+        stroke="url(#spGoldGradTriple)"
+        strokeWidth="2.6"
         strokeLinecap="round"
       />
-      {/* Arrow Head */}
+      {/* Arrow Head 2 */}
       <path
-        d="M 58 19 L 66 20 L 64 28 Z"
-        fill="url(#spGoldGrad)"
+        d="M 70 42 L 80 37 L 80 47 Z"
+        fill="url(#spGoldGradTriple)"
       />
 
-      {/* --- MONOGRAM LETTERS: S & P --- */}
-      {/* Letter 'S' on the Left */}
+      {/* 4. Third Rising Arrow (Life & Future Security Increase) */}
       <path
-        d="M 43 49 C 41 46 35 45 30 47 C 25.5 48.8 24 53 26 56.5 C 28 60 37 60.5 39 64 C 41 67.5 38 72 31 72 C 26 72 22 69 21 66"
-        stroke="url(#spGoldGrad)"
+        d="M 50 80 C 58 79 68 69 83 54"
+        stroke="url(#spGoldGradTriple)"
+        strokeWidth="2"
+        strokeLinecap="round"
+      />
+      {/* Arrow Head 3 */}
+      <path
+        d="M 76 55 L 84 51 L 84 59 Z"
+        fill="url(#spGoldGradTriple)"
+      />
+
+      {/* --- MONOGRAM LETTERS: SP (Crisp Modern Alignment) --- */}
+      {/* Letter 'S' */}
+      <path
+        d="M 37 45 C 34 42 27 41 22 44 C 17.5 46.5 17 51 21 54 C 25 57 32 58 33 62 C 34 66 30 70 23 70 C 18 70 14 67 13 63"
+        stroke="url(#spGoldGradTriple)"
         strokeWidth="2.8"
         strokeLinecap="round"
         strokeLinejoin="round"
         fill="none"
       />
 
-      {/* Letter 'P' on the Right (Connecting to the Central Upward Stem) */}
+      {/* Letter 'P' */}
       <path
-        d="M 50 48 L 63 48 C 70 48 74 52 74 57 C 74 62 70 66 63 66 L 50 66"
-        stroke="url(#spGoldGrad)"
+        d="M 38 41 L 38 70 M 38 44 L 46 44 C 52 44 55 47.5 55 52 C 55 56.5 52 60 46 60 L 38 60"
+        stroke="url(#spGoldGradTriple)"
         strokeWidth="2.8"
         strokeLinecap="round"
         strokeLinejoin="round"
