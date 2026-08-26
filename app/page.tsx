@@ -487,21 +487,24 @@ export default function HomePage() {
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           {/* 4 Trust Pillars (6 cols) */}
-          <div className="lg:col-span-6 space-y-4">
+          <div className="lg:col-span-6 space-y-3 sm:space-y-4">
             {WHY_CHOOSE_US_POINTS.map((point, idx) => (
               <motion.div
                 key={point.title}
-                variants={fadeUp}
-                className="p-5 rounded-2xl bg-white border border-cream-300 shadow-sm flex items-start gap-4 hover:border-gold-400/40 hover:shadow-md transition-all duration-300"
+                initial={{ opacity: 0, x: idx % 2 === 0 ? -60 : 60 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, margin: "-40px" }}
+                transition={{ duration: 0.5, delay: idx * 0.1, ease: "easeOut" }}
+                className="p-3 sm:p-5 rounded-xl sm:rounded-2xl bg-white border border-cream-300 shadow-sm flex items-start gap-3 sm:gap-4 hover:border-gold-400/40 hover:shadow-md transition-all duration-300"
               >
-                <div className="w-10 h-10 rounded-xl bg-forest-900 text-gold-400 flex items-center justify-center font-bold text-sm flex-shrink-0 shadow-sm">
+                <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-forest-900 text-gold-400 flex items-center justify-center font-bold text-[11px] sm:text-sm flex-shrink-0 shadow-sm">
                   0{idx + 1}
                 </div>
                 <div>
-                  <h3 className="font-serif text-lg font-bold text-forest-900 mb-1">
+                  <h3 className="font-serif text-[14px] sm:text-lg font-bold text-forest-900 mb-0.5 sm:mb-1 leading-tight">
                     {point.title}
                   </h3>
-                  <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">
+                  <p className="text-[10px] sm:text-sm text-gray-600 leading-relaxed">
                     {point.desc}
                   </p>
                 </div>
