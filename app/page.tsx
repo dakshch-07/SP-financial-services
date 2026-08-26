@@ -83,13 +83,25 @@ export default function HomePage() {
               variants={staggerContainer}
               className="lg:col-span-7 flex flex-col items-center lg:items-start text-center lg:text-left space-y-4 lg:space-y-6"
             >
-              {/* Gold MDRT Badge */}
+              {/* Gold MDRT Badge — Highlighted with glow + pulse */}
               <motion.div
                 variants={fadeUp}
-                className="inline-flex items-center gap-1.5 lg:gap-2 px-3 py-1 lg:px-3.5 lg:py-1.5 rounded-full bg-gold-400/20 border border-gold-400/40 text-gold-300 text-[9.5px] sm:text-xs font-bold tracking-[0.15em] lg:tracking-[0.18em] uppercase shadow-md backdrop-blur-sm"
+                className="relative inline-flex items-center gap-1.5 lg:gap-2 px-3.5 py-1.5 lg:px-4 lg:py-2 rounded-full text-[9.5px] sm:text-xs font-bold tracking-[0.15em] lg:tracking-[0.18em] uppercase backdrop-blur-sm"
+                style={{
+                  background: "linear-gradient(135deg, rgba(212,175,55,0.35) 0%, rgba(226,195,101,0.15) 100%)",
+                  border: "1px solid rgba(212,175,55,0.7)",
+                  boxShadow: "0 0 12px 2px rgba(212,175,55,0.35), 0 0 24px 6px rgba(212,175,55,0.15)",
+                  color: "#F0D060",
+                }}
               >
-                <Award className="w-3 h-3 lg:w-3.5 lg:h-3.5 text-gold-400" />
-                <span>6x MDRT USA Award Winner · Sachin Pandit</span>
+                {/* Pulse ring */}
+                <motion.span
+                  className="absolute inset-0 rounded-full border border-gold-400/50"
+                  animate={{ scale: [1, 1.08, 1], opacity: [0.7, 0, 0.7] }}
+                  transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                />
+                <Award className="w-3.5 h-3.5 text-gold-300" />
+                <span className="relative z-10 text-gold-200">6x MDRT USA Award Winner · Sachin Pandit</span>
               </motion.div>
 
               {/* Main Heading */}
