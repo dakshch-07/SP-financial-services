@@ -9,7 +9,7 @@ export const Preloader: React.FC = () => {
   const shouldReduceMotion = useReducedMotion();
 
   useEffect(() => {
-    const hasSeenPreloader = sessionStorage.getItem("sp_preloader_seen_v7");
+    const hasSeenPreloader = sessionStorage.getItem("sp_preloader_seen_v8");
     if (hasSeenPreloader || shouldReduceMotion) {
       setIsLoading(false);
       return;
@@ -17,7 +17,7 @@ export const Preloader: React.FC = () => {
 
     const timer = setTimeout(() => {
       setIsLoading(false);
-      sessionStorage.setItem("sp_preloader_seen_v7", "true");
+      sessionStorage.setItem("sp_preloader_seen_v8", "true");
     }, 1500);
 
     return () => clearTimeout(timer);
@@ -25,7 +25,7 @@ export const Preloader: React.FC = () => {
 
   const handleSkip = () => {
     setIsLoading(false);
-    sessionStorage.setItem("sp_preloader_seen_v7", "true");
+    sessionStorage.setItem("sp_preloader_seen_v8", "true");
   };
 
   return (
