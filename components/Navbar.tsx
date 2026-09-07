@@ -53,19 +53,19 @@ export const Navbar: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-12 sm:h-14">
             {/* 1. Left: SP Logo */}
-            <div className="flex items-center">
+            <div className="flex items-center flex-shrink-0">
               <Logo variant="dark" size="md" />
             </div>
 
             {/* 2. Center: Desktop Navigation Links (Strictly Aligned & Spaced) */}
-            <nav className="hidden xl:flex items-center justify-center gap-7 lg:gap-8">
+            <nav className="hidden xl:flex items-center justify-center gap-4 lg:gap-5 flex-1 px-4">
               {NAV_LINKS.map((link) => {
                 const isActive = pathname === link.href;
                 return (
                   <Link
                     key={link.name}
                     href={link.href}
-                    className={`relative text-xs uppercase tracking-[0.16em] font-bold py-1.5 transition-colors duration-200 flex items-center justify-center ${
+                    className={`relative text-xs uppercase tracking-[0.08em] font-bold py-1.5 transition-colors duration-200 flex items-center justify-center whitespace-nowrap ${
                       isActive ? "text-gold-600" : "text-forest-800 hover:text-gold-500"
                     }`}
                   >
@@ -83,7 +83,7 @@ export const Navbar: React.FC = () => {
             </nav>
 
             {/* 3. Right: Action Buttons (Equal Height & Vertically Centered) */}
-            <div className="hidden md:flex items-center gap-3">
+            <div className="hidden md:flex items-center gap-3 flex-shrink-0">
               <a
                 href={BUSINESS_INFO.contact.whatsapp}
                 target="_blank"
