@@ -88,20 +88,20 @@ export default function HomePage() {
                 variants={fadeUp}
                 className="relative inline-flex items-center gap-1.5 lg:gap-2 px-3.5 py-1.5 lg:px-4 lg:py-2 rounded-full text-[9.5px] sm:text-xs font-bold tracking-[0.15em] lg:tracking-[0.18em] uppercase backdrop-blur-sm"
                 style={{
-                  background: "linear-gradient(135deg, rgba(212,175,55,0.35) 0%, rgba(226,195,101,0.15) 100%)",
-                  border: "1px solid rgba(212,175,55,0.7)",
-                  boxShadow: "0 0 12px 2px rgba(212,175,55,0.35), 0 0 24px 6px rgba(212,175,55,0.15)",
-                  color: "#F0D060",
+                  background: "linear-gradient(135deg, rgba(212,175,55,0.15) 0%, rgba(226,195,101,0.05) 100%)",
+                  border: "1px solid rgba(212,175,55,0.5)",
+                  boxShadow: "0 4px 12px rgba(212,175,55,0.15)",
+                  color: "#7E6014",
                 }}
               >
                 {/* Pulse ring */}
                 <motion.span
-                  className="absolute inset-0 rounded-full border border-gold-400/50"
-                  animate={{ scale: [1, 1.08, 1], opacity: [0.7, 0, 0.7] }}
+                  className="absolute inset-0 rounded-full border border-gold-500/30"
+                  animate={{ scale: [1, 1.05, 1], opacity: [0.7, 0, 0.7] }}
                   transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
                 />
-                <Award className="w-3.5 h-3.5 text-gold-300" />
-                <span className="relative z-10 text-gold-200">7x MDRT USA Award Winner · Sachin Pandit</span>
+                <Award className="w-3.5 h-3.5 text-gold-600" />
+                <span className="relative z-10 text-gold-700">7x MDRT USA Award Winner · Sachin Pandit</span>
               </motion.div>
 
               {/* Main Heading */}
@@ -110,7 +110,7 @@ export default function HomePage() {
                 className="font-serif text-[1.8rem] leading-[1.15] lg:fluid-h1 font-bold text-forest-950 tracking-tight drop-shadow-md text-center lg:text-left"
               >
                 Smart Wealth Planning &amp; Assured Protection for{" "}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-300 via-gold-400 to-amber-200">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-500 via-gold-600 to-amber-600">
                   Your Family
                 </span>
               </motion.h1>
@@ -153,10 +153,10 @@ export default function HomePage() {
                   href={BUSINESS_INFO.contact.whatsapp}
                   isExternal
                   size="lg"
-                  variant="white"
+                  variant="navy"
                   className="flex-1 sm:flex-none shadow-md w-full"
                 >
-                  <MessageCircle className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-emerald-400" />
+                  <MessageCircle className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-emerald-600" />
                   <span className="hidden sm:inline">WhatsApp Us Direct</span>
                   <span className="sm:hidden">WhatsApp</span>
                 </SecondaryButton>
