@@ -26,7 +26,7 @@ export const Logo: React.FC<LogoProps> = ({
     <Link href="/" className={`inline-flex items-center group select-none ${className}`}>
       <div 
         className={`relative ${heightClasses} aspect-[1.48] ${
-          variant === "dark" ? "mix-blend-multiply" : "bg-white p-1 rounded-xl shadow-sm"
+          variant === "light" ? "bg-white p-1 rounded-xl shadow-sm" : ""
         }`}
       >
         <Image 

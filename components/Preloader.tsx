@@ -49,7 +49,7 @@ export const Preloader: React.FC = () => {
               initial={{ scale: 0.85, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ duration: 0.7, ease: "easeOut" }}
-              className="relative w-64 sm:w-80 mix-blend-multiply flex justify-center items-center"
+              className="relative w-64 sm:w-80 flex justify-center items-center"
             >
               <Image 
                 src="/images/logo-new.png"
