@@ -106,7 +106,7 @@ input[type="range"] {
   appearance: none;
   background: #E6EDF8;
   border-radius: 9999px;
-  height: 8px;
+  height: 3px;
   outline: none;
   transition: all 0.2s ease;
 }
