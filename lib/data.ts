@@ -38,10 +38,10 @@ export const BUSINESS_INFO = {
     instagramReel: "https://www.instagram.com/reel/C4df3gTSEbx/",
   },
   stats: [
-    { label: "Happy Clients", value: 1500, suffix: "+", description: "Trusted families & businesses across India" },
-    { label: "Years Experience", value: 16, suffix: "+", description: "Dedicated advisory & wealth planning" },
-    { label: "MDRT – USA Award", value: 6, suffix: " Years", description: "Consecutive international excellence" },
-    { label: "Trophies & Awards", value: 65, suffix: "+", description: "Accolades from LIC & financial bodies" },
+    { label: "Happy Clients", value: 2000, suffix: "+", description: "Trusted families & businesses across India" },
+    { label: "Years Experience", value: 20, suffix: "+", description: "Dedicated advisory & wealth planning" },
+    { label: "MDRT – USA Award", value: 7, suffix: " Years", description: "Consecutive international excellence" },
+    { label: "Trophies & Awards", value: 70, suffix: "+", description: "Accolades from LIC & financial bodies" },
   ],
   insurancePartners: [
     {
@@ -277,9 +277,9 @@ export const AWARDS_TIMELINE = [
   },
   {
     year: "Overall",
-    title: "65+ Trophies & State Accolades",
+    title: "70+ Trophies & State Accolades",
     organization: "LIC, NJ Wealth & Industry Councils",
-    description: "Comprehensive array of awards honoring 16+ years of honest client-first advisory in Mumbai.",
+    description: "Comprehensive array of awards honoring 20+ years of honest client-first advisory in Mumbai.",
     highlight: false,
   },
 ];
@@ -293,7 +293,7 @@ export const WHY_CHOOSE_US_POINTS = [
   },
   {
     title: "Expert Advice",
-    desc: "16+ years of specialized market experience and MDRT USA-certified advisory standards.",
+    desc: "20+ years of specialized market experience and MDRT USA-certified advisory standards.",
     icon: "Award",
     color: "bg-amber-50 text-amber-700",
   },

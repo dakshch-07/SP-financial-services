@@ -101,7 +101,7 @@ export default function HomePage() {
                   transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
                 />
                 <Award className="w-3.5 h-3.5 text-gold-300" />
-                <span className="relative z-10 text-gold-200">6x MDRT USA Award Winner · Sachin Pandit</span>
+                <span className="relative z-10 text-gold-200">7x MDRT USA Award Winner · Sachin Pandit</span>
               </motion.div>
 
               {/* Main Heading */}
@@ -120,8 +120,8 @@ export default function HomePage() {
                 variants={fadeUp}
                 className="fluid-body text-gray-200 font-medium max-w-2xl drop-shadow-sm text-center lg:text-left hidden sm:block"
               >
-                &ldquo;Secure Today. Assured Tomorrow.&rdquo; Trusted by over 1,500+ families &amp;
-                business owners across Mumbai for 16+ years in LIC life insurance, Star Health,
+                &ldquo;Secure Today. Assured Tomorrow.&rdquo; Trusted by over 2,000+ families &amp;
+                business owners across Mumbai for 20+ years in LIC life insurance, Star Health,
                 NJ Mutual Funds, SIPs, and loan advisory.
               </motion.p>
 
@@ -183,14 +183,14 @@ export default function HomePage() {
                       Sachin &amp; Rakhi Pandit
                     </p>
                     <p className="text-[10px] text-gold-300 font-bold uppercase tracking-wider">
-                      MDRT USA · 16+ Yrs Trust
+                      MDRT USA · 20+ Yrs Trust
                     </p>
                   </div>
                 </div>
 
                 <div className="flex items-center gap-3 text-xs text-gray-300 font-medium">
                   <span className="flex items-center gap-1">
-                    <CheckCircle2 className="w-4 h-4 text-gold-400" /> 1,500+ Clients
+                    <CheckCircle2 className="w-4 h-4 text-gold-400" /> 2,000+ Clients
                   </span>
                   <span>•</span>
                   <span className="flex items-center gap-1">
@@ -292,10 +292,10 @@ export default function HomePage() {
             </h2>
 
             <p className="text-xs sm:text-sm md:text-base text-gray-700 leading-relaxed font-medium">
-              Founded and managed by <strong>Sachin Pandit</strong> (6x MDRT USA Award Winner) and{" "}
+              Founded and managed by <strong>Sachin Pandit</strong> (7x MDRT USA Award Winner) and{" "}
               <strong>Rakhi Pandit</strong>, SP Financial Services has been the trusted financial
-              partner for over 1,500+ families and business owners across Mumbai and India for more than
-              16 years.
+              partner for over 2,000+ families and business owners across Mumbai and India for more than
+              20 years.
             </p>
 
             {/* Value Highlights */}
@@ -492,7 +492,7 @@ export default function HomePage() {
             The MDRT Advantage
           </span>
           <h2 className="font-serif fluid-h2 font-bold text-forest-900">
-            Why Over 1,500 Families Trust Sachin Pandit
+            Why Over 2,000 Families Trust Sachin Pandit
           </h2>
           <div className="w-20 h-1 bg-gold-400 mx-auto mt-4 rounded-full" />
         </div>
@@ -670,7 +670,7 @@ export default function HomePage() {
             <p className="text-xs sm:text-sm text-gray-700 leading-relaxed">
               Looking for a top-rated <strong>LIC advisor in Kurla</strong> or a certified{" "}
               <strong>mutual fund advisor in Mumbai</strong>? <strong>SP Financial Services</strong>,
-              founded by 6x MDRT USA award-winning consultant <strong>Sachin Pandit</strong> and{" "}
+              founded by 7x MDRT USA award-winning consultant <strong>Sachin Pandit</strong> and{" "}
               <strong>Rakhi Pandit</strong>, provides personalized wealth management, life insurance,
               Star Health mediclaim, motor policies, and loan advisory. Whether you are calculating
               your mutual fund compounding via our <strong>SIP calculator Mumbai</strong> or seeking

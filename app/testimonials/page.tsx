@@ -89,7 +89,7 @@ export default function TestimonialsPage() {
           <div className="w-20 h-1 bg-gold-400 mx-auto mt-4 rounded-full" />
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 max-w-7xl mx-auto">
           {TESTIMONIALS_DATA.map((item) => (
             <motion.div
               key={item.id}
@@ -148,7 +148,7 @@ export default function TestimonialsPage() {
       <section className="bg-gradient-to-r from-forest-950 to-forest-900 text-white py-16 text-center">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="font-serif fluid-h2 font-bold text-white mb-4">
-            Join 1,500+ Satisfied Clients Today
+            Join 2,000+ Satisfied Clients Today
           </h2>
           <p className="text-sm sm:text-base text-gray-200 mb-8 max-w-xl mx-auto">
             Experience proactive, transparent financial management tailored precisely for your family.

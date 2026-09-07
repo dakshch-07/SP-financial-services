@@ -52,7 +52,7 @@ export const Footer: React.FC = () => {
             <Logo variant="light" size="md" />
 
             <p className="text-xs sm:text-sm text-gray-300 leading-relaxed pt-2">
-              &quot;A Goal Without a Plan is Just a Wish.&quot; 16+ years of MDRT USA-certified
+              &quot;A Goal Without a Plan is Just a Wish.&quot; 20+ years of MDRT USA-certified
               wealth advisory, comprehensive insurance, SIP mutual funds, and loan advisory in
               Kurla West, Mumbai.
             </p>
@@ -60,11 +60,11 @@ export const Footer: React.FC = () => {
             <div className="pt-2 flex flex-wrap gap-2">
               <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-gold-400/10 border border-gold-400/30 text-gold-300 text-[11px] font-semibold">
                 <Shield className="w-3.5 h-3.5 text-gold-400" />
-                6x MDRT USA Winner
+                7x MDRT USA Winner
               </span>
               <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-forest-800 text-emerald-300 text-[11px] font-semibold border border-forest-700">
                 <TrendingUp className="w-3.5 h-3.5" />
-                1,500+ Happy Families
+                2,000+ Happy Families
               </span>
             </div>
           </div>

@@ -8,7 +8,7 @@ import { PageTransition } from "@/components/PageTransition";
 export const metadata: Metadata = {
   title: "SP Financial Services | Sachin Pandit | MDRT Advisor & SIP Calculator Mumbai",
   description:
-    "Secure Today. Assured Tomorrow. Trusted financial advisory by Sachin Pandit (6x MDRT USA, 1,500+ Clients, 16+ Yrs) in Kurla West, Mumbai. Live SIP calculator, home loan EMI calculator, LIC life insurance, Star Health mediclaim & NJ Mutual Funds.",
+    "Secure Today. Assured Tomorrow. Trusted financial advisory by Sachin Pandit (7x MDRT USA, 2,000+ Clients, 20+ Yrs) in Kurla West, Mumbai. Live SIP calculator, home loan EMI calculator, LIC life insurance, Star Health mediclaim & NJ Mutual Funds.",
   keywords: [
     "SIP calculator Mumbai",
     "home loan calculator",

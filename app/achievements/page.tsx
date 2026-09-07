@@ -38,7 +38,7 @@ export default function AchievementsPage() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
             <div className="p-4 rounded-2xl bg-forest-900/60 border border-forest-800">
               <div className="font-serif text-3xl sm:text-4xl font-bold text-gold-400">
-                1,500+
+                2,000+
               </div>
               <div className="text-[11px] sm:text-xs font-semibold text-gray-300 uppercase tracking-wider mt-1">
                 Protected Clients
@@ -47,7 +47,7 @@ export default function AchievementsPage() {
 
             <div className="p-4 rounded-2xl bg-forest-900/60 border border-forest-800">
               <div className="font-serif text-3xl sm:text-4xl font-bold text-gold-400">
-                16+
+                20+
               </div>
               <div className="text-[11px] sm:text-xs font-semibold text-gray-300 uppercase tracking-wider mt-1">
                 Years of Mastery
@@ -56,7 +56,7 @@ export default function AchievementsPage() {
 
             <div className="p-4 rounded-2xl bg-forest-900/60 border border-forest-800">
               <div className="font-serif text-3xl sm:text-4xl font-bold text-gold-400">
-                6x
+                7x
               </div>
               <div className="text-[11px] sm:text-xs font-semibold text-gray-300 uppercase tracking-wider mt-1">
                 MDRT USA Winner

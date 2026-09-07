@@ -28,7 +28,7 @@ export default function AboutPage() {
       {/* High-Contrast Luxury Page Hero */}
       <PageHero
         title="About SP Financial Services"
-        subtitle="Over 16 years of disciplined wealth management, MDRT USA-certified standards, and unwavering commitment to 1,500+ clients across Mumbai."
+        subtitle="Over 20 years of disciplined wealth management, MDRT USA-certified standards, and unwavering commitment to 2,000+ clients across Mumbai."
         breadcrumb="About Us"
       />
 
@@ -71,7 +71,7 @@ export default function AboutPage() {
             <div className="space-y-4 text-xs sm:text-sm md:text-base text-gray-700 leading-relaxed">
               <p>
                 I am <strong>Sachin Pandit</strong>, founder of SP Financial Services. Over the
-                past 16 years, we have had the privilege of partnering with over 1,500
+                past 20 years, we have had the privilege of partnering with over 2,000
                 individuals—from dynamic entrepreneurs and corporate executives to young salaried
                 professionals, students, and retirees.
               </p>
@@ -92,7 +92,7 @@ export default function AboutPage() {
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4 pt-2">
               <div className="p-4 rounded-2xl bg-white border border-cream-300 shadow-sm">
                 <div className="font-serif text-2xl sm:text-3xl font-bold text-forest-900">
-                  <CountUp end={1500} suffix="+" />
+                  <CountUp end={2000} suffix="+" />
                 </div>
                 <div className="text-[11px] font-bold text-gold-600 uppercase tracking-wider mt-1">
                   Happy Clients
