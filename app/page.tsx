@@ -66,12 +66,12 @@ export default function HomePage() {
       {/* =========================================================================
           1. HERO SECTION (Clean Luxury Canvas + Right-Side Calculator)
          ========================================================================= */}
-      <section className="relative min-h-[92vh] lg:min-h-screen bg-forest-950 text-white flex items-center justify-center pt-[5.5rem] lg:pt-28 pb-10 lg:pb-16 overflow-hidden">
+      <section className="relative min-h-[92vh] lg:min-h-screen bg-cream-50 text-forest-950 flex items-center justify-center pt-[5.5rem] lg:pt-28 pb-10 lg:pb-16 overflow-hidden">
         {/* Luxury Deep Emerald & Forest Ambient Canvas */}
-        <div className="absolute inset-0 z-0 bg-[radial-gradient(circle_at_20%_20%,rgba(212,175,55,0.12),transparent_40%),radial-gradient(circle_at_80%_30%,rgba(16,185,129,0.1),transparent_50%),radial-gradient(circle_at_50%_80%,rgba(12,45,39,0.9),transparent_60%)]" />
-        <div className="absolute -top-32 -left-32 w-[500px] h-[500px] bg-forest-600/20 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute inset-0 z-0 bg-[radial-gradient(circle_at_20%_20%,rgba(212,175,55,0.08),transparent_40%),radial-gradient(circle_at_80%_30%,rgba(16,185,129,0.05),transparent_50%),radial-gradient(circle_at_50%_80%,rgba(255,255,255,0.8),transparent_60%)]" />
+        <div className="absolute -top-32 -left-32 w-[500px] h-[500px] bg-skyBlue-light/50 rounded-full blur-3xl pointer-events-none" />
         <div className="absolute top-1/4 -right-32 w-[500px] h-[500px] bg-gold-400/15 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute bottom-0 left-0 right-0 h-28 bg-gradient-to-t from-forest-950 to-transparent" />
+        <div className="absolute bottom-0 left-0 right-0 h-28 bg-gradient-to-t from-cream-50 to-transparent" />
 
         {/* Main Hero Container */}
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full z-10">
@@ -107,7 +107,7 @@ export default function HomePage() {
               {/* Main Heading */}
               <motion.h1
                 variants={fadeUp}
-                className="font-serif text-[1.8rem] leading-[1.15] lg:fluid-h1 font-bold text-white tracking-tight drop-shadow-md text-center lg:text-left"
+                className="font-serif text-[1.8rem] leading-[1.15] lg:fluid-h1 font-bold text-forest-950 tracking-tight drop-shadow-md text-center lg:text-left"
               >
                 Smart Wealth Planning &amp; Assured Protection for{" "}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-300 via-gold-400 to-amber-200">
@@ -118,7 +118,7 @@ export default function HomePage() {
               {/* Subhead Tagline (Desktop) */}
               <motion.p
                 variants={fadeUp}
-                className="fluid-body text-gray-200 font-medium max-w-2xl drop-shadow-sm text-center lg:text-left hidden sm:block"
+                className="fluid-body text-forest-800 font-medium max-w-2xl drop-shadow-sm text-center lg:text-left hidden sm:block"
               >
                 &ldquo;Secure Today. Assured Tomorrow.&rdquo; Trusted by over 2,000+ families &amp;
                 business owners across Mumbai for 20+ years in LIC life insurance, Star Health,
@@ -168,8 +168,8 @@ export default function HomePage() {
                 className="pt-2 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 w-full sm:w-auto"
               >
                 {/* Mini Founders Badge */}
-                <div className="flex items-center gap-3.5 p-3 pr-5 rounded-2xl bg-forest-900/90 border border-forest-700/90 backdrop-blur-md shadow-lg">
-                  <div className="relative w-14 h-14 rounded-xl overflow-hidden border-2 border-gold-400 flex-shrink-0 bg-forest-950 shadow-md">
+                <div className="flex items-center gap-3.5 p-3 pr-5 rounded-2xl bg-white/90 border border-cream-300 backdrop-blur-md shadow-lg">
+                  <div className="relative w-14 h-14 rounded-xl overflow-hidden border-2 border-gold-400 flex-shrink-0 bg-cream-100 shadow-md">
                     <Image
                       src="/images/founders-portrait.png"
                       alt="Sachin & Rakhi Pandit - SP Financial Services"
@@ -179,18 +179,18 @@ export default function HomePage() {
                     />
                   </div>
                   <div className="text-left">
-                    <p className="text-sm font-bold text-white font-serif">
+                    <p className="text-sm font-bold text-forest-950 font-serif">
                       Sachin &amp; Rakhi Pandit
                     </p>
-                    <p className="text-[10px] text-gold-300 font-bold uppercase tracking-wider">
+                    <p className="text-[10px] text-gold-600 font-bold uppercase tracking-wider">
                       MDRT USA · 20+ Yrs Trust
                     </p>
                   </div>
                 </div>
 
-                <div className="flex items-center gap-3 text-xs text-gray-300 font-medium">
+                <div className="flex items-center gap-3 text-xs text-forest-700 font-medium">
                   <span className="flex items-center gap-1">
-                    <CheckCircle2 className="w-4 h-4 text-gold-400" /> 2,000+ Clients
+                    <CheckCircle2 className="w-4 h-4 text-gold-500" /> 2,000+ Clients
                   </span>
                   <span>•</span>
                   <span className="flex items-center gap-1">
@@ -216,7 +216,7 @@ export default function HomePage() {
       {/* =========================================================================
           2. TRUST STATS STRIP
          ========================================================================= */}
-      <section className="bg-forest-950 text-white py-8 border-y border-gold-400/20 shadow-xl relative z-10">
+      <section className="bg-white text-forest-950 py-8 border-y border-cream-300 shadow-xl relative z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
             {BUSINESS_INFO.stats.map((stat, idx) => {
@@ -230,18 +230,18 @@ export default function HomePage() {
               return (
                 <div
                   key={stat.label}
-                  className="flex flex-col items-center text-center p-3 sm:p-4 rounded-2xl bg-forest-900/60 border border-forest-800 hover:border-gold-400/30 transition-all duration-300"
+                  className="flex flex-col items-center text-center p-3 sm:p-4 rounded-2xl bg-cream-50 border border-cream-200 hover:border-gold-400/50 transition-all duration-300"
                 >
-                  <div className="mb-1.5 p-2 rounded-full bg-forest-800 text-gold-400">
+                  <div className="mb-1.5 p-2 rounded-full bg-gold-50 text-gold-600">
                     {icons[idx]}
                   </div>
-                  <div className="font-serif text-2xl sm:text-3xl font-bold text-white">
+                  <div className="font-serif text-2xl sm:text-3xl font-bold text-forest-950">
                     <CountUp end={stat.value} suffix={stat.suffix} />
                   </div>
-                  <div className="text-[11px] sm:text-xs font-bold text-gold-300 uppercase tracking-wider mt-0.5">
+                  <div className="text-[11px] sm:text-xs font-bold text-gold-600 uppercase tracking-wider mt-0.5">
                     {stat.label}
                   </div>
-                  <div className="text-[10px] sm:text-[11px] text-gray-400 mt-0.5 hidden sm:block">
+                  <div className="text-[10px] sm:text-[11px] text-gray-500 mt-0.5 hidden sm:block">
                     {stat.description}
                   </div>
                 </div>
@@ -440,11 +440,11 @@ export default function HomePage() {
         </div>
 
         {/* Full Pill Tag Cloud */}
-        <div className="mt-8 sm:mt-12 p-4 sm:p-8 rounded-2xl sm:rounded-3xl bg-forest-950 text-white shadow-xl text-center">
-          <h3 className="font-serif text-[1.15rem] sm:text-2xl font-bold text-white mb-1.5 sm:mb-3 leading-tight">
+        <div className="mt-8 sm:mt-12 p-4 sm:p-8 rounded-2xl sm:rounded-3xl bg-white border border-cream-300 text-forest-950 shadow-xl text-center">
+          <h3 className="font-serif text-[1.15rem] sm:text-2xl font-bold text-forest-950 mb-1.5 sm:mb-3 leading-tight">
             Full Spectrum of Risk &amp; Investment Coverage
           </h3>
-          <p className="text-gray-300 text-[11px] sm:text-sm mb-5 sm:mb-8">
+          <p className="text-gray-600 text-[11px] sm:text-sm mb-5 sm:mb-8">
             We structure policies for private individuals, families, NRIs, and corporate
             enterprises:
           </p>

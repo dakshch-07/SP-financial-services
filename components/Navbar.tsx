@@ -14,6 +14,7 @@ const NAV_LINKS = [
   { name: "Services", href: "/services" },
   { name: "About", href: "/about" },
   { name: "Achievements", href: "/achievements" },
+  { name: "Gallery", href: "/gallery" },
   { name: "Testimonials", href: "/testimonials" },
   { name: "Contact", href: "/contact" },
 ];
@@ -45,15 +46,15 @@ export const Navbar: React.FC = () => {
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled
-            ? "bg-forest-950/95 backdrop-blur-md py-3 shadow-lg shadow-black/20 border-b border-forest-800/80"
-            : "bg-gradient-to-b from-forest-950/95 via-forest-950/60 to-transparent py-4 sm:py-5"
+            ? "bg-white/95 backdrop-blur-md py-3 shadow-md border-b border-cream-200"
+            : "bg-gradient-to-b from-cream-100/90 via-cream-50/60 to-transparent py-4 sm:py-5"
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-12 sm:h-14">
             {/* 1. Left: SP Logo */}
             <div className="flex items-center">
-              <Logo variant="light" size="md" />
+              <Logo variant="dark" size="md" />
             </div>
 
             {/* 2. Center: Desktop Navigation Links (Strictly Aligned & Spaced) */}
@@ -65,14 +66,14 @@ export const Navbar: React.FC = () => {
                     key={link.name}
                     href={link.href}
                     className={`relative text-xs uppercase tracking-[0.16em] font-bold py-1.5 transition-colors duration-200 flex items-center justify-center ${
-                      isActive ? "text-gold-400" : "text-gray-200 hover:text-gold-300"
+                      isActive ? "text-gold-600" : "text-forest-800 hover:text-gold-500"
                     }`}
                   >
                     <span>{link.name}</span>
                     {isActive && (
                       <motion.div
                         layoutId="navUnderline"
-                        className="absolute bottom-0 left-0 right-0 h-[2px] bg-gold-400 rounded-full"
+                        className="absolute bottom-0 left-0 right-0 h-[2px] bg-gold-500 rounded-full"
                         transition={{ type: "spring", stiffness: 400, damping: 30 }}
                       />
                     )}
@@ -115,7 +116,7 @@ export const Navbar: React.FC = () => {
               </a>
               <button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-white hover:text-gold-400 transition-colors focus:outline-none"
+                className="w-9 h-9 rounded-full bg-forest-900/10 flex items-center justify-center text-forest-950 hover:text-gold-600 transition-colors focus:outline-none"
                 aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
               >
                 {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -133,10 +134,10 @@ export const Navbar: React.FC = () => {
             animate={{ opacity: 1, clipPath: "circle(150% at 100% 0%)" }}
             exit={{ opacity: 0, clipPath: "circle(0% at 100% 0%)" }}
             transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-            className="fixed inset-0 z-40 bg-forest-950/98 backdrop-blur-xl xl:hidden flex flex-col justify-between pt-[5.5rem] pb-6 px-6 text-white overflow-y-auto"
+            className="fixed inset-0 z-40 bg-white/98 backdrop-blur-xl xl:hidden flex flex-col justify-between pt-[5.5rem] pb-6 px-6 text-forest-950 overflow-y-auto"
           >
             <div className="flex flex-col space-y-2.5">
-              <span className="text-[10px] uppercase tracking-[0.2em] text-gold-400 font-bold mb-1 opacity-80">
+              <span className="text-[10px] uppercase tracking-[0.2em] text-gold-600 font-bold mb-1 opacity-80">
                 Navigation
               </span>
               {NAV_LINKS.map((link, idx) => {
@@ -152,7 +153,7 @@ export const Navbar: React.FC = () => {
                       href={link.href}
                       onClick={() => setIsMobileMenuOpen(false)}
                       className={`block font-serif text-[1.35rem] font-medium tracking-wide py-1.5 ${
-                        isActive ? "text-gold-400 pl-3 border-l-[2.5px] border-gold-400" : "text-gray-300 hover:text-white pl-1"
+                        isActive ? "text-gold-400 pl-3 border-l-[2.5px] border-gold-400" : "text-gray-500 hover:text-forest-950 pl-1"
                       }`}
                     >
                       {link.name}
