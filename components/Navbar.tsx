@@ -134,7 +134,7 @@ export const Navbar: React.FC = () => {
             animate={{ opacity: 1, clipPath: "circle(150% at 100% 0%)" }}
             exit={{ opacity: 0, clipPath: "circle(0% at 100% 0%)" }}
             transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-            className="fixed inset-0 z-40 bg-white/98 backdrop-blur-xl xl:hidden flex flex-col justify-between pt-[5.5rem] pb-6 px-6 text-forest-950 overflow-y-auto"
+            className="fixed inset-0 z-40 bg-[#FCF9EE]/95 backdrop-blur-xl xl:hidden flex flex-col justify-between pt-[5.5rem] pb-6 px-6 text-forest-950 overflow-y-auto"
           >
             <div className="flex flex-col space-y-2.5">
               <span className="text-[10px] uppercase tracking-[0.2em] text-gold-600 font-bold mb-1 opacity-80">
@@ -153,7 +153,7 @@ export const Navbar: React.FC = () => {
                       href={link.href}
                       onClick={() => setIsMobileMenuOpen(false)}
                       className={`block font-serif text-[1.35rem] font-medium tracking-wide py-1.5 ${
-                        isActive ? "text-gold-400 pl-3 border-l-[2.5px] border-gold-400" : "text-gray-500 hover:text-forest-950 pl-1"
+                        isActive ? "text-gold-600 pl-3 border-l-[2.5px] border-gold-500" : "text-forest-700 hover:text-gold-600 pl-1"
                       }`}
                     >
                       {link.name}
@@ -163,7 +163,7 @@ export const Navbar: React.FC = () => {
               })}
             </div>
 
-            <div className="pt-5 border-t border-forest-800/80 space-y-3.5 mt-4">
+            <div className="pt-5 border-t border-cream-300 space-y-3.5 mt-4">
               <Link
                 href="/contact"
                 onClick={() => setIsMobileMenuOpen(false)}
@@ -176,18 +176,18 @@ export const Navbar: React.FC = () => {
               <div className="grid grid-cols-2 gap-3 pt-0.5">
                 <a
                   href={`tel:${BUSINESS_INFO.contact.primaryPhone}`}
-                  className="flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl bg-white/10 text-white text-[11px] font-semibold hover:bg-white/20 transition-colors"
+                  className="flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl bg-white border border-cream-200 text-forest-900 text-[11px] font-semibold hover:bg-cream-100 transition-colors shadow-sm"
                 >
-                  <Phone className="w-3.5 h-3.5 text-gold-400" />
-                  <span>Call Sachin</span>
+                  <Phone className="w-3.5 h-3.5 text-forest-700" />
+                  <span>Call Us</span>
                 </a>
                 <a
                   href={BUSINESS_INFO.contact.whatsapp}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl bg-emerald-600/30 border border-emerald-500/40 text-emerald-300 text-[11px] font-semibold hover:bg-emerald-600/40 transition-colors"
+                  className="flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl bg-white border border-cream-200 text-forest-900 text-[11px] font-semibold hover:bg-cream-100 transition-colors shadow-sm"
                 >
-                  <MessageCircle className="w-3.5 h-3.5 text-emerald-400" />
+                  <MessageCircle className="w-3.5 h-3.5 text-emerald-600" />
                   <span>WhatsApp</span>
                 </a>
               </div>
