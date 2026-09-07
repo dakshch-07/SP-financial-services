@@ -12,10 +12,10 @@ interface LogoProps {
 }
 
 export const Logo: React.FC<LogoProps> = ({
+  variant = "dark",
   size = "md",
   className = "",
 }) => {
-  // Use explicit height rather than aspect-ratio padding to fit properly inside flex header
   const heightClasses = {
     sm: "h-12",
     md: "h-14 sm:h-16",
@@ -24,10 +24,13 @@ export const Logo: React.FC<LogoProps> = ({
 
   return (
     <Link href="/" className={`inline-flex items-center group select-none ${className}`}>
-      {/* We set height based on size, and width will auto-adjust since we use object-contain */}
-      <div className={`relative w-40 sm:w-48 ${heightClasses}`}>
+      <div 
+        className={`relative ${heightClasses} aspect-[1.48] ${
+          variant === "dark" ? "mix-blend-multiply" : "bg-white p-1 rounded-xl shadow-sm"
+        }`}
+      >
         <Image 
-          src="/images/logo.png" 
+          src="/images/logo-new.png" 
           alt="SP Financial Services" 
           fill 
           className="object-contain object-left" 

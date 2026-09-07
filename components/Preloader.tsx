@@ -9,7 +9,7 @@ export const Preloader: React.FC = () => {
   const shouldReduceMotion = useReducedMotion();
 
   useEffect(() => {
-    const hasSeenPreloader = sessionStorage.getItem("sp_preloader_seen_v9");
+    const hasSeenPreloader = sessionStorage.getItem("sp_preloader_seen_v10");
     if (hasSeenPreloader || shouldReduceMotion) {
       setIsLoading(false);
       return;
@@ -17,7 +17,7 @@ export const Preloader: React.FC = () => {
 
     const timer = setTimeout(() => {
       setIsLoading(false);
-      sessionStorage.setItem("sp_preloader_seen_v9", "true");
+      sessionStorage.setItem("sp_preloader_seen_v10", "true");
     }, 1500);
 
     return () => clearTimeout(timer);
@@ -25,7 +25,7 @@ export const Preloader: React.FC = () => {
 
   const handleSkip = () => {
     setIsLoading(false);
-    sessionStorage.setItem("sp_preloader_seen_v9", "true");
+    sessionStorage.setItem("sp_preloader_seen_v10", "true");
   };
 
   return (
@@ -39,7 +39,7 @@ export const Preloader: React.FC = () => {
             transition: { duration: 0.65, ease: [0.76, 0, 0.24, 1] },
           }}
           onClick={handleSkip}
-          className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-[#020C1B] text-white cursor-pointer select-none overflow-hidden"
+          className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-[#FCF9EE] text-forest-950 cursor-pointer select-none overflow-hidden"
           aria-label="SP Financial Services loading - Click to skip"
         >
           <div className="relative flex flex-col items-center max-w-md px-6 text-center">
@@ -49,20 +49,20 @@ export const Preloader: React.FC = () => {
               initial={{ scale: 0.85, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ duration: 0.7, ease: "easeOut" }}
-              className="relative w-64 sm:w-80 drop-shadow-[0_0_30px_rgba(212,175,55,0.15)] flex justify-center items-center"
+              className="relative w-64 sm:w-80 mix-blend-multiply flex justify-center items-center"
             >
               <Image 
-                src="/images/logo.png"
+                src="/images/logo-new.png"
                 alt="SP Financial Services Logo"
                 width={320}
-                height={240}
+                height={215}
                 className="w-full h-auto object-contain"
                 priority
               />
             </motion.div>
 
             {/* Gold Underline Sweep Indicator */}
-            <div className="relative w-40 h-[2px] bg-white/5 mt-8 overflow-hidden rounded-full">
+            <div className="relative w-40 h-[2px] bg-forest-900/10 mt-8 overflow-hidden rounded-full">
               <motion.div
                 initial={{ x: "-100%" }}
                 animate={{ x: "100%" }}
