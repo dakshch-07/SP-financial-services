@@ -468,9 +468,11 @@ export default function HomePage() {
             ].map((tag) => (
               <span
                 key={tag}
-                className="px-2.5 py-1 sm:px-4 sm:py-2 rounded-full border border-forest-700 bg-forest-900/50 text-emerald-100 text-[9px] sm:text-sm font-medium hover:bg-forest-800 transition-colors cursor-default"
+                className="relative overflow-hidden group px-2.5 py-1 sm:px-4 sm:py-2 rounded-full border border-gold-300/60 bg-gradient-to-br from-white to-cream-50 text-forest-900 text-[10px] sm:text-[13px] font-bold shadow-sm hover:shadow-md transition-all cursor-default"
               >
-                {tag}
+                <span className="relative z-10">{tag}</span>
+                {/* Shimmer / Shine element */}
+                <span className="absolute top-0 left-0 w-1/2 h-full bg-gradient-to-r from-transparent via-gold-400/20 to-transparent -skew-x-12 animate-shimmer" />
               </span>
             ))}
           </div>
