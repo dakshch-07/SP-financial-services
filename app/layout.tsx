@@ -28,6 +28,7 @@ export const metadata: Metadata = {
     // 6. Wealth Management & Local Queries
     "financial planner Kurla", "investment advisor Nehru Nagar", "wealth management Chembur", "retirement planning Vidyavihar", "child education planning Mumbai", "portfolio management services Chembur", "investment planner Vidyavihar", "financial consulting Nehru Nagar", "Kurla West financial advisor", "best investment plans 2024", "secure your family future Mumbai", "best financial advisor in Kurla", "investment consultant Chembur", "top LIC agent in Ghatkopar", "reliable insurance agent in Vidyavihar", "personal financial planner in Mumbai", "safe investment options 2024", "wealth creation advisor Mumbai", "financial independence planning", "fixed deposit alternate investment"
   ],
+  metadataBase: new URL("https://www.sp-financials.com"),
   authors: [{ name: "Sachin Pandit & Rakhi Pandit" }],
   openGraph: {
     title: "SP Financial Services | Wealth Creation, Insurance & Calculators",
@@ -44,12 +45,12 @@ const schemaJsonLd = {
   "@graph": [
     {
       "@type": "FinancialService",
-      "@id": "https://sp-financial-services.vercel.app/#organization",
+      "@id": "https://www.sp-financials.com/#organization",
       "name": "SP Financial Services",
       "legalName": "SP Financial Services",
-      "url": "https://sp-financial-services.vercel.app",
-      "logo": "https://sp-financial-services.vercel.app/images/founders-portrait.png",
-      "image": "https://sp-financial-services.vercel.app/images/founders-portrait.png",
+      "url": "https://www.sp-financials.com",
+      "logo": "https://www.sp-financials.com/images/logo-new.png",
+      "image": "https://www.sp-financials.com/images/founders-portrait.png",
       "description":
         "MDRT USA Award-winning financial advisory for LIC life insurance, Star Health mediclaim, NJ mutual funds SIPs, and loan advisory run by Sachin Pandit & Rakhi Pandit in Kurla West, Mumbai.",
       "telephone": "+919870577706",
@@ -57,9 +58,9 @@ const schemaJsonLd = {
       "priceRange": "₹₹",
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "201, 202, 2nd Floor, Sayba Palace, Wadia Marg, Nr. New Post Office",
-        "addressLocality": "Kurla West",
-        "addressRegion": "Mumbai, Maharashtra",
+        "streetAddress": "Unit No. 4, First Floor, Parmar Industrial Estate, Bail Bazar, Kale Marg",
+        "addressLocality": "Kurla West, Mumbai",
+        "addressRegion": "Maharashtra",
         "postalCode": "400070",
         "addressCountry": "IN"
       },
@@ -78,7 +79,7 @@ const schemaJsonLd = {
         "@type": "Person",
         "name": "Sachin Pandit",
         "jobTitle": "Founder & MDRT USA Financial Advisor",
-        "award": "MDRT – USA (Last 6 Consecutive Years)"
+        "award": "MDRT – USA (Last 7 Consecutive Years)"
       },
       "sameAs": [
         "https://www.instagram.com/sp_financial_services/",
@@ -87,13 +88,13 @@ const schemaJsonLd = {
     },
     {
       "@type": "LocalBusiness",
-      "@id": "https://sp-financial-services.vercel.app/#localbusiness",
+      "@id": "https://www.sp-financials.com/#localbusiness",
       "name": "SP Financial Services Kurla",
-      "image": "https://sp-financial-services.vercel.app/images/founders-portrait.png",
+      "image": "https://www.sp-financials.com/images/founders-portrait.png",
       "telephone": "+919870577706",
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "201, 202, 2nd Floor, Sayba Palace, Nr. New Post Office, Kurla (W)",
+        "streetAddress": "Unit No. 4, First Floor, Parmar Industrial Estate, Bail Bazar, Kale Marg",
         "addressLocality": "Mumbai",
         "postalCode": "400070",
         "addressCountry": "IN"

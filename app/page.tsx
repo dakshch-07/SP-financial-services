@@ -106,14 +106,22 @@ export default function HomePage() {
 
               {/* Main Heading */}
               <motion.h1
-                variants={fadeUp}
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
                 className="font-serif text-[1.8rem] leading-[1.15] lg:fluid-h1 font-bold text-forest-950 tracking-tight drop-shadow-md text-center lg:text-left"
               >
-                Smart Wealth Planning &amp; Assured Protection for{" "}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-500 via-gold-600 to-amber-600">
-                  Your Family
-                </span>
+                Welcome to <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-500 via-gold-600 to-amber-600">SP Financial Services</span>
               </motion.h1>
+
+              <motion.h2
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
+                className="mt-4 font-serif text-xl md:text-2xl font-medium text-forest-800 text-center lg:text-left"
+              >
+                Smart Wealth Planning & Assured Protection by Sachin Pandit
+              </motion.h2>
 
               {/* Subhead Tagline (Desktop) */}
               <motion.p
