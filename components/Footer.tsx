@@ -23,22 +23,35 @@ export const Footer: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Partner Badges Strip */}
         <div className="pb-12 mb-12 border-b border-forest-800/80">
-          <p className="text-center text-xs uppercase tracking-[0.25em] text-gold-400 font-bold mb-6">
-            Authorized Investment, Insurance &amp; Loan Partners
-          </p>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 items-center justify-items-center">
+          <div className="text-center mb-6">
+            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gold-400/10 border border-gold-400/30 text-gold-300 text-xs uppercase tracking-[0.2em] font-bold">
+              Authorized Investment, Insurance &amp; Loan Partners
+            </span>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 items-stretch">
             {BUSINESS_INFO.insurancePartners.map((partner) => (
               <div
                 key={partner.id}
-                className="w-full max-w-[210px] h-16 bg-forest-900/60 border border-forest-800 rounded-2xl flex items-center justify-center p-3 hover:border-gold-400/50 hover:bg-forest-900 transition-all duration-300 group"
+                className="bg-white rounded-2xl p-3.5 sm:p-4 shadow-lg border border-gold-400/40 hover:border-gold-400 hover:shadow-gold-500/20 hover:-translate-y-1 transition-all duration-300 flex items-center gap-3.5 group"
               >
-                <div className="relative w-full h-full flex items-center justify-center">
+                <div className="relative w-14 h-14 flex-shrink-0 flex items-center justify-center bg-gray-50 rounded-xl p-1.5 border border-gray-200/80 shadow-inner overflow-hidden">
                   <Image
                     src={partner.logo}
                     alt={partner.name}
                     fill
-                    className="object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
+                    className="object-contain p-0.5 group-hover:scale-105 transition-transform duration-300"
                   />
+                </div>
+                <div className="flex flex-col min-w-0">
+                  <h4 className="text-forest-950 font-bold text-sm sm:text-base leading-snug tracking-tight truncate">
+                    {partner.name}
+                  </h4>
+                  <p className="text-xs font-semibold text-gold-700 leading-tight mt-0.5">
+                    {partner.badge}
+                  </p>
+                  <p className="text-[11px] text-gray-500 leading-tight truncate mt-0.5">
+                    {partner.tagline}
+                  </p>
                 </div>
               </div>
             ))}
