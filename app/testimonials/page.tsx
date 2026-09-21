@@ -19,6 +19,7 @@ import { cardHoverVariants } from "@/lib/motion-variants";
 import {
   BUSINESS_INFO,
   TESTIMONIALS_DATA,
+  GOOGLE_REVIEWS_DATA,
 } from "@/lib/data";
 
 export default function TestimonialsPage() {
@@ -131,12 +132,108 @@ export default function TestimonialsPage() {
           </div>
         </div>
 
-        <div className="text-center max-w-3xl mx-auto mb-10">
+        {/* Google Real 6 Reviews Grid */}
+        <div className="max-w-7xl mx-auto mb-16">
+          <div className="flex items-center justify-between gap-4 mb-8">
+            <div>
+              <span className="text-xs font-bold uppercase tracking-[0.2em] text-forest-700 block">
+                Google Maps Verified Feedback
+              </span>
+              <h3 className="font-serif text-xl sm:text-2xl font-bold text-forest-950 mt-1">
+                Recent Reviews from Real Clients
+              </h3>
+            </div>
+            <span className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-semibold">
+              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+              100% Genuine Reviews
+            </span>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {GOOGLE_REVIEWS_DATA.map((review) => (
+              <motion.div
+                key={review.id}
+                variants={cardHoverVariants}
+                initial="rest"
+                whileHover="hover"
+                className="bg-white rounded-3xl p-6 sm:p-7 border border-cream-300 shadow-sm hover:shadow-lg hover:border-gold-400/60 transition-all duration-300 flex flex-col justify-between"
+              >
+                <div>
+                  {/* Top Row: User Avatar, Name, Google Icon */}
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="flex items-center gap-3">
+                      <div className="relative w-11 h-11 rounded-full overflow-hidden border border-cream-300 shadow-sm bg-gray-100 flex-shrink-0">
+                        <Image
+                          src={review.avatar}
+                          alt={review.name}
+                          fill
+                          className="object-cover"
+                        />
+                      </div>
+                      <div>
+                        <h4 className="font-bold text-sm text-forest-950 leading-snug">
+                          {review.name}
+                        </h4>
+                        <p className="text-[11px] text-gray-500 font-medium">
+                          {review.role}
+                        </p>
+                      </div>
+                    </div>
+
+                    <svg className="w-4 h-4 flex-shrink-0 opacity-80" viewBox="0 0 24 24">
+                      <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />
+                      <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
+                      <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z" />
+                      <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z" />
+                    </svg>
+                  </div>
+
+                  {/* Stars & Time */}
+                  <div className="flex items-center gap-2 mb-3">
+                    <div className="flex items-center gap-0.5 text-amber-500">
+                      {[...Array(review.rating)].map((_, i) => (
+                        <Star key={i} className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
+                      ))}
+                    </div>
+                    <span className="text-[11px] text-gray-400">· {review.timeAgo}</span>
+                  </div>
+
+                  {/* Review Text */}
+                  <p className="text-xs sm:text-sm text-forest-900 leading-relaxed">
+                    &ldquo;{review.quote}&rdquo;
+                  </p>
+                </div>
+
+                {/* Owner Reply */}
+                {review.ownerResponse && (
+                  <div className="mt-4 pt-3.5 border-t border-cream-200 bg-cream-50/70 -mx-6 -mb-6 p-4 px-6 rounded-b-3xl">
+                    <div className="flex items-start gap-2">
+                      <div className="w-5 h-5 rounded-full bg-forest-950 text-gold-400 flex items-center justify-center text-[9px] font-bold flex-shrink-0 mt-0.5">
+                        SP
+                      </div>
+                      <div>
+                        <p className="text-[10px] font-bold text-forest-950">
+                          SP Financial Services (Owner Response)
+                        </p>
+                        <p className="text-[11px] text-forest-700 italic mt-0.5">
+                          &ldquo;{review.ownerResponse}&rdquo;
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                )}
+              </motion.div>
+            ))}
+          </div>
+        </div>
+
+        {/* Industry Leaders & VIP Clients */}
+        <div className="text-center max-w-3xl mx-auto mb-10 pt-8 border-t border-cream-300">
           <span className="text-xs font-bold uppercase tracking-[0.25em] text-forest-700 mb-2 block">
-            Featured Client Testimonials
+            VIP &amp; Corporate Endorsements
           </span>
           <h2 className="font-serif fluid-h2 font-bold text-forest-900">
-            Real Stories &amp; Authentic Feedback
+            Trusted by Film Directors &amp; Corporate Leaders
           </h2>
           <div className="w-20 h-1 bg-gold-400 mx-auto mt-3 rounded-full" />
         </div>
