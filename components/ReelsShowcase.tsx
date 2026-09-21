@@ -145,7 +145,7 @@ export const ReelsShowcase: React.FC = () => {
                   <div
                     onClick={() =>
                       setSelectedVideo({
-                        url: "https://www.youtube.com/embed/OuuJjjAM-sE?autoplay=1",
+                        url: reel.videoUrl || "https://www.youtube.com/embed/OuuJjjAM-sE?autoplay=1",
                         title: reel.title,
                       })
                     }
