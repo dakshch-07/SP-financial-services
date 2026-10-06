@@ -28,7 +28,7 @@ export default function AchievementsPage() {
       {/* High-Contrast Luxury Page Hero */}
       <PageHero
         title="Awards & Milestones"
-        subtitle="6 consecutive years of MDRT USA international recognition and 65+ industry trophies earned through client trust."
+        subtitle="7 consecutive years of MDRT USA international recognition and 70+ industry trophies earned through client trust."
         breadcrumb="Achievements"
       />
 

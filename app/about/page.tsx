@@ -213,25 +213,27 @@ export default function AboutPage() {
             <motion.div
               whileHover={{ rotate: 0, scale: 1.03 }}
               initial={{ rotate: -2 }}
-              className="bg-white p-3.5 rounded-2xl shadow-xl border border-cream-300 max-w-[260px] w-full text-center"
+              className="bg-white p-5 rounded-3xl shadow-xl border border-gold-400/40 max-w-[280px] w-full text-center"
             >
-              <div className="relative aspect-[3/4] w-full rounded-xl overflow-hidden bg-forest-950 mb-3">
-                <Image src="/images/awards/trophy-mdrt.png" alt="MDRT USA Trophy" fill className="object-contain p-2" />
+              <div className="relative aspect-square w-full rounded-2xl overflow-hidden bg-gradient-to-br from-forest-950 via-forest-900 to-forest-950 mb-3.5 flex flex-col items-center justify-center p-6 border border-gold-400/30">
+                <Trophy className="w-16 h-16 text-gold-400 mb-2 drop-shadow-md animate-pulse" />
+                <span className="text-xs font-bold text-gold-300 uppercase tracking-widest">7x MDRT USA</span>
               </div>
-              <p className="font-serif font-bold text-xs text-forest-900">Official MDRT Trophy</p>
-              <p className="text-[10px] text-gray-500">Million Dollar Round Table, USA</p>
+              <p className="font-serif font-bold text-sm text-forest-950">Official MDRT Recognition</p>
+              <p className="text-xs text-forest-700 mt-0.5">Million Dollar Round Table, USA</p>
             </motion.div>
 
             <motion.div
               whileHover={{ rotate: 0, scale: 1.03 }}
               initial={{ rotate: 2 }}
-              className="bg-white p-3.5 rounded-2xl shadow-xl border border-cream-300 max-w-[260px] w-full text-center"
+              className="bg-white p-5 rounded-3xl shadow-xl border border-gold-400/40 max-w-[280px] w-full text-center"
             >
-              <div className="relative aspect-[3/4] w-full rounded-xl overflow-hidden bg-forest-950 mb-3">
-                <Image src="/images/awards/trophy-lic.png" alt="LIC Trophy" fill className="object-contain p-2" />
+              <div className="relative aspect-square w-full rounded-2xl overflow-hidden bg-gradient-to-br from-forest-950 via-forest-900 to-forest-950 mb-3.5 flex flex-col items-center justify-center p-6 border border-gold-400/30">
+                <Medal className="w-16 h-16 text-amber-400 mb-2 drop-shadow-md" />
+                <span className="text-xs font-bold text-gold-300 uppercase tracking-widest">70+ LIC Awards</span>
               </div>
-              <p className="font-serif font-bold text-xs text-forest-900">LIC Division Honors</p>
-              <p className="text-[10px] text-gray-500">Senior Division Mumbai</p>
+              <p className="font-serif font-bold text-sm text-forest-950">LIC Champions Honors</p>
+              <p className="text-xs text-forest-700 mt-0.5">Senior Division Mumbai</p>
             </motion.div>
           </div>
         </div>
